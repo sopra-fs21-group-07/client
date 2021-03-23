@@ -26,7 +26,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 5px;
-  background: linear-gradient(rgb(27, 124, 186), rgb(2, 46, 101));
+  background: linear-gradient(rgb(34, 34, 34), rgb(50, 50, 50));
   transition: opacity 0.5s ease, transform 0.5s ease;
 `;
 
@@ -53,7 +53,8 @@ const Label = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
+
 `;
 
 /**
@@ -75,7 +76,7 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: null,
+      password: null,
       username: null
     };
   }
@@ -84,24 +85,47 @@ class Login extends React.Component {
    * If the request is successful, a new user is returned to the front-end
    * and its token is stored in the localStorage.
    */
-  async login() {
+  async register() {
     try {
       const requestBody = JSON.stringify({
         username: this.state.username,
-        name: this.state.name
+        password: this.state.password
       });
-      const response = await api.post('/users', requestBody);
+      const response = await api.post('/users', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
 
       // Get the returned user and update a new object.
       const user = new User(response.data);
 
       // Store the token into the local storage.
       localStorage.setItem('token', user.token);
+      localStorage.setItem("id", user.id);
+      const set_user_online = await api.put('/users/'+user.id);
 
       // Login successfully worked --> navigate to the route /game in the GameRouter
       this.props.history.push(`/game`);
     } catch (error) {
-      alert(`Something went wrong during the login: \n${handleError(error)}`);
+      alert(`Something went wrong during the register: \n${handleError(error)}`);
+    }
+  }
+
+  async login() {
+    try {
+      const requestBody = JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      });
+      const response = await api.put("/users_name/" + this.state.username, requestBody)
+
+        // Store the token into the local storage.
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem("id", response.data.id);
+        const set_user_online = await api.put('/users/'+localStorage.getItem("id"));
+
+        // Login successfully worked --> navigate to the route /game in the GameRouter
+        this.props.history.push(`/game`);
+
+    } catch (error) {
+      alert(`Are you registered yet? Please register yourself first :-) \n${handleError(error)}`);
     }
   }
 
@@ -137,22 +161,35 @@ class Login extends React.Component {
                 this.handleInputChange('username', e.target.value);
               }}
             />
-            <Label>Name</Label>
+            <Label>Password</Label>
             <InputField
               placeholder="Enter here.."
+              type="password"
               onChange={e => {
-                this.handleInputChange('name', e.target.value);
+                this.handleInputChange('password', e.target.value);
               }}
             />
             <ButtonContainer>
               <Button
-                disabled={!this.state.username || !this.state.name}
+                disabled={!this.state.username || !this.state.password}
                 width="50%"
                 onClick={() => {
                   this.login();
                 }}
               >
                 Login
+              </Button>
+            </ButtonContainer>
+
+            <ButtonContainer>
+              <Button
+                disabled={!this.state.username || !this.state.password}
+                width="50%"
+                onClick={() => {
+                  this.register();
+                }}
+              >
+                Register
               </Button>
             </ButtonContainer>
           </Form>
