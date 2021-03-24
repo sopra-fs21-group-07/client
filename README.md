@@ -3,12 +3,21 @@
 
 https://sopra-fs21-group-07-client.herokuapp.com/login
 
-
-
-
-
-
-
+## Current project status
+(Heroku batch not available)
+<p align="left">
+  <a href="https://github.com/sopra-fs21-group-07/client/actions">
+    <img src="https://github.com/sopra-fs21-group-07/client/workflows/Deploy%20Project/badge.svg">
+  </a>
+  <br></br>
+  <a href="https://sonarcloud.io/dashboard?id=sopra-fs21-group-07_client">
+      <img src="https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-07_client&metric=coverage">
+  </a>
+  <br></br>
+  <a href="https://sonarcloud.io/dashboard?id=sopra-fs21-group-07_client">
+        <img src="https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-07_client&metric=alert_status">
+    </a>
+</p>
 
 ## Getting started with React
 
