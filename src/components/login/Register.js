@@ -16,7 +16,7 @@
      display: flex;
      flex-direction: column;
      align-items: center;
-     min-height: 300px;
+     min-height: 700px;
      justify-content: center;
    `;
    
@@ -25,7 +25,7 @@
      flex-direction: column;
      justify-content: center;
      width: 60%;
-     height: 375px;
+     height: 775px;
      font-size: 16px;
      font-weight: 300;
      padding-left: 37px;
@@ -112,8 +112,7 @@
    
          // Store the token into the local storage.
          localStorage.setItem('token', token);
-         //localStorage.setItem("id", user.id);
-         //const set_user_online = await api.put('/users/'+user.id);
+
    
          // Register successfully worked --> navigate to the route /game in the GameRouter
          this.props.history.push(`/game`);

@@ -6,6 +6,7 @@ import { GameGuard } from "../routeProtectors/GameGuard";
 import GameRouter from "./GameRouter";
 import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
+import Register from "../../login/Register";
 
 /**
  * Main router of your application.
@@ -46,6 +47,15 @@ class AppRouter extends React.Component {
                   <ProfilePage />
               )}
             />
+
+              <Route
+              path="/registration"
+              exact
+              render={() => (
+              <Register />
+              )}
+            />
+
             <Route
               path="/edit"
               exact
