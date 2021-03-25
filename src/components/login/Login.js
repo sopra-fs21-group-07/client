@@ -26,7 +26,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 5px;
-  background: linear-gradient(rgb(27, 124, 186), rgb(2, 46, 101));
+  background: linear-gradient(rgb(34, 34, 34), rgb(50, 50, 50));
   transition: opacity 0.5s ease, transform 0.5s ease;
 `;
 
@@ -53,7 +53,8 @@ const Label = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
+
 `;
 
 /**
@@ -75,8 +76,9 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: null,
-      username: null
+      email: null,
+      username: null,
+      password: null
     };
   }
   /**
@@ -84,26 +86,33 @@ class Login extends React.Component {
    * If the request is successful, a new user is returned to the front-end
    * and its token is stored in the localStorage.
    */
+
   async login() {
     try {
       const requestBody = JSON.stringify({
-        username: this.state.username,
-        name: this.state.name
+        email: this.state.email,
+        password: this.state.password
       });
-      const response = await api.post('/users', requestBody);
+      const token = await api.put("/login", requestBody)
 
-      // Get the returned user and update a new object.
-      const user = new User(response.data);
+        // Store the token into the local storage.
+        localStorage.setItem('token', token);
+        //localStorage.setItem('token', response.data.token);
 
-      // Store the token into the local storage.
-      localStorage.setItem('token', user.token);
+        // Login successfully worked --> navigate to the route /game in the GameRouter
+        this.props.history.push(`/game`);
 
-      // Login successfully worked --> navigate to the route /game in the GameRouter
-      this.props.history.push(`/game`);
     } catch (error) {
-      alert(`Something went wrong during the login: \n${handleError(error)}`);
+      alert(`Are you registered yet? Please register yourself first :-) \n${handleError(error)}`);
     }
   }
+
+
+
+register() {
+    this.props.history.push('/registration');
+  }
+
 
   /**
    *  Every time the user enters something in the input field, the state gets updated.
@@ -130,23 +139,25 @@ class Login extends React.Component {
       <BaseContainer>
         <FormContainer>
           <Form>
-            <Label>Username</Label>
+            <Label>Email</Label>
             <InputField
               placeholder="Enter here.."
               onChange={e => {
-                this.handleInputChange('username', e.target.value);
+                this.handleInputChange('email', e.target.value);
               }}
             />
-            <Label>Name</Label>
+            
+            <Label>Password</Label>
             <InputField
               placeholder="Enter here.."
+              type="password"
               onChange={e => {
-                this.handleInputChange('name', e.target.value);
+                this.handleInputChange('password', e.target.value);
               }}
             />
             <ButtonContainer>
               <Button
-                disabled={!this.state.username || !this.state.name}
+                disabled={!this.state.email || !this.state.password}
                 width="50%"
                 onClick={() => {
                   this.login();
@@ -155,6 +166,19 @@ class Login extends React.Component {
                 Login
               </Button>
             </ButtonContainer>
+
+            <ButtonContainer>
+              <Button
+                width="50%"
+                onClick={() => {
+                  this.register();
+                }}
+              >
+                register
+              </Button>
+            </ButtonContainer>
+
+
           </Form>
         </FormContainer>
       </BaseContainer>
@@ -165,5 +189,7 @@ class Login extends React.Component {
 /**
  * You can get access to the history object's properties via the withRouter.
  * withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+ * 
+ 
  */
 export default withRouter(Login);

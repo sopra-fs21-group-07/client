@@ -22,6 +22,10 @@ const PlayerContainer = styled.li`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;
 
 class Game extends React.Component {
@@ -32,11 +36,7 @@ class Game extends React.Component {
     };
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.props.history.push('/login');
-  }
-
+  //template
   async componentDidMount() {
     try {
       const response = await api.get('/users');
@@ -62,6 +62,22 @@ class Game extends React.Component {
     }
   }
 
+  async logout() {
+    try {
+      const set_user_offline = await api.put('/users/' + localStorage.getItem("id"));
+      localStorage.removeItem('token');
+      localStorage.removeItem("id");
+      this.props.history.push('/login');
+    } catch (error) {
+      alert("Somethin went wrong while logout");
+    }
+  }
+
+  openUserProfile(userId){
+    localStorage.setItem("profileID", userId); // sets local id to open the selected user profile
+    this.props.history.push("/profilePage/"+userId);
+  }
+
   render() {
     return (
       <Container>
@@ -74,7 +90,10 @@ class Game extends React.Component {
             <Users>
               {this.state.users.map(user => {
                 return (
-                  <PlayerContainer key={user.id}>
+                  <PlayerContainer key={user.id}
+                  onClick={() => {
+                    this.openUserProfile(user.id);
+                  }}>
                     <Player user={user} />
                   </PlayerContainer>
                 );
