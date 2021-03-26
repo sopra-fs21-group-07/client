@@ -7,21 +7,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  background: #222222;
+  background: #ffffff;
 }
 
 input,
 textarea,
 select,
 button {
-  font-family: inherit;
+  font-family: 'RobotoRegular';
   line-height: inherit;
   font-size: inherit;
   outline: none;
 }
 
-/** makes a spinning logo lol
-*/
+/**
+
 .rotate {
   animation: rotation 8s infinite linear;
 }
@@ -34,6 +34,8 @@ button {
     transform: rotate(359deg);
   }
 }
+*/
+
 
 *:focus {
   outline: none;
@@ -42,4 +44,14 @@ button {
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('./fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'RobotoThin';
+  src: url('./fonts/Roboto-Thin.ttf');
 }

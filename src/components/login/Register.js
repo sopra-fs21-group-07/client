@@ -31,7 +31,7 @@
      padding-left: 37px;
      padding-right: 37px;
      border-radius: 5px;
-     background: linear-gradient(rgb(34, 34, 34), rgb(50, 50, 50));
+     background: linear-gradient(rgb(34, 34, 34, 0.4), rgb(50, 50, 50, 0.4));
      transition: opacity 0.5s ease, transform 0.5s ease;
    `;
    
@@ -144,6 +144,7 @@
      render() {
        return (
          <BaseContainer>
+         <br /> <br /> <br /> <br /> 
            <FormContainer>
              <Form>
                <Label>Email*</Label>
