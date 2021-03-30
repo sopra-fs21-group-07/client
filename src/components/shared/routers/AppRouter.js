@@ -7,6 +7,7 @@ import GameRouter from "./GameRouter";
 import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
 import Register from "../../login/Register";
+import Home from "../../home/Home";
 
 /**
  * Main router of your application.
@@ -23,6 +24,13 @@ class AppRouter extends React.Component {
       <BrowserRouter>
         <Switch>
           <div>
+            <Route
+              path="/home"
+              exact
+              render={() => (
+                  <Home/>
+              )}
+            />
             <Route
               path="/game"
               render={() => (
@@ -63,7 +71,7 @@ class AppRouter extends React.Component {
                 <Edit />
               )}
             />
-            <Route path="/" render={() => <Redirect to={"/login"} />} />
+            <Route path="/" render={() => <Redirect to={"/login"} />} /> 
           </div>
         </Switch>
       </BrowserRouter>
@@ -71,6 +79,6 @@ class AppRouter extends React.Component {
   }
 }
 /*
-* Don't forget to export your component!
+* Don't forget to export your component! line 66 always throws you back to Login
  */
 export default AppRouter;
