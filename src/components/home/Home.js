@@ -101,7 +101,6 @@ class Home extends React.Component {
     return (
       <ImgContainer>        
       <HeaderImage src={mountains} alt="MountainHeader" />
-      <Title style={{position: 'absolute', fontSize: 120, letterSpacing: 20, paddingLeft: 70, paddingTop: 200}}>Mountain App</Title>
       </ImgContainer>
 
 
@@ -113,6 +112,9 @@ class Home extends React.Component {
  * You can get access to the history object's properties via the withRouter.
  * withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
  * 
+ * 
+ * <Title style={{position: 'absolute', fontSize: 120, letterSpacing: 20, paddingLeft: 70, paddingTop: 200}}>Mountain App</Title>
+ * This title made some problems 
  
  */
 export default withRouter(Home);
