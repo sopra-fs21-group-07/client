@@ -71,7 +71,7 @@ class AppRouter extends React.Component {
                 <Edit />
               )}
             />
-            <Route path="/" render={() => <Redirect to={"/login"} />} /> 
+            <Route path="/" render={() => <Redirect to={"/home"} />} /> 
           </div>
         </Switch>
       </BrowserRouter>

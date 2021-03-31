@@ -12,3 +12,9 @@ export const BaseContainer = styled.div`
   padding-right: 15px;
   max-width: ${DESKTOP_WIDTH}px;
 `;
+
+export const ImgContainer = styled.div`
+  margin-left: 0;
+  margin-right: auto;
+  max-width: ${DESKTOP_WIDTH}px;
+`;

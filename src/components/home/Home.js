@@ -6,6 +6,9 @@ import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 
+import { ImgContainer } from '../../helpers/layout';
+
+
 
 import mountains from '../images/mountains1.jpg';
   
@@ -61,13 +64,19 @@ const ButtonContainer = styled.div`
 
 `;
 
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+`;
+
 const HeaderImage = styled.img`
 
-object-fit: contain;
-max-width: 100%;
-max-height: 100%;
-width: auto;
-height: auto;
+object-fit: cover;
+width: 100%;
+height: 100%;
+position: fixed;
+z-index: -1;
 `;
 
 
@@ -90,11 +99,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      <BaseContainer>
-        <h1>Hello World</h1>
-        <HeaderImage src={mountains} alt="MountainHeader" />
-      </BaseContainer>
-
+      <ImgContainer>        
+      <HeaderImage src={mountains} alt="MountainHeader" />
+      <Title style={{position: 'absolute', fontSize: 120, letterSpacing: 20, paddingLeft: 70, paddingTop: 200}}>Mountain App</Title>
+      </ImgContainer>
 
 
     );
