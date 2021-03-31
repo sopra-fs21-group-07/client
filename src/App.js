@@ -9,7 +9,7 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
 import Profile from './components/profilePage/ProfilePage';
-
+import Dashboard from "./components/dashboard/Dashboard";
 
 /**
  * Happy coding!
@@ -26,8 +26,7 @@ class App extends Component {
           <Route path='/registration' component={Register} />
           <Route path='/login' component={Login} />
           <Route href="#" onClick={this.logout} Logout/>
-
-          {/* <Route path='/dashboard' component={Dashboard} /> */}
+          <Route path='/dashboard' component={Dashboard} />
           {/* <Route path='/profile' component={Profile} /> */}
           </Switch>
       </Router>

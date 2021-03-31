@@ -8,6 +8,7 @@ import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
 import Register from "../../login/Register";
 import Home from "../../home/Home";
+import Dashboard from "../../dashboard/Dashboard";
 
 
 /**
@@ -26,11 +27,18 @@ class AppRouter extends React.Component {
         <Switch>
           <div>
             <Route
-              path="/"
+              path="/home"
               exact
               render={() => (
                   <Home/>
               )}
+            />
+            <Route
+                path="/dashboard"
+                exact
+                render={() => (
+                    <Dashboard/>
+                )}
             />
             <Route
               path="/game"
