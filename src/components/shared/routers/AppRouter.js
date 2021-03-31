@@ -9,6 +9,7 @@ import Edit from "../../edit/Edit";
 import Register from "../../login/Register";
 import Home from "../../home/Home";
 
+
 /**
  * Main router of your application.
  * In the following class, different routes are rendered. In our case, there is a Login Route with matches the path "/login"
@@ -25,7 +26,7 @@ class AppRouter extends React.Component {
         <Switch>
           <div>
             <Route
-              path="/home"
+              path="/"
               exact
               render={() => (
                   <Home/>
@@ -48,6 +49,8 @@ class AppRouter extends React.Component {
                 </LoginGuard>
               )}
             />
+
+            
             <Route
               path="/profilePage/:id"
               exact
@@ -71,7 +74,7 @@ class AppRouter extends React.Component {
                 <Edit />
               )}
             />
-            <Route path="/" render={() => <Redirect to={"/home"} />} /> 
+            
           </div>
         </Switch>
       </BrowserRouter>
