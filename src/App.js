@@ -25,6 +25,8 @@ class App extends Component {
           <Route path='/home' exact component={Home} />
           <Route path='/registration' component={Register} />
           <Route path='/login' component={Login} />
+          <Route href="#" onClick={this.logout} Logout/>
+
           {/* <Route path='/dashboard' component={Dashboard} /> */}
           {/* <Route path='/profile' component={Profile} /> */}
           </Switch>

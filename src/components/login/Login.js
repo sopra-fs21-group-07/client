@@ -113,6 +113,15 @@ register() {
     this.props.history.push('/registration');
   }
 
+logout() {
+    try {
+      //localStorage.removeItem('token');
+      this.props.history.push('/home');
+    } catch (error) {
+      alert("Somethin went wrong while logout");
+    }
+  }
+
 
   /**
    *  Every time the user enters something in the input field, the state gets updated.

@@ -33,5 +33,11 @@ export const SidebarData = [
     path: '/profile',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Logout',
+    path: '/home',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
   }
 ];
