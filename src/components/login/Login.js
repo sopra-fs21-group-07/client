@@ -145,8 +145,29 @@ logout() {
 
   render() {
     return (
+
       <BaseContainer>
-      <br /> <br /> <br /> <br /> 
+        <style type="text/css">
+          {`.navbar {display: none}`}
+        </style>
+        <Button
+          width="50%"
+          onClick={() => {
+            this.props.history.push("/home");
+          }}
+      >
+        Home
+      </Button>
+        <Button
+            width="50%"
+            onClick={() => {
+              this.props.history.push("/registration");
+            }}
+        >
+          Register
+        </Button>
+
+      <br /> <br /> <br /> <br />
         <FormContainer>
           <Form>
             <Label>Email</Label>

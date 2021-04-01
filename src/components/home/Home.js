@@ -69,7 +69,15 @@ const Title = styled.h1`
   text-align: center;
   color: white;
 `;
-
+const Headerbutton = styled.button`
+  color: white;
+  margin-top: 10px;
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
+  opacity: ${props => (props.disabled ? 1 : 1)};
+  background: inherit; 
+  border: 0;
+  border-radius: 20px;
+  `
 const HeaderImage = styled.img`
 
 object-fit: cover;
@@ -99,8 +107,28 @@ class Home extends React.Component {
 
   render() {
     return (
-      <ImgContainer>        
+      <ImgContainer>
+
       <HeaderImage src={mountains} alt="MountainHeader" />
+        <style type="text/css">
+          {`.navbar {display: none}`}
+        </style>
+        <Headerbutton
+          width="50%"
+          onClick={() => {
+            this.props.history.push("/login");
+          }}
+      >
+        Login
+      </Headerbutton>
+        <Headerbutton
+            width="50%"
+            onClick={() => {
+              this.props.history.push("/registration");
+            }}
+        >
+          Register
+        </Headerbutton>
       </ImgContainer>
 
 

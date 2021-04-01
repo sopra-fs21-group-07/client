@@ -17,7 +17,7 @@ const Title = styled.div`
   color: #ffffff;
 `;
 
-const Id = styled.div`
+const user_info = styled.div`
   margin-left: auto;
   margin-right: 10px;
   font-weight: bold;
@@ -60,17 +60,17 @@ const Profile = ({ user }) => {
     <>
         <Container>
             <Title>Username:</Title>
-            <Id>{user.username}</Id>
+            <user_info>{user.username}</user_info>
         </Container>
 
         <Container>
             <Title>Birthday:</Title>
-            <Id>{user.birthday}</Id> 
+            <user_info>{user.birthday}</user_info>
         </Container>
 
         <Container>
             <Title>Status:</Title>
-            <Id>{user.status}</Id>
+            <user_info>{user.status}</user_info>
             {user.status === 'ONLINE'?
             <Online/>
             :
@@ -79,7 +79,7 @@ const Profile = ({ user }) => {
         </Container>
         <Container>
             <Title>Creation Date:</Title>
-            <Id>{user.creationDate}</Id>
+            <user_info>{user.creationDate}</user_info>
         </Container>
 
     </>
