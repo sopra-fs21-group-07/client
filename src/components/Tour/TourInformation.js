@@ -17,35 +17,12 @@ const Title = styled.div`
   color: #ffffff;
 `;
 
-const user_info = styled.div`
+const tour_info = styled.div`
   margin-left: auto;
   margin-right: 10px;
   font-weight: bold;
 `;
 
-const Online = styled.span`
-  color: #4caf50;
-  &::after {
-    content: "✔";
-  }
-  padding-right: 6px;
-`;
-
-const Offline = styled.span`
-  color: #f44336;
-  &::after {
-    content: "✘";
-  }
-  padding-right: 6px;
-`;
-
-const EditField = styled.span`
-  color: black;
-  background-color: white;
-  width: auto;
-  padding: 0 6px;
-  border-radius: 6px;   
-`;
 
 /**
  * This is an example of a Functional and stateless component (View) in React. Functional components are not classes and thus don't handle internal state changes.
@@ -55,35 +32,82 @@ const EditField = styled.span`
  * https://reactjs.org/docs/components-and-props.html
  * @FunctionalComponent
  */
-const Profile = ({ user }) => {
+const TourInformation = ({ tour }) => {
   return (
     <>
         <Container>
-            <Title>Username:</Title>
-            <user_info>{user.username}</user_info>
+            <Title>ID:</Title>
+            <tour_info>{tour.tourId}</tour_info>
         </Container>
 
         <Container>
-            <Title>Birthday:</Title>
-            <user_info>{user.birthday}</user_info>
+            <Title>Date:</Title>
+            <tour_info>{tour.date}</tour_info>
         </Container>
 
         <Container>
-            <Title>Status:</Title>
-            <user_info>{user.status}</user_info>
-            {user.status === 'ONLINE'?
-            <Online/>
-            :
-            <Offline/>
-        }
+            <Title>Region:</Title>
+            <tour_info>{tour.region}</tour_info>
         </Container>
+
         <Container>
-            <Title>Creation Date:</Title>
-            <user_info>{user.creationDate}</user_info>
+            <Title>Type:</Title>
+            <tour_info>{tour.tourType}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Height gain:</Title>
+            <tour_info>{tour.heightGain}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Heigh loss:</Title>
+            <tour_info>{tour.heightLoss}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Startpoint:</Title>
+            <tour_info>{tour.startPoint}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Endpoint:</Title>
+            <tour_info>{tour.endPoint}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Waypoints:</Title>
+            <tour_info>{tour.waypoints}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Distance:</Title>
+            <tour_info>{tour.distance}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Time:</Title>
+            <tour_info>{tour.time}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Description:</Title>
+            <tour_info>{tour.description}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Number of participants:</Title>
+            <tour_info>{tour.numberofparticipants}</tour_info>
+        </Container>
+
+        <Container>
+            <Title>Costs:</Title>
+            <tour_info>{tour.cost}</tour_info>
         </Container>
 
     </>
   );
 };
 
-export default Profile;
+export default TourInformation;
+

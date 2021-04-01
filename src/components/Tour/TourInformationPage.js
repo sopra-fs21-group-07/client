@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
-import Profile from '../../views/Profile';
+import TourInformation from '../../Tour/TourInformation';
+
+import Tour from '../../models/Tour';
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -24,48 +26,7 @@ const TourContainer = styled.li`
   justify-content: center;
 `;
 
-const BackButton = styled.a`
-  all: unset;
-  padding 5px;
-  font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  &::before {
-    content: "< ";
-  }
 
-`;
-
-const EditButton = styled.a`
-  all: unset;
-  padding 5px;
-  font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  cursor: ${props => (props.disabled ? "default" : "pointer")}; 
-  opacity: ${props => (props.disabled ? 0.4 : 1)};
-  }
-  &::before {
-    content: "<";
-  }
-  &::after {
-    content: ">";
-  }
-  margin-left: 10px;
-  transition: all 0.3s ease;
-`;
 
 
 
@@ -78,6 +39,7 @@ class TourInformationPage extends React.Component {
     };
   }
 
+/** 
   edit() {
     this.props.history.push("/edit");
   }
@@ -85,10 +47,15 @@ class TourInformationPage extends React.Component {
   back() {
     this.props.history.push('/dashboard');
   }
+  */
+
+  booktour(){
+      this.props.history.numberofparticipants -1;
+  }
 
   async componentDidMount() {
     try {
-      const response = await api.get('/users/'+localStorage.getItem("profileID"));
+      const response = await api.get('/tours/'+localStorage.getItem("tourId"));
       // delays continuous execution of an async operation for 1 second.
       // This is just a fake async call, so that the spinner can be displayed
       // feel free to remove it :)
@@ -120,28 +87,22 @@ class TourInformationPage extends React.Component {
         {!this.state.tour ? (
           <Spinner />
         ) : (
-          <div>     
+
+          <div>
             <TourContainer>
-              <Tour user={this.state.tour}/>
+              <Tour tour={this.state.tour}/>
             </TourContainer>
-            <br />
+
             <Button
               width="30%"
-              disabled={localStorage.getItem("token") != this.state.users.token}
+              disabled={this.state.Tour?.numberofparticipants == 0}
               onClick={() => {
-                this.edit();
+                this.booktour();
               }}>
-              Edit
-            </Button>
-            <br /> <br />
-            <Button
-              width="30%"
-              onClick={() => {
-                this.back();
-              }}>
-              Back
+              Book Tour
             </Button>
           </div>
+
         )}
       </Container>  
     );

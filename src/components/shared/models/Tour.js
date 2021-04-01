@@ -1,5 +1,5 @@
 /**
- * User model
+ * Tour model
  */
  class Tour {
     constructor(data = {}) {
