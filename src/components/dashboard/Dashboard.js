@@ -6,11 +6,8 @@ import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 
-import { ImgContainer } from '../../helpers/layout';
 
-
-
-import mountains from '../images/mountains1.jpg';
+import mountains from '../images/mountains2.png';
 
 
 const FormContainer = styled.div`
@@ -98,13 +95,17 @@ class Dashboard extends React.Component {
     componentDidMount() {}
 
     render() {
-        return (
-            <ImgContainer>
-                <HeaderImage src={mountains} alt="MountainHeader" />
-            </ImgContainer>
+        return <div style={{objectFit: 'cover',
+            backgroundImage: `url(${mountains})`,
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '-1'}}>
+            <FormContainer>n</FormContainer>
+            <Form>m</Form>
 
-
-        );
+        </div>;
     }
 }
 
