@@ -57,6 +57,11 @@ const ButtonContainer = styled.div`
 
 `;
 
+const Title = styled.h1`
+color: white;
+margin-bottom: 33px;
+`;
+
 /**
  * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
  * You should have a class (instead of a functional component) when:
@@ -100,7 +105,7 @@ class Login extends React.Component {
         //localStorage.setItem('token', response.data.token);
 
         // Login successfully worked --> navigate to the route /game in the GameRouter
-        this.props.history.push(`/game`);
+        this.props.history.push(`/dashboard`);
 
     } catch (error) {
       alert(`Are you registered yet? Please register yourself first :-) \n${handleError(error)}`);
@@ -147,11 +152,11 @@ logout() {
     return (
 
       <BaseContainer>
-
-
       <br /> <br /> <br /> <br />
         <FormContainer>
           <Form>
+          <br />
+          <Title>Login</Title>
             <Label>Email</Label>
             <InputField
               placeholder="Enter here.."
@@ -159,7 +164,7 @@ logout() {
                 this.handleInputChange('email', e.target.value);
               }}
             />
-            
+
             <Label>Password</Label>
             <InputField
               placeholder="Enter here.."
@@ -190,8 +195,7 @@ logout() {
                 register
               </Button>
             </ButtonContainer>
-
-
+            <br /><br />
           </Form>
         </FormContainer>
       </BaseContainer>

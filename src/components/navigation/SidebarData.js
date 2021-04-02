@@ -32,6 +32,7 @@ export const SidebarData = [
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text',
     loggedIn: true
+
   },
   {
     title: 'Profile',
@@ -39,6 +40,7 @@ export const SidebarData = [
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text',
     loggedIn: true
+
   },
   {
     title: 'Logout',
@@ -46,5 +48,6 @@ export const SidebarData = [
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text',
     loggedIn: true
+    
   }
 ];

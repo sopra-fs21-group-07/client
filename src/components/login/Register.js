@@ -10,6 +10,7 @@
    import User from '../shared/models/User';
    import { withRouter } from 'react-router-dom';
    import { Button } from '../../views/design/Button';
+
    
    const FormContainer = styled.div`
      margin-top: 2em;
@@ -61,6 +62,11 @@
      margin-top: 10px;
    
    `;
+
+  const Title = styled.h1`
+    color: white;
+    margin-bottom: 33px;
+`;
    
    /**
     * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
@@ -115,7 +121,7 @@
 
    
          // Register successfully worked --> navigate to the route /game in the GameRouter
-         this.props.history.push(`/game`);
+         this.props.history.push(`/login`);
        } catch (error) {
          alert(`Something went wrong during the register: \n${handleError(error)}`);
        }
@@ -143,12 +149,13 @@
    
      render() {
        return (
+  
          <BaseContainer>
-
 
          <br /> <br /> <br /> <br /> 
            <FormContainer>
              <Form>
+               <Title>Registration</Title>
                <Label>Email*</Label>
                <InputField
                  placeholder="Enter here.."
@@ -217,6 +224,7 @@
                    Register
                  </Button>
                </ButtonContainer>
+               <br />
              </Form>
            </FormContainer>
          </BaseContainer>

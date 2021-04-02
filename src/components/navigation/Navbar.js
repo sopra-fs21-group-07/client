@@ -34,6 +34,14 @@ function Navbar() {
     })
   }, [])
 
+  /** 
+  if (onclick SidebarData.stupid == false){
+    localStorage.removeItem("token")
+  }
+
+logout pseudocode
+*/
+
   return (
       <>
         <IconContext.Provider value={{ color: '#fff' }}>

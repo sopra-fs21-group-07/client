@@ -105,6 +105,20 @@ class Dashboard extends React.Component {
             <FormContainer>n</FormContainer>
             <Form>m</Form>
 
+
+{/*             <Users>
+              {this.state.users.map(user => {
+                return (
+                  <PlayerContainer key={user.id}
+                  onClick={() => {
+                    this.openUserProfile(user.id);
+                  }}>
+                    <Player user={user} />
+                  </PlayerContainer>
+                );
+              })}
+            </Users> */}
+
         </div>;
     }
 }
