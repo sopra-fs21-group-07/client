@@ -110,25 +110,7 @@ class Home extends React.Component {
       <ImgContainer>
 
       <HeaderImage src={mountains} alt="MountainHeader" />
-        <style type="text/css">
-          {`.navbar {display: none}`}
-        </style>
-        <Headerbutton
-          width="50%"
-          onClick={() => {
-            this.props.history.push("/login");
-          }}
-      >
-        Login
-      </Headerbutton>
-        <Headerbutton
-            width="50%"
-            onClick={() => {
-              this.props.history.push("/registration");
-            }}
-        >
-          Register
-        </Headerbutton>
+
       </ImgContainer>
 
 
