@@ -147,25 +147,7 @@ logout() {
     return (
 
       <BaseContainer>
-        <style type="text/css">
-          {`.navbar {display: none}`}
-        </style>
-        <Button
-          width="50%"
-          onClick={() => {
-            this.props.history.push("/home");
-          }}
-      >
-        Home
-      </Button>
-        <Button
-            width="50%"
-            onClick={() => {
-              this.props.history.push("/registration");
-            }}
-        >
-          Register
-        </Button>
+
 
       <br /> <br /> <br /> <br />
         <FormContainer>

@@ -144,25 +144,7 @@
      render() {
        return (
          <BaseContainer>
-             <style type="text/css">
-                 {`.navbar {display: none}`}{/*this makes sidebar invisible*/}
-             </style>
-             <Button
-                 width="50%"
-                 onClick={() => {
-                     this.props.history.push("/home");
-                 }}
-             >
-                 Home
-             </Button>
-             <Button
-                 width="50%"
-                 onClick={() => {
-                     this.props.history.push("/login");
-                 }}
-             >
-                 Login
-             </Button>
+
 
          <br /> <br /> <br /> <br /> 
            <FormContainer>
