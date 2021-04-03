@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
+import { Logoutbutton } from "./Logoutbutton"
 
 function Navbar() {
 
@@ -34,18 +35,31 @@ function Navbar() {
     })
   }, [])
 
-  /** 
-  if (onclick SidebarData.stupid == false){
-    localStorage.removeItem("token")
+  function logout(){
+    try {
+      localStorage.removeItem('token');
+      this.props.history.push('/home');
+    } catch (error) {
+      alert("Something went wrong while logout");
+    }
   }
 
-logout pseudocode
-*/
 
   return (
       <>
         <IconContext.Provider value={{ color: '#fff' }}>
           <div className='navbar'>
+
+          <Logoutbutton
+          // disabled={localStorage.getItem("token") == null} 
+          hidden={localStorage.getItem("token") == null} // hides the button when there is no token
+              onClick={() => {
+                logout();
+              }}
+            >
+              Logout
+            </Logoutbutton>
+
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
@@ -75,3 +89,5 @@ logout pseudocode
 }
 
 export default Navbar;
+
+

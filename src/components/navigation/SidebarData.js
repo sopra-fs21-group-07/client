@@ -2,12 +2,15 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import * as MdIcons from 'react-icons/md';
+import * as CgIcons from 'react-icons/cg';
+
 
 export const SidebarData = [
   {
     title: 'Home',
     path: '/home',
-    icon: <AiIcons.AiFillHome />,
+    icon: <AiIcons.AiOutlineHome />,
     cName: 'nav-text',
     loggedIn: false
 
@@ -15,21 +18,21 @@ export const SidebarData = [
   {
     title: 'Login',
     path: '/login',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <IoIcons.IoIosLogIn />,
     cName: 'nav-text',
     loggedIn: false
   },
   {
     title: 'Register',
     path: '/registration',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <IoIcons.IoMdLogIn />,
     cName: 'nav-text',
     loggedIn: false
   },
   {
     title: 'Dashboard',
     path: '/dashboard',
-    icon: <IoIcons.IoMdPeople />,
+    icon: <MdIcons.MdDashboard />,
     cName: 'nav-text',
     loggedIn: true
 
@@ -37,7 +40,7 @@ export const SidebarData = [
   {
     title: 'Profile',
     path: '/profile',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: <CgIcons.CgProfile/>,
     cName: 'nav-text',
     loggedIn: true
 
@@ -51,3 +54,4 @@ export const SidebarData = [
     
   }
 ];
+
