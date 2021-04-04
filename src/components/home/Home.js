@@ -5,36 +5,40 @@ import { api, handleError } from '../../helpers/api';
 import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
-
+import Background from "../dashboard/Background";
 import { ImgContainer } from '../../helpers/layout';
 
 
 
 import mountains from '../images/mountains1.jpg';
-  
+
 
 const FormContainer = styled.div`
   margin-top: 2em;
   display: flex;
+  font-size: 30px;
   flex-direction: column;
-  align-items: center;
-  min-height: 300px;
+  align-items: left;
+  margin-left: 20%;
+  min-height: 200px;
   justify-content: center;
+  color: white;
 `;
 
 const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
-  height: 375px;
+  width: 80%;
+  height: 500px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
   padding-right: 37px;
-  border-radius: 5px;
-  background: linear-gradient(rgb(34, 34, 34, 0.4), rgb(50, 50, 50, 0.4));
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left:10%
 `;
 
 const InputField = styled.input`
@@ -107,11 +111,16 @@ class Home extends React.Component {
 
   render() {
     return (
-      <ImgContainer>
-
-      <HeaderImage src={mountains} alt="MountainHeader" />
-
-      </ImgContainer>
+        <div>
+          <Background></Background>
+          <FormContainer>WELCOME!</FormContainer>
+            <Form>HY</Form>
+        </div>
+      // <ImgContainer>
+      //
+      // <HeaderImage src={mountains} alt="MountainHeader" />
+      //
+      // </ImgContainer>
 
 
     );
