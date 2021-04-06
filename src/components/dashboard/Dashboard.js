@@ -5,7 +5,7 @@ import { api, handleError } from '../../helpers/api';
 import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
-import GeoAdmin from '../geoAdminMap/GeoAdmin';
+//import GeoAdmin from '../geoAdminMap/GeoAdmin';
 
 
 import mountains from '../images/mountains2.png';
@@ -103,7 +103,7 @@ class Dashboard extends React.Component {
             height: '100%',
             position: 'fixed',
             zIndex: '-1'}}>
-            <center><GeoAdmin /></center>
+            {/* <center><GeoAdmin /></center> */}
             <FormContainer>n</FormContainer>
             <Form>m</Form>
         </div>;
