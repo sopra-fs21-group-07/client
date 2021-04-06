@@ -5,7 +5,11 @@ import { api, handleError } from '../../helpers/api';
 import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
+<<<<<<< Updated upstream
 import Background from "./Background";
+=======
+import GeoAdmin from '../geoAdminMap/GeoAdmin';
+>>>>>>> Stashed changes
 
 //import mountains from '../images/mountains2.png';
 
@@ -99,12 +103,13 @@ class Dashboard extends React.Component {
     componentDidMount() {}
 
     render() {
+<<<<<<< Updated upstream
         return <div>
             <Background></Background>
             <FormContainer>DASHBOARD</FormContainer>
             <center><GeoAdmin /></center>
-            <center><GeoAdmin /></center>
             <Form>m</Form>
+
 
 {/*             <Users>
               {this.state.users.map(user => {
@@ -118,6 +123,18 @@ class Dashboard extends React.Component {
                 );
               })}
             </Users> */}
+=======
+        return <div style={{objectFit: 'cover',
+            backgroundImage: `url(${mountains})`,
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '-1'}}>
+            <center><GeoAdmin /></center>
+            <FormContainer>n</FormContainer>
+            <Form>m</Form>
+>>>>>>> Stashed changes
         </div>;
     }
 }
