@@ -6,33 +6,36 @@ import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 //import GeoAdmin from '../geoAdminMap/GeoAdmin';
+import Background from "../backgrounds/Background";
 
-
-import mountains from '../images/mountains2.png';
-
+//import mountains from '../images/mountains2.png';
 
 const FormContainer = styled.div`
   margin-top: 2em;
   display: flex;
+    font-size: 30px;
   flex-direction: column;
-  align-items: center;
-  min-height: 300px;
+   align-items: left;
+  margin-left: 20%;
+  min-height: 200px;
   justify-content: center;
+  color: white;
 `;
 
 const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
-  height: 375px;
+  width: 80%;
+  height: 500px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
   padding-right: 37px;
-  border-radius: 5px;
-  background: linear-gradient(rgb(34, 34, 34, 0.4), rgb(50, 50, 50, 0.4));
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
 `;
 
 const InputField = styled.input`
@@ -78,7 +81,7 @@ z-index: -1;
 `;
 
 
-console.log(mountains); // /logo.84287d09.png
+//console.log(mountains); // /logo.84287d09.png
 
 
 
@@ -96,17 +99,11 @@ class Dashboard extends React.Component {
     componentDidMount() {}
 
     render() {
-        return <div style={{objectFit: 'cover',
-            backgroundImage: `url(${mountains})`,
-            backgroundRepeat: 'no-repeat',
-            width: '100%',
-            height: '100%',
-            position: 'fixed',
-            zIndex: '-1'}}>
-            {/* <center><GeoAdmin /></center> */}
-            <FormContainer>n</FormContainer>
+        return <div>
+            <Background></Background>
+            <FormContainer>DASHBOARD</FormContainer>
             <Form>m</Form>
-        </div>;
+        </div>
     }
 }
 

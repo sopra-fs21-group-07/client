@@ -1,5 +1,4 @@
 import mountains from "../images/mountains2.png";
-import styled from "styled-components";
 import React from 'react';
 
 export default class Background extends React.Component{

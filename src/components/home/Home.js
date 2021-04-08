@@ -5,16 +5,16 @@ import { api, handleError } from '../../helpers/api';
 import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
-import Background from "../dashboard/Background";
+import Background from "../backgrounds/Background";
 import { ImgContainer } from '../../helpers/layout';
 
 
 
-import mountains from '../images/mountains1.jpg';
+//import mountains from '../images/mountains1.jpg';
 
 
 const FormContainer = styled.div`
-  margin-top: 2em;
+   margin-top: 2em;
   display: flex;
   font-size: 30px;
   flex-direction: column;
@@ -23,7 +23,7 @@ const FormContainer = styled.div`
   min-height: 200px;
   justify-content: center;
   color: white;
-`;
+`
 
 const Form = styled.div`
   display: flex;
@@ -92,7 +92,7 @@ z-index: -1;
 `;
 
 
-console.log(mountains); // /logo.84287d09.png
+//console.log(mountains); // /logo.84287d09.png
 
 
 
