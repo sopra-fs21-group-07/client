@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import Register from './components/login/Register';
 import Profile from './components/profilePage/ProfilePage';
 import Dashboard from "./components/dashboard/Dashboard";
+import CreateTour from './components/Tour/CreateTour';
 
 /**
  * Happy coding!
@@ -30,6 +31,7 @@ class App extends Component {
           <Route path='/registration' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/dashboard' component={Dashboard} />
+          <Route path='/newTour' component={CreateTour} />
           {/*<Route path='/profile' component={Profile} />*/}
           {/* <Route href="#" onClick={this.logout} Logout/>*/}
           </Switch>

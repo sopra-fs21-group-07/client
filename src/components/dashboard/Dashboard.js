@@ -6,6 +6,8 @@ import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import Background from "./Background";
+import GeoAdmin from '../geoAdminMap/GeoAdmin';
+import TourInformationPage from '../Tour/TourInformationPage';
 
 //import mountains from '../images/mountains2.png';
 
@@ -52,6 +54,13 @@ const InputField = styled.input`
   color: white;
 `;
 
+const Buttons = styled.div`
+  float: right;
+  top: -20%;
+  right: 20;
+  width: 200px;
+`;
+
 const Label = styled.label`
   color: white;
   margin-bottom: 10px;
@@ -59,10 +68,13 @@ const Label = styled.label`
 `;
 
 const ButtonContainer = styled.div`
-  display: flex;
   justify-content: center;
-  margin-top: 10px;
-
+  margin-top: 40px;
+  margin-right: 200px;
+  width: 200px;
+  float: right;
+  top: -20%;
+  right: 20;
 `;
 
 const Title = styled.h1`
@@ -103,21 +115,14 @@ class Dashboard extends React.Component {
             <Background></Background>
             <FormContainer>DASHBOARD</FormContainer>
             <center><GeoAdmin /></center>
-            <center><GeoAdmin /></center>
-            <Form>m</Form>
-
-{/*             <Users>
-              {this.state.users.map(user => {
-                return (
-                  <PlayerContainer key={user.id}
-                  onClick={() => {
-                    this.openUserProfile(user.id);
-                  }}>
-                    <Player user={user} />
-                  </PlayerContainer>
-                );
-              })}
-            </Users> */}
+              <ButtonContainer>
+                <Button width="100%" onClick={() => {  this.props.history.push('/newTour'); }}>Create new Tour</Button>
+              </ButtonContainer>
+              <Form>
+                <TourInformationPage>
+                </TourInformationPage>
+              </Form>
+              <p></p>
         </div>;
     }
 }

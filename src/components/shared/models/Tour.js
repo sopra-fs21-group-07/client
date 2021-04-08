@@ -3,7 +3,9 @@
  */
  class Tour {
     constructor(data = {}) {
-      this.tourId = null;
+      this.id = null;
+      this.name = null;
+      this.summit = null;
       this.date = null;
       this.region = null;
       this.tourType = null;

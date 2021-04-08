@@ -25,8 +25,8 @@ class GeoAdmin extends React.Component {
 
   render() {
     return (
-        <iframe src='https://map.geo.admin.ch/?lang=de&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege&layers_opacity=1,1,1,0.8&layers_visibility=false,false,false,false&layers_timestamp=18641231,,,&E=2688425.00&N=1175000.00&zoom=4' 
-        width='1200' height='400' frameborder='0' ></iframe>
+        <iframe src='https://map.geo.admin.ch/?lang=de&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=KML%7C%7Chttps:%2F%2Fraw.githubusercontent.com%2Fsopra-fs21-group-07%2Fclient%2Fmain%2Ftest.kml&E=2695023.36&N=1176985.64&zoom=5&layers_visibility=true' 
+        width='1200' height='400' frameBorder='0' ></iframe>
     );
   }
 }
