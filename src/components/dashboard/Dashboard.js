@@ -2,22 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
-import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
-import Background from "./Background";
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
+import Background from "../backgrounds/Background";
 import TourInformationPage from '../Tour/TourInformationPage';
 
 //import mountains from '../images/mountains2.png';
 
-
 const FormContainer = styled.div`
   margin-top: 2em;
   display: flex;
-  font-size: 30px;
+    font-size: 30px;
   flex-direction: column;
-  align-items: left;
+   align-items: left;
   margin-left: 20%;
   min-height: 200px;
   justify-content: center;
@@ -37,7 +35,7 @@ const Form = styled.div`
   border-radius: 10px;
   background: rgb(124, 124, 124, 1);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  margin-left:10%
+  margin-left: 10%;
 `;
 
 const InputField = styled.input`
@@ -123,7 +121,7 @@ class Dashboard extends React.Component {
                 </TourInformationPage>
               </Form>
               <p></p>
-        </div>;
+            </div>
     }
 }
 

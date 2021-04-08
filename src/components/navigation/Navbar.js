@@ -50,12 +50,12 @@ function Navbar() {
         <IconContext.Provider value={{ color: '#fff' }}>
           <div className='navbar'>
 
-          <Logoutbutton
-          // disabled={localStorage.getItem("token") == null} 
-          hidden={localStorage.getItem("token") == null} // hides the button when there is no token
-              onClick={() => {
-                logout();
-              }}
+            <Logoutbutton
+                // disabled={localStorage.getItem("token") == null}
+                hidden={localStorage.getItem("token") == null} // hides the button when there is no token
+                onClick={() => {
+                  logout();
+                }}
             >
               Logout
             </Logoutbutton>

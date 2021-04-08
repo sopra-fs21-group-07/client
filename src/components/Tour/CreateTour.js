@@ -10,7 +10,7 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import TourInformation from '../Tour/TourInformation';
-import Background from '../dashboard/Background';
+import Background from '../backgrounds/Background';
 
 const InputField = styled.input`
   &::placeholder {
