@@ -6,6 +6,7 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
+import Background from "../backgrounds/Background";
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -83,8 +84,8 @@ class ProfilePage extends React.Component {
   }
 
   back() {
-    localStorage.removeItem('profileID'); 
-    this.props.history.push('/game');
+    localStorage.removeItem('profileID');
+    this.props.history.push('/dashboard');
   }
 
   async componentDidMount() {
@@ -121,11 +122,13 @@ class ProfilePage extends React.Component {
         {!this.state.users ? (
           <Spinner />
         ) : (
-          <div>     
+          <div>
+
             <ProfileContainer>
               <Profile user={this.state.users}/>
             </ProfileContainer>
             <br />
+
             <Button
               width="30%"
               disabled={localStorage.getItem("id") != this.state.users.id}
@@ -144,7 +147,7 @@ class ProfilePage extends React.Component {
             </Button>
           </div>
         )}
-      </Container>  
+      </Container>
     );
   }
 }

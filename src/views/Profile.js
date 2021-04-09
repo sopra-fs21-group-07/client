@@ -64,8 +64,23 @@ const Profile = ({ user }) => {
         </Container>
 
         <Container>
-            <Title>Birthday:</Title>
-            <user_info>{user.birthday}</user_info>
+            <Title>First Name:</Title>
+            <user_info>{user.firstName}</user_info>
+        </Container>
+
+        <Container>
+            <Title>Last Name:</Title>
+            <user_info>{user.lastName}</user_info>
+        </Container>
+
+        <Container>
+            <Title>Email:</Title>
+            <user_info>{user.email}</user_info>
+        </Container>
+
+        <Container>
+            <Title>Region:</Title>
+            <user_info>{user.region}</user_info>
         </Container>
 
         <Container>
@@ -76,10 +91,6 @@ const Profile = ({ user }) => {
             :
             <Offline/>
         }
-        </Container>
-        <Container>
-            <Title>Creation Date:</Title>
-            <user_info>{user.creationDate}</user_info>
         </Container>
 
     </>

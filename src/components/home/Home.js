@@ -114,7 +114,7 @@ class Home extends React.Component {
         <div>
           <Background></Background>
           <FormContainer>WELCOME!</FormContainer>
-            <Form>HY</Form>
+            <Form>Welcome :)</Form>
         </div>
       // <ImgContainer>
       //
