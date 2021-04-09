@@ -1,15 +1,17 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Tour from '../shared/models/Tour';
-import TourInformation from '../Tour/TourInformation';
+import {TourInformation, TourInformationSmall} from '../Tour/TourInformation';
 import logo1 from './dummyPics/Everest.jpg';
 import logo2 from './dummyPics/Gokyo.jpg';
 import logo3 from './dummyPics/Nepal.jpg';
+import Modal from './ModalBookTour';
+import { withRouter } from 'react-router-dom';
+
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -19,7 +21,6 @@ const Container = styled(BaseContainer)`
 const TourStyle = styled.ul`
   width: 100%;
   margin: 0 auto;
-  
 `;
 
 const TourContainer = styled.li`
@@ -29,6 +30,18 @@ const TourContainer = styled.li`
   margin-left: 50px;
   margin-right: 50px;
 `;
+
+const mainStyle = {
+	button: {
+		backgroundColor: "#408cec",
+		border: 0,
+		padding: "12px 20px",
+		color: "#fff",
+		margin: "0 auto",
+		width: 150,
+		borderRadius: 10,
+	}
+};
 
 // Number of Tours which displayed on the user dashboard
 const NumOfDisplayedTours = 3;
@@ -40,7 +53,12 @@ class TourInformationPage extends React.Component {
     this.state = {
       tourList: [],
       allTours: null,
-      randNum: []
+      randNum: [],
+      currentTour: 0,
+      currentImg: logo1,
+      isOpen: false,
+      curr: null,
+      id: 0,
     };
   }
 
@@ -78,10 +96,6 @@ class TourInformationPage extends React.Component {
     this.setState( { randNum: list } );
   }
 
-  booktour() {
-      this.props.history.numberofparticipants = -1;
-  }
-
   generateTourList(response) {
     var tl = [];
     response.data.forEach(function(item){
@@ -117,7 +131,32 @@ class TourInformationPage extends React.Component {
     }
   }
 
+  toggleState = (clickedTour, clickedImage) => {
+    this.setState({ 
+      isOpen: !this.state.isOpen, 
+      currentTour: clickedTour,
+      currentImg: clickedImage,
+      curr: this.state.tourList[clickedTour],
+    });
+  }
+
+  closeModal = () => {
+    this.setState({ 
+    },() => this.toggleState(this.state.currentTour, this.state.currentImg));    
+  }
+
+  booktour = () => {
+    this.closeModal();
+    this.props.history.push('/confirmTour/'+this.state.currentTour);
+  }
+
   render() {
+    const bg = {
+      overlay: {
+        background: "#FFFF00"
+      }
+    };
+
     return (
       <Container>
         {!this.state.tourList[2] ? (
@@ -127,39 +166,61 @@ class TourInformationPage extends React.Component {
           </div>
         ) : (
           <div>
-            {console.log("number: ", this.state.randNum)}
             <TourStyle>
               <TourContainer>
                 <img src={logo1} width='200px' height='200px'/>  
-                <TourInformation Tour={this.state.tourList[this.state.randNum[0]]}/>
-                <Button
-                  width="60%"
+                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/>
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0
+                  }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.booktour(); }}>
+                  onClick={() => { this.toggleState( this.state.randNum[0], logo1); }}>
                   book this tour
-                </Button>
+                </button></center>
               </TourContainer>
               <TourContainer>
                 <img src={logo2} width='200px' height='200px'/> 
-                <TourInformation Tour={this.state.tourList[this.state.randNum[1]]}/>
-                <Button
-                  width="60%"
+                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/>
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0
+                  }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.booktour(); }}>
+                  onClick={() => { this.toggleState( this.state.randNum[1], logo2); }}>
                   book this tour
-                </Button>
+                </button></center>
               </TourContainer>
               <TourContainer>
                 <img src={logo3} width='200px' height='200px'/> 
-                <TourInformation Tour={this.state.tourList[this.state.randNum[2]]}/>
-                <Button
-                  width="60%"
+                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/>
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0
+                  }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.booktour(); }}>
+                  onClick={() => { this.toggleState( this.state.randNum[2], logo3); }}>
                   book this tour
-                </Button>
+                </button></center>
               </TourContainer>
             </TourStyle>
+            <Modal 
+              isOpen={this.state.isOpen}
+              booktour={this.booktour}
+              onRequestClose={this.closeModal}
+              tour={this.state.curr}
+              image={this.state.currentImg}
+            >
+            </Modal>
           </div>
 
         )}
@@ -168,4 +229,4 @@ class TourInformationPage extends React.Component {
   }
 }
 
-export default TourInformationPage;
+export default withRouter(TourInformationPage);

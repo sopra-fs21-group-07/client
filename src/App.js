@@ -11,6 +11,7 @@ import Register from './components/login/Register';
 import Profile from './components/profilePage/ProfilePage';
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateTour from './components/Tour/CreateTour';
+import ConfirmTour from './components/Tour/ConfirmTour';
 
 /**
  * Happy coding!
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path='/login' component={Login} />
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/newTour' component={CreateTour} />
+          <Route path='/confirmTour/:id' component={ConfirmTour} />
           {/*<Route path='/profile' component={Profile} />*/}
           {/* <Route href="#" onClick={this.logout} Logout/>*/}
           </Switch>

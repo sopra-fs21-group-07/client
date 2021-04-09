@@ -17,7 +17,7 @@
       this.distance = null;
       this.time = null;
       this.description = null;
-      this.numberofparticipants = null;
+      this.emptySlots = 0;
       this.cost = null;
       Object.assign(this, data);
     }

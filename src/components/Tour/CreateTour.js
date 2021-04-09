@@ -3,13 +3,9 @@
  * 
  **/
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
-import { BaseContainer } from '../../helpers/layout';
-import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
-import TourInformation from '../Tour/TourInformation';
 import Background from '../backgrounds/Background';
 
 const InputField = styled.input`
@@ -79,6 +75,7 @@ class CreateTour extends React.Component {
     this.state = {
       name: null,
       summit: null,
+      member: 0,
     };
   }
 
@@ -86,7 +83,8 @@ class CreateTour extends React.Component {
     try {
       const requestBody = JSON.stringify({
         name: this.state.name,
-        summit: this.state.summit
+        summit: this.state.summit,
+        member: this.state.member,
       });
       const response = await api.post('/tours', requestBody);
 
@@ -116,22 +114,29 @@ class CreateTour extends React.Component {
           <center><Form>
             <Title>Create your mountain experiance</Title>
             <Label>Titel</Label>
-            <InputField
-              placeholder="Enter here.."
-              type="name"
-              onChange={e => {
-                this.handleInputChange('name', e.target.value);
-              }}
-            />
-
+              <InputField
+                placeholder="Enter here.."
+                type="name"
+                onChange={e => {
+                  this.handleInputChange('name', e.target.value);
+                }}
+              />
             <Label>Target: Summit</Label>
-            <InputField
-              placeholder="Enter here.."
-              type="summit"
-              onChange={e => {
-                this.handleInputChange('summit', e.target.value);
-              }}
-            />
+              <InputField
+                placeholder="Enter here.."
+                type="summit"
+                onChange={e => {
+                  this.handleInputChange('summit', e.target.value);
+                }}
+              />
+            <Label>Max. members of tour</Label>
+              <InputField
+                placeholder="Enter here.."
+                type="member"
+                onChange={e => {
+                  this.handleInputChange('member', e.target.value);
+                }}
+              />
             <ButtonContainer>
               <Button
                 disabled={!this.state.name || !this.state.summit}

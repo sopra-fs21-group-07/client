@@ -14,8 +14,9 @@ export const Button = styled.button`
   height: 35px;
   margin-top: 10px;
   margin-bottom: 5px;
+  margin-left: ${props => props.marginLeft || null};
   border: 0;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: ${props => (props.disabled ? "default" : "pointer")};
   opacity: ${props => (props.disabled ? 1 : 1)};
   background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);

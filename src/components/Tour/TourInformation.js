@@ -4,7 +4,6 @@ import logo from './dummyPics/Homer2.jpeg';
 
 const Container = styled.div`
   margin: 6px 0;
-  width: 200px;
   padding: 10px;
   border-radius: 6px;
   display: flex;
@@ -12,18 +11,16 @@ const Container = styled.div`
   border: 1px solid #ffffff26;
   cursor: auto;
   flex: 50%;
-
 `;
 
 const Title = styled.div`
   font-weight: bold;
-  color: #ffffff;
+  color: dark-gray;
   white-space: pre;
 `;
 
 const Tour_info = styled.div`
   margin-left: auto;
-  
   margin-right: 10px;
   font-weight: bold;
 `;
@@ -42,10 +39,10 @@ const ImgStyle = styled.div`
  * https://reactjs.org/docs/components-and-props.html
  * @FunctionalComponent
  */
-const TourInformation = ( { Tour } ) => {
+export const TourInformationSmall = ( { Tour } ) => {
   return (
     <>  
-        <Container>
+        <Container width="200px">
             <Title>ID:</Title>
             <Tour_info>{Tour.id}</Tour_info>
         </Container>
@@ -60,68 +57,92 @@ const TourInformation = ( { Tour } ) => {
             <Tour_info>{Tour.summit}</Tour_info>
         </Container>
 
-        {/*<Container>
-            <Title>Region:</Title>
-            <Tour_info>{tour.region}</Tour_info>
-        </Container>
-
         <Container>
-            <Title>Type:</Title>
-            <Tour_info>{tour.tourType}</Tour_info>
+            <Title>Empty slots:</Title>
+            <Tour_info>{Tour.emptySlots}</Tour_info>
         </Container>
-
-        <Container>
-            <Title>Height gain:</Title>
-            <Tour_info>{tour.heightGain}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Heigh loss:</Title>
-            <Tour_info>{tour.heightLoss}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Startpoint:</Title>
-            <Tour_info>{tour.startPoint}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Endpoint:</Title>
-            <Tour_info>{tour.endPoint}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Waypoints:</Title>
-            <Tour_info>{tour.waypoints}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Distance:</Title>
-            <Tour_info>{tour.distance}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Time:</Title>
-            <Tour_info>{tour.time}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Description:</Title>
-            <Tour_info>{tour.description}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Number of participants:</Title>
-            <Tour_info>{tour.numberofparticipants}</Tour_info>
-        </Container>
-
-        <Container>
-            <Title>Costs:</Title>
-            <Tour_info>{tour.cost}</Tour_info>
-        </Container>*/}
     </>
   );
 };
 
-export default TourInformation;
+export const TourInformation = ( { Tour } ) => {
+    return (
+      <>  
+          <Container width="400px">
+              <Title>ID:</Title>
+              <Tour_info>{Tour.id}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Name:</Title>
+              <Tour_info>{Tour.name}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Summit:</Title>
+              <Tour_info>{Tour.summit}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Empty slots:</Title>
+              <Tour_info>{Tour.emptySlots}</Tour_info>
+          </Container>
+  
+          {/*<Container>
+              <Title>Type:</Title>
+              <Tour_info>{tour.tourType}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Height gain:</Title>
+              <Tour_info>{tour.heightGain}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Heigh loss:</Title>
+              <Tour_info>{tour.heightLoss}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Startpoint:</Title>
+              <Tour_info>{tour.startPoint}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Endpoint:</Title>
+              <Tour_info>{tour.endPoint}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Waypoints:</Title>
+              <Tour_info>{tour.waypoints}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Distance:</Title>
+              <Tour_info>{tour.distance}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Time:</Title>
+              <Tour_info>{tour.time}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Description:</Title>
+              <Tour_info>{tour.description}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Number of participants:</Title>
+              <Tour_info>{tour.numberofparticipants}</Tour_info>
+          </Container>
+  
+          <Container>
+              <Title>Costs:</Title>
+              <Tour_info>{tour.cost}</Tour_info>
+          </Container>*/}
+      </>
+    );
+  };
 
