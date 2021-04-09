@@ -107,10 +107,11 @@
            email: this.state.email,
            username: this.state.username,
            password: this.state.password,
-           name: this.state.name,
+           firstName: this.state.firstName,
+           lastName: this.state.lastName,
            age: this.state.age,
            region: this.state.region,
-           experience: this.state.experience
+           //experience: this.state.experience
          });
    
          // receive token from backend
@@ -182,13 +183,20 @@
                  }}
                />   
 
-               <Label>Name</Label>
+               <Label>First Name</Label>
                <InputField
                  placeholder="Enter here.."
                  onChange={e => {
-                   this.handleInputChange('name', e.target.value);
+                   this.handleInputChange('firstName', e.target.value);
                  }}
                />
+                 <Label>Last Name</Label>
+                 <InputField
+                     placeholder="Enter here.."
+                     onChange={e => {
+                         this.handleInputChange('lastName', e.target.value);
+                     }}
+                 />
                <Label>Age</Label>
                <InputField
                  placeholder="Enter here.."
@@ -205,13 +213,13 @@
                  }}
                />
 
-               <Label>Experience*</Label>
+              {/* <Label>Experience*</Label>
                <InputField
                  placeholder="Enter here.."
                  onChange={e => {
                    this.handleInputChange('experience', e.target.value);
                  }}
-               />
+               />*/}
 
                <ButtonContainer>
                  <Button

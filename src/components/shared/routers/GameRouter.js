@@ -31,7 +31,7 @@ class GameRouter extends React.Component {
         
         <Route
           exact
-          path={`${this.props.base}/profilePage/:id`}
+          path={`${this.props.base}/profilepage:id`} // oder müsste das {token}sein?
           render={() => <ProfilePage />}
         />
 
