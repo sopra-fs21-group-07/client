@@ -6,8 +6,10 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import { Logoutbutton } from "./Logoutbutton"
+import { withRouter } from 'react-router-dom';
 
-function Navbar() {
+
+function Navbar(props) {
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -38,7 +40,7 @@ function Navbar() {
   function logout(){
     try {
       localStorage.removeItem('token');
-      this.props.history.push('/home');
+      props.history.push('/home');
     } catch (error) {
       alert("Something went wrong while logout");
     }
@@ -88,6 +90,5 @@ function Navbar() {
   );
 }
 
-export default Navbar;
-
+export default withRouter(Navbar);
 

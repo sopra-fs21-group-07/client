@@ -39,7 +39,7 @@ export const SidebarData = [
   },
   {
     title: 'Profile',
-    path: '/profile',
+    path: "/profilepage/:id",
     icon: <CgIcons.CgProfile/>,
     cName: 'nav-text',
     loggedIn: true

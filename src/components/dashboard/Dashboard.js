@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
+import Users from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
@@ -120,6 +121,18 @@ class Dashboard extends React.Component {
                 <TourInformationPage/>
               </Form>
               <br></br>
+            {/*<Users>
+              {this.state.users.map(user => {
+                return (
+                  <PlayerContainer key={user.token}
+                  onClick={() => {
+                    this.openUserProfile(user.token);
+                  }}>
+                    <Player user={user} />
+                  </PlayerContainer>
+                );
+              })}
+            </Users>*/}
             </div>
     }
 }
