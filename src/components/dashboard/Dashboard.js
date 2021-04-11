@@ -8,6 +8,7 @@ import { Button } from '../../views/design/Button';
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
 import Background from "../backgrounds/Background";
 import TourInformationPage from '../Tour/TourInformationPage';
+import {ParallaxProvider} from "react-scroll-parallax";
 
 //import mountains from '../images/mountains2.png';
 
@@ -110,7 +111,7 @@ class Dashboard extends React.Component {
     componentDidMount() {}
 
     render() {
-        return <div>
+        return <ParallaxProvider>
             <Background></Background>
             <FormContainer>DASHBOARD</FormContainer>
             <center><GeoAdmin /></center>
@@ -133,7 +134,7 @@ class Dashboard extends React.Component {
                 );
               })}
             </Users>*/}
-            </div>
+            </ParallaxProvider>
     }
 }
 

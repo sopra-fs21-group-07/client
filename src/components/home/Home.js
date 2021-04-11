@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import Background from "../backgrounds/Background";
 import { ImgContainer } from '../../helpers/layout';
+import {ParallaxProvider} from "react-scroll-parallax";
 
 
 
@@ -111,11 +112,11 @@ class Home extends React.Component {
 
   render() {
     return (
-        <div>
+        <ParallaxProvider>
           <Background></Background>
           <FormContainer>WELCOME!</FormContainer>
             <Form>Welcome :)</Form>
-        </div>
+        </ParallaxProvider>
       // <ImgContainer>
       //
       // <HeaderImage src={mountains} alt="MountainHeader" />
