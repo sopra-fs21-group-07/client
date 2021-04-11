@@ -3,7 +3,9 @@
  */
  class Tour {
     constructor(data = {}) {
-      this.tourId = null;
+      this.id = null;
+      this.name = null;
+      this.summit = null;
       this.date = null;
       this.region = null;
       this.tourType = null;
@@ -15,7 +17,7 @@
       this.distance = null;
       this.time = null;
       this.description = null;
-      this.numberofparticipants = null;
+      this.emptySlots = 0;
       this.cost = null;
       Object.assign(this, data);
     }

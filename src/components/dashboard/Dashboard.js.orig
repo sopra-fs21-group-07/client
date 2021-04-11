@@ -2,21 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
-import Users from '../shared/models/User';
+import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
+<<<<<<< Updated upstream
+import Background from "./Background";
+=======
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
-import Background from "../backgrounds/Background";
-import TourInformationPage from '../Tour/TourInformationPage';
+>>>>>>> Stashed changes
 
 //import mountains from '../images/mountains2.png';
+
 
 const FormContainer = styled.div`
   margin-top: 2em;
   display: flex;
-    font-size: 30px;
+  font-size: 30px;
   flex-direction: column;
-   align-items: left;
+  align-items: left;
   margin-left: 20%;
   min-height: 200px;
   justify-content: center;
@@ -36,7 +39,7 @@ const Form = styled.div`
   border-radius: 10px;
   background: rgb(124, 124, 124, 1);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  margin-left: 10%;
+  margin-left:10%
 `;
 
 const InputField = styled.input`
@@ -53,13 +56,6 @@ const InputField = styled.input`
   color: white;
 `;
 
-const Buttons = styled.div`
-  float: right;
-  top: -20%;
-  right: 20;
-  width: 200px;
-`;
-
 const Label = styled.label`
   color: white;
   margin-bottom: 10px;
@@ -67,13 +63,10 @@ const Label = styled.label`
 `;
 
 const ButtonContainer = styled.div`
+  display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-right: 200px;
-  width: 200px;
-  float: right;
-  top: -20%;
-  right: 20;
+  margin-top: 10px;
+
 `;
 
 const Title = styled.h1`
@@ -110,30 +103,39 @@ class Dashboard extends React.Component {
     componentDidMount() {}
 
     render() {
+<<<<<<< Updated upstream
         return <div>
             <Background></Background>
             <FormContainer>DASHBOARD</FormContainer>
             <center><GeoAdmin /></center>
-              <ButtonContainer>
-                <Button width="100%" onClick={() => {  this.props.history.push('/newTour'); }}>Create new Tour</Button>
-              </ButtonContainer>
-              <Form>
-                <TourInformationPage/>
-              </Form>
-              <br></br>
-            {/*<Users>
+            <Form>m</Form>
+
+
+{/*             <Users>
               {this.state.users.map(user => {
                 return (
-                  <PlayerContainer key={user.token}
+                  <PlayerContainer key={user.id}
                   onClick={() => {
-                    this.openUserProfile(user.token);
+                    this.openUserProfile(user.id);
                   }}>
                     <Player user={user} />
                   </PlayerContainer>
                 );
               })}
-            </Users>*/}
-            </div>
+            </Users> */}
+=======
+        return <div style={{objectFit: 'cover',
+            backgroundImage: `url(${mountains})`,
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            zIndex: '-1'}}>
+            <center><GeoAdmin /></center>
+            <FormContainer>n</FormContainer>
+            <Form>m</Form>
+>>>>>>> Stashed changes
+        </div>;
     }
 }
 

@@ -1,0 +1,99 @@
+.modal-base {
+    top: 20%;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 30%;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    transform: scale(0.8);
+  }
+  
+  .modal-base_after-open {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .modal-base_before-close {
+    transform: scale(.2);
+    opacity: 0;
+  }
+  
+  .overlay-base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 30, 30, .75);
+    opacity: 0;
+      transition: all 0.5s ease-out;
+  }
+  
+  .overlay-base_after-open {
+    opacity: 1;
+  }
+  
+  .overlay-base_before-close {
+    opacity: 0;
+  }  
+
+  a.icon { 
+    margin: 12px; 
+    background-color: rgb(0, 0, 0); 
+    border: 0px solid rgb(255, 255, 255); 
+    display: inline-block; 
+    position: relative; 
+    vertical-align: top; 
+    position: absolute;
+    right: 0;
+  } 
+  
+  a.icon:after, 
+  a.icon:before { 
+    background: rgb(0, 0, 0); 
+    border: 2px solid rgb(255, 255, 255); 
+    content: ''; 
+    position: absolute; 
+  } 
+  a.icon:hover, 
+  a.icon:hover:after, 
+  a.icon:hover:before { 
+      background-color: rgb(229, 228, 250); 
+      border: 1px solid rgb(0, 0, 0); 
+  } 
+
+  a.cross { 
+    border-radius: 100%; 
+    height: 26px; 
+    width: 26px; 
+    transition: all 0.2s ease-in;
+  } 
+
+  a.cross:after { 
+      height: 0; 
+      left: 3px; 
+      top: 11px; 
+      width: 16px; 
+      -webkit-transform: rotate(45deg); 
+        -moz-transform: rotate(45deg); 
+          -ms-transform: rotate(45deg); 
+          -o-transform: rotate(45deg); 
+              transform: rotate(45deg); 
+  } 
+
+  a.cross:before { 
+      height: 0; 
+      left: 3px; 
+      top: 11px; 
+      width: 16px; 
+      -webkit-transform: rotate(-45deg); 
+        -moz-transform: rotate(-45deg); 
+          -ms-transform: rotate(-45deg); 
+          -o-transform: rotate(-45deg); 
+              transform: rotate(-45deg); 
+  } 
