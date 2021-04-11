@@ -145,9 +145,10 @@ class TourInformationPage extends React.Component {
     },() => this.toggleState(this.state.currentTour, this.state.currentImg));    
   }
 
+  // Go to booking site, current Tour ID starts at = 1 
   booktour = () => {
     this.closeModal();
-    this.props.history.push('/confirmTour/'+this.state.currentTour);
+    this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
   }
 
   render() {

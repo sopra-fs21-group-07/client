@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import {TourInformation} from './TourInformation';
 import { Button } from '../../views/design/Button';
-import { withRouter } from 'react-router-dom';
 
 import './Modal.css'
 
@@ -19,6 +18,7 @@ const ImageStyle = styled.img`
 export default ({ isOpen, onRequestClose, tour, image, booktour}) =>
   <Modal
     isOpen={isOpen}
+    ariaHideApp={false}
     onRequestClose={onRequestClose}
     contentLabel="Modal"
     className={{
@@ -34,7 +34,7 @@ export default ({ isOpen, onRequestClose, tour, image, booktour}) =>
     shouldCloseOnOverlayClick={true}
     closeTimeoutMS={500}
   >
-    <a class="cross icon" title="cross" onClick={onRequestClose}></a>
+    <a className="cross icon" title="cross" onClick={onRequestClose}></a>
     <br></br>
     <ImageStyle src={image}/>
     <TourInformation Tour={tour}></TourInformation>

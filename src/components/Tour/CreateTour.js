@@ -75,7 +75,7 @@ class CreateTour extends React.Component {
     this.state = {
       name: null,
       summit: null,
-      member: 0,
+      emptySlots: 0,
     };
   }
 
@@ -84,7 +84,7 @@ class CreateTour extends React.Component {
       const requestBody = JSON.stringify({
         name: this.state.name,
         summit: this.state.summit,
-        member: this.state.member,
+        emptySlots: this.state.emptySlots,
       });
       const response = await api.post('/tours', requestBody);
 
@@ -132,9 +132,9 @@ class CreateTour extends React.Component {
             <Label>Max. members of tour</Label>
               <InputField
                 placeholder="Enter here.."
-                type="member"
+                type="emptySlots"
                 onChange={e => {
-                  this.handleInputChange('member', e.target.value);
+                  this.handleInputChange('emptySlots', e.target.value);
                 }}
               />
             <ButtonContainer>
