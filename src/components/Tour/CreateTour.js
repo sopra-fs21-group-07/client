@@ -148,16 +148,16 @@ class CreateTour extends React.Component {
     }
   }
 
-    /**
-   *  Every time the user enters something in the input field, the state gets updated.
-   * @param key (the key of the state for identifying the field that needs to be updated)
-   * @param value (the value that gets assigned to the identified state key)
-   */
-     handleInputChange(key, value) {
-      // Example: if the key is username, this statement is the equivalent to the following one:
-      // this.setState({'username': value});
-      this.setState({ [key]: value });
-    }
+  /**
+  *  Every time the user enters something in the input field, the state gets updated.
+  * @param key (the key of the state for identifying the field that needs to be updated)
+  * @param value (the value that gets assigned to the identified state key)
+  */
+    handleInputChange(key, value) {
+    // Example: if the key is username, this statement is the equivalent to the following one:
+    // this.setState({'username': value});
+    this.setState({ [key]: value });
+  }
 
   render() {
     return (
