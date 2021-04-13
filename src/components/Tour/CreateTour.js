@@ -7,6 +7,7 @@ import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
 import { api, handleError } from '../../helpers/api';
 import Background from '../backgrounds/Background';
+import AsyncSelect from 'react-select/async';
 
 const InputField = styled.input`
   &::placeholder {
@@ -68,6 +69,10 @@ const Form = styled.div`
   margin-left:10%
 `;
 
+type State = {
+  inputValue: string,
+};
+
 class CreateTour extends React.Component {
 
   constructor() {
@@ -76,14 +81,62 @@ class CreateTour extends React.Component {
       name: null,
       summit: null,
       emptySlots: 0,
+      myChoose: [],
     };
   }
 
+  state = { inputValue: '', myChoose: []};
+
+  loadOptions = (inputValue, callback) => {
+    const myList = this.searchTour(inputValue);
+    myList.then((a) => {
+      setTimeout(() => {
+        callback(a);
+      }, 1000);
+    });
+  };
+
+  async searchTour(inputValue) {
+    if (inputValue.length >= 3){
+      try {
+        const requestBody = JSON.stringify({
+          userInput: inputValue,
+        });
+        const response = await api.post('/nameGeoMapAdmin', requestBody);
+        const summits = new Array();
+        response.data.forEach(element => {
+          let summit = {
+            label: element.name,
+            value: element.altitude.toString(),
+          };
+          summits.push(summit);
+        });
+        return summits;
+      } catch (error) {
+        alert("Somethin went wrong while logout");
+      }
+    }
+    const dummySummit = new Array();
+    dummySummit.push({ label: " Loading ", value: "0" });
+    return dummySummit;
+  }
+
+  handelClick = (myChoose) => {
+    this.setState({myChoose});
+  }
+
+  handleSelectChange = (newValue: string) => {
+    const inputValue = newValue;
+    this.setState({ inputValue });
+    return inputValue;
+  };
+
   async postTour() {
+    console.log();
     try {
       const requestBody = JSON.stringify({
         name: this.state.name,
-        summit: this.state.summit,
+        summit: this.state.myChoose[0].label,
         emptySlots: this.state.emptySlots,
       });
       const response = await api.post('/tours', requestBody);
@@ -122,13 +175,17 @@ class CreateTour extends React.Component {
                 }}
               />
             <Label>Target: Summit</Label>
-              <InputField
-                placeholder="Enter here.."
-                type="summit"
-                onChange={e => {
-                  this.handleInputChange('summit', e.target.value);
-                }}
+            <div>
+              <AsyncSelect
+                cacheOptions
+                isMulti
+                loadOptions={this.loadOptions}
+                defaultOptions
+                onInputChange={this.handleSelectChange}
+                getOptionLabel={option => `${option.label}:  ${option.value} m a.s.l`}
+                onChange={this.handelClick}
               />
+            </div>
             <Label>Max. members of tour</Label>
               <InputField
                 placeholder="Enter here.."
@@ -139,7 +196,6 @@ class CreateTour extends React.Component {
               />
             <ButtonContainer>
               <Button
-                disabled={!this.state.name || !this.state.summit}
                 width="50%"
                 onClick={() => {
                   this.postTour();
