@@ -107,6 +107,7 @@ class Login extends React.Component {
 
         // Login successfully worked --> navigate to the route /game in the GameRouter
         this.props.history.push(`/dashboard`);
+        window.location.reload(); //otherwise our menu doesnt update
 
     } catch (error) {
       alert(`Are you registered yet? Please register yourself first :-) \n${handleError(error)}`);

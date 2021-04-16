@@ -40,7 +40,9 @@ function Navbar(props) {
   function logout(){
     try {
       localStorage.removeItem('token');
+      localStorage.removeItem('username');
       props.history.push('/home');
+      window.location.reload();
     } catch (error) {
       alert("Something went wrong while logout");
     }

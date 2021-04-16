@@ -11,8 +11,9 @@ import Background from "../backgrounds/Background";
 
 const Container = styled(BaseContainer)`
   color: white;
-  text-align: center;
+  text-align: left;
   background: black;
+
 `;
 
 
@@ -24,8 +25,9 @@ const Users = styled.ul`
 const ProfileContainer = styled.li`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  }
 `;
 
 const BackButton = styled.a`

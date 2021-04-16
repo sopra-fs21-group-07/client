@@ -44,14 +44,6 @@ export const SidebarData = [
     cName: 'nav-text',
     loggedIn: true
 
-  },
-  {
-    title: 'Logout',
-    path: '/home',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text',
-    loggedIn: true
-    
   }
 ];
 
