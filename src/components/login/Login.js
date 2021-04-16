@@ -95,10 +95,10 @@ class Login extends React.Component {
   async login() {
     try {
       const requestBody = JSON.stringify({
-        email: this.state.email,
+        username: this.state.username,
         password: this.state.password
       });
-      const token = await api.put("/login", requestBody)
+      const token = await api.post("/api/auth/login", requestBody);
 
         // Store the token into the local storage.
         localStorage.setItem('token', token);
@@ -157,11 +157,11 @@ register() {
           <Form>
           <br />
           <Title>Login</Title>
-            <Label>Email</Label>
+            <Label>Username</Label>
             <InputField
               placeholder="Enter here.."
               onChange={e => {
-                this.handleInputChange('email', e.target.value);
+                this.handleInputChange('username', e.target.value);
               }}
             />
 
@@ -175,7 +175,7 @@ register() {
             />
             <ButtonContainer>
               <Button
-                disabled={!this.state.email || !this.state.password}
+                disabled={!this.state.username || !this.state.password}
                 width="50%"
                 onClick={() => {
                   this.login();

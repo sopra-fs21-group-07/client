@@ -115,7 +115,7 @@
          });
    
          // receive token from backend
-         const token = await api.post('/registration', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
+         const token = await api.post('/api/auth/signup', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
    
          // Store the token into the local storage.
          localStorage.setItem('token', token);
