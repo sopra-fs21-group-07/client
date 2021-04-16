@@ -8,7 +8,7 @@ import {Redirect} from 'react-router-dom';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
-import Profile from './components/profilePage/ProfilePage';
+import ProfilePage from './components/profilePage/ProfilePage';
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateTour from './components/Tour/CreateTour';
 import ConfirmTour from './components/Tour/ConfirmTour';
@@ -34,7 +34,7 @@ class App extends Component {
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/newTour' component={CreateTour} />
           <Route path='/confirmTour/:id' component={ConfirmTour} />
-          {/*<Route path='/profile' component={Profile} />*/}
+          <Route path='/profilePage/:username' component={ProfilePage} />
           {/* <Route href="#" onClick={this.logout} Logout/>*/}
           </Switch>
       </Router>

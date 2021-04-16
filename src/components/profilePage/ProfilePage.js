@@ -8,10 +8,13 @@ import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
 import Background from "../backgrounds/Background";
 
+
 const Container = styled(BaseContainer)`
   color: white;
   text-align: center;
+  background: black;
 `;
+
 
 const Users = styled.ul`
   list-style: none;
@@ -90,7 +93,7 @@ class ProfilePage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get('/users/'+localStorage.getItem("profileID"));
+      const response = await api.get('/api/auth/profilePage/'+localStorage.getItem("username"));
       // delays continuous execution of an async operation for 1 second.
       // This is just a fake async call, so that the spinner can be displayed
       // feel free to remove it :)
@@ -118,7 +121,7 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <Container>
-
+        <h1>Profile</h1>
         {!this.state.users ? (
           <Spinner />
         ) : (
@@ -131,7 +134,7 @@ class ProfilePage extends React.Component {
 
             <Button
               width="30%"
-              disabled={localStorage.getItem("id") != this.state.users.id}
+              disabled={localStorage.getItem("username") != this.state.users.username}
               onClick={() => {
                 this.edit();
               }}>
