@@ -6,12 +6,11 @@ import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import Background from "../backgrounds/Background";
-import { ImgContainer } from '../../helpers/layout';
+//import { ImgContainer } from '../../helpers/layout';
 import {ParallaxProvider} from "react-scroll-parallax";
 
 
 
-//import mountains from '../images/mountains1.jpg';
 
 
 const FormContainer = styled.div`
@@ -83,17 +82,9 @@ const Headerbutton = styled.button`
   border: 0;
   border-radius: 20px;
   `
-const HeaderImage = styled.img`
-
-object-fit: cover;
-width: 100%;
-height: 100%;
-position: fixed;
-z-index: -1;
-`;
 
 
-//console.log(mountains); // /logo.84287d09.png
+
 
 
 
@@ -118,8 +109,6 @@ class Home extends React.Component {
             <Form>Welcome :)</Form>
         </ParallaxProvider>
       // <ImgContainer>
-      //
-      // <HeaderImage src={mountains} alt="MountainHeader" />
       //
       // </ImgContainer>
 

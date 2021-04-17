@@ -10,7 +10,7 @@ export default class Background extends React.Component{
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         width: '100%',
-        height: '50%',
+        height: '60%',
         position: 'fixed',
         marginTop: '-5em',
         zIndex: '-1'}}>
