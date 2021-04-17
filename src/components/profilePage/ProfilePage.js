@@ -12,7 +12,6 @@ import Background from "../backgrounds/Background";
 const Container = styled(BaseContainer)`
   color: white;
   text-align: left;
-  background: black;
 
 `;
 
@@ -122,6 +121,8 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
+        <div>
+          <style>{'body { background-color: grey; }'}</style>
       <Container>
         <h1>Profile</h1>
         {!this.state.users ? (
@@ -153,6 +154,7 @@ class ProfilePage extends React.Component {
           </div>
         )}
       </Container>
+        </div>
     );
   }
 }
