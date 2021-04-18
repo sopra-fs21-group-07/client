@@ -11,3 +11,4 @@
 <description>test</description>
 <Style><IconStyle><Icon>
 <href>https://api3.geo.admin.ch/color/255,0,0/alcohol-shop-24@2x.png</href><gx:w>48</gx:w><gx:h>48</gx:h></Icon></IconStyle><LabelStyle><color>ff0000ff</color></LabelStyle></Style><Point><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>8.666873765089951,46.736866904158596</coordinates></Point></Placemark></Document></kml>
+<href>https://api3.geo.admin.ch/color/255,0,0/alcohol-shop-24@2x.png</href><gx:w>48</gx:w><gx:h>48</gx:h></Icon></IconStyle><LabelStyle><color>ff0000ff</color></LabelStyle></Style><Point><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>675215, 166274</coordinates></Point></Placemark></Document></kml>
