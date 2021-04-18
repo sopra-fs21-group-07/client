@@ -69,10 +69,6 @@ const Form = styled.div`
   margin-left:10%
 `;
 
-type State = {
-  inputValue: string,
-};
-
 class CreateTour extends React.Component {
 
   constructor() {
@@ -82,11 +78,15 @@ class CreateTour extends React.Component {
       summit: null,
       emptySlots: 0,
       myChoose: [],
+      inputValue: '',
     };
   }
 
-  state = { inputValue: '', myChoose: []};
-
+  /**
+   * Load the possible option from the GeoAdmin Map
+   * @param {UserInput from input field} inputValue 
+   * @param {callback function} callback 
+   */
   loadOptions = (inputValue, callback) => {
     const myList = this.searchTour(inputValue);
     myList.then((a) => {
@@ -96,6 +96,11 @@ class CreateTour extends React.Component {
     });
   };
 
+  /**
+   * Send information from the user input to the server and get the results and store in the state value
+   * @param {User input from input field} inputValue 
+   * @returns get the find summit list
+   */
   async searchTour(inputValue) {
     if (inputValue.length >= 3){
       try {
@@ -113,7 +118,7 @@ class CreateTour extends React.Component {
         });
         return summits;
       } catch (error) {
-        alert("Somethin went wrong while logout");
+        alert("Something went wrong while fetching or /find? the geo.admin.ch data.");
       }
     }
     const dummySummit = new Array();
@@ -125,26 +130,32 @@ class CreateTour extends React.Component {
     this.setState({myChoose});
   }
 
+  /**
+   * Save the userinput already in the state value
+   */
   handleSelectChange = (newValue: string) => {
     const inputValue = newValue;
     this.setState({ inputValue });
-    return inputValue;
   };
 
+  /**
+   * Send the tour data to the server
+   * summitname and altitude identify the tour aim, so that the backend can find the coordinates and store the data in .kml file. 
+   */
   async postTour() {
-    console.log();
     try {
       const requestBody = JSON.stringify({
         name: this.state.name,
         summit: this.state.myChoose[0].label,
+        altitude: this.state.myChoose[0].value,
         emptySlots: this.state.emptySlots,
       });
       const response = await api.post('/tours', requestBody);
-
+      console.log(requestBody);
       this.props.history.push('/dashboard');
 
     } catch (error) {
-      alert("Somethin went wrong while logout");
+      alert("Something went wrong while sending the tour informationen data to the server.");
     }
   }
 

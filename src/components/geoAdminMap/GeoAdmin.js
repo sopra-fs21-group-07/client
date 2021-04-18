@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { ImgContainer } from '../../helpers/layout';
 import mountains from '../images/mountains1.jpg';
-  
-
-
-console.log(mountains); // /logo.84287d09.png
-
-
+import { api, handleError } from '../../helpers/api';
 
 /**
  * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
@@ -21,11 +16,26 @@ console.log(mountains); // /logo.84287d09.png
  */
 class GeoAdmin extends React.Component {
 
-  componentDidMount() {}
+  constructor(){
+    super();
+    this.state = {
+      gistFileName: null,
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await api.get('https://api.github.com/gists/d0367bda086c97514a541ebd1911ba38');
+      console.log("Logging", response.data.files.sopra07.raw_url);
+      this.setState( {gistFileName: response.data.files.sopra07.raw_url});
+    } catch (error) {
+      alert("Something went wrong while updating the gist file KML. ");
+    }
+  }
 
   render() {
     return (
-        <iframe src='https://map.geo.admin.ch/?lang=de&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=KML%7C%7Chttps:%2F%2Fraw.githubusercontent.com%2Fsopra-fs21-group-07%2Fclient%2Fmain%2Ftest.kml&E=2695023.36&N=1176985.64&zoom=5&layers_visibility=true' 
+        <iframe src={"https://map.geo.admin.ch/?lang=de&topic=ech&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=KML%7C%7C"+this.state.gistFileName+"&E=2695023.36&N=1176985.64&zoom=5&layers_visibility=true"}
         width='1200' height='400' frameBorder='0' ></iframe>
     );
   }
