@@ -4,6 +4,7 @@ import { Redirect, Route } from "react-router-dom";
 import Game from "../../game/Game";
 import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
+import Chat from "../../chat/containers/Chat/Chat";
 
 const Container = styled.div`
   display: flex;
@@ -39,6 +40,12 @@ class GameRouter extends React.Component {
           exact
           path={`${this.props.base}/edit`}
           render={() => <Edit />}
+        />
+
+        <Route
+          exact
+          path={`${this.props.base}/chat`} //keine Ahnung ob das notwendig ist...
+          render={() => <Chat />}
         />
         
       </Container>
