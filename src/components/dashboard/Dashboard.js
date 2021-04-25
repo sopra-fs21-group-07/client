@@ -10,7 +10,6 @@ import Background from "../backgrounds/Background";
 import TourInformationPage from '../Tour/TourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
 
-//import mountains from '../images/mountains2.png';
 
 const FormContainer = styled.div`
   margin-top: 2em;
@@ -92,8 +91,6 @@ position: fixed;
 z-index: -1;
 `;
 
-
-//console.log(mountains); // /logo.84287d09.png
 
 
 
