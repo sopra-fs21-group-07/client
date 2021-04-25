@@ -6,13 +6,11 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
-import Background from "../backgrounds/Background";
-
+import SplitPanel from 'split-panel-react';
 
 const Container = styled(BaseContainer)`
   color: white;
   text-align: left;
-
 `;
 
 
@@ -73,6 +71,25 @@ const EditButton = styled.a`
 `;
 
 
+const WholeProfileContaniner = styled.div`
+    justifyContent: right;
+    margin-left: 10px; 
+    margin-top: 50px;  
+    width: 450px;
+    background: black;
+    display: flex;
+    border-radius: 6px;
+    border: 1px solid #fffff26;
+`;
+
+const TourContainer = styled.div`
+    margin-left: 10px;
+    width: 90%;
+    background: white;
+    display: flex;
+    border-radius: 6px;
+    border: 1px solid #fffff26;
+`;
 
 class ProfilePage extends React.Component {
 
@@ -119,9 +136,10 @@ class ProfilePage extends React.Component {
 
 
 
+
   render() {
     return (
-        <div>
+        <WholeProfileContaniner>
           <style>{'body { background-color: grey; }'}</style>
       <Container>
         <h1>Profile</h1>
@@ -133,7 +151,6 @@ class ProfilePage extends React.Component {
             <ProfileContainer>
               <Profile user={this.state.users}/>
             </ProfileContainer>
-            <br />
 
             <Button
               width="30%"
@@ -143,7 +160,6 @@ class ProfilePage extends React.Component {
               }}>
               Edit
             </Button>
-            <br /> <br />
             <Button
               width="30%"
               onClick={() => {
@@ -154,9 +170,11 @@ class ProfilePage extends React.Component {
           </div>
         )}
       </Container>
-        </div>
+        </WholeProfileContaniner>
+
     );
-  }
+        }
 }
 
 export default withRouter(ProfilePage);
+//<TourContainer>Here are all tours:</TourContainer>

@@ -17,11 +17,8 @@ const Title = styled.div`
   color: #ffffff;
 `;
 
-const user_info = styled.div`
-  margin-left: auto;
-  margin-right: 10px;
-  font-weight: bold;
-`;
+
+
 
 const Online = styled.span`
   color: #4caf50;
@@ -60,27 +57,27 @@ const Profile = ({ user }) => {
     <>
         <Container>
             <Title>Username:</Title>
-            <user_info>{user.username}</user_info>
+            {user.username}
         </Container>
 
         <Container>
             <Title>First Name:</Title>
-            <user_info>{user.firstName}</user_info>
+            {user.firstName}
         </Container>
 
         <Container>
             <Title>Last Name:</Title>
-            <user_info>{user.lastName}</user_info>
+            {user.lastName}
         </Container>
 
         <Container>
             <Title>Email:</Title>
-            <user_info>{user.email}</user_info>
+            {user.email}
         </Container>
 
         <Container>
             <Title>Region:</Title>
-            <user_info>{user.region}</user_info>
+            {user.region}
         </Container>
 
         <Container>
