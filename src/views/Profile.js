@@ -2,23 +2,29 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 6px 0;
-  width: 400px;
-  padding: 10px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #ffffff26;
-  cursor: auto;
+margin: 6px 0;
+width: 400px;
+padding: 10px;
+border-radius: 6px;
+display: flex;
+align-items: center;
+border: 1px solid #ffffff26;
+cursor: auto;
 `;
+
+const ContentField = styled.div`
+
+  margin-left: auto;
+  border: none;
+  color: white;
+  text-align: center;
+  justify-content: right;
+`; 
 
 const Title = styled.div`
   font-weight: bold;
   color: #ffffff;
 `;
-
-
-
 
 const Online = styled.span`
   color: #4caf50;
@@ -36,13 +42,7 @@ const Offline = styled.span`
   padding-right: 6px;
 `;
 
-const EditField = styled.span`
-  color: black;
-  background-color: white;
-  width: auto;
-  padding: 0 6px;
-  border-radius: 6px;   
-`;
+
 
 /**
  * This is an example of a Functional and stateless component (View) in React. Functional components are not classes and thus don't handle internal state changes.
@@ -57,37 +57,39 @@ const Profile = ({ user }) => {
     <>
         <Container>
             <Title>Username:</Title>
-            {user.username}
+            <ContentField> {user.username} </ContentField>
         </Container>
 
         <Container>
             <Title>First Name:</Title>
-            {user.firstName}
+            <ContentField> {user.firstName}</ContentField>
         </Container>
 
         <Container>
             <Title>Last Name:</Title>
-            {user.lastName}
+            <ContentField> {user.lastName}</ContentField>
         </Container>
 
         <Container>
             <Title>Email:</Title>
-            {user.email}
+            <ContentField> {user.email}</ContentField>
         </Container>
 
         <Container>
             <Title>Region:</Title>
-            {user.region}
+            <ContentField> {user.region}</ContentField>
         </Container>
 
         <Container>
             <Title>Status:</Title>
+            <ContentField>
             <user_info>{user.status}</user_info>
             {user.status === 'ONLINE'?
             <Online/>
             :
             <Offline/>
         }
+        </ContentField>
         </Container>
 
     </>

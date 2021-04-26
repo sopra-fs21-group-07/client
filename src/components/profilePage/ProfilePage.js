@@ -14,6 +14,11 @@ const Container = styled(BaseContainer)`
 `;
 
 
+const MiddleContainer = styled.div`
+  align-items: center;
+  display: flex;
+`;
+
 const Users = styled.ul`
   list-style: none;
   padding-left: 0;
@@ -45,30 +50,27 @@ const BackButton = styled.a`
 
 `;
 
-const EditButton = styled.a`
-  all: unset;
-  padding 5px;
+const ProfileButton = styled.a`
+  &:hover {
+    transform: translateY(-2px);
+  }
+  padding: 9px;
+  font-weight: 700;
+
   font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: ${props => props.width || null};
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  cursor: ${props => (props.disabled ? "default" : "pointer")}; 
-  opacity: ${props => (props.disabled ? 0.4 : 1)};
-  }
-  &::before {
-    content: "<";
-  }
-  &::after {
-    content: ">";
-  }
-  margin-left: 10px;
+  border-radius: 20px;
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
+  opacity: ${props => (props.disabled ? 1 : 1)};
   transition: all 0.3s ease;
-`;
+  margin: 5px;
+  `;
 
 
 const WholeProfileContaniner = styled.div`
@@ -89,6 +91,13 @@ const TourContainer = styled.div`
     display: flex;
     border-radius: 6px;
     border: 1px solid #fffff26;
+`;
+
+const ButtonContainer = styled.li`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 class ProfilePage extends React.Component {
@@ -139,7 +148,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-        <WholeProfileContaniner>
+        <MiddleContainer>
           <style>{'body { background-color: grey; }'}</style>
       <Container>
         <h1>Profile</h1>
@@ -151,26 +160,26 @@ class ProfilePage extends React.Component {
             <ProfileContainer>
               <Profile user={this.state.users}/>
             </ProfileContainer>
-
-            <Button
+            <ButtonContainer>
+            <ProfileButton
               width="30%"
-              disabled={localStorage.getItem("username") != this.state.users.username}
               onClick={() => {
                 this.edit();
               }}>
               Edit
-            </Button>
-            <Button
+            </ProfileButton>
+            <ProfileButton
               width="30%"
               onClick={() => {
                 this.back();
               }}>
               Back
-            </Button>
+            </ProfileButton>
+            </ButtonContainer>
           </div>
         )}
       </Container>
-        </WholeProfileContaniner>
+        </MiddleContainer>
 
     );
         }

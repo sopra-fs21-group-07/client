@@ -12,6 +12,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import CreateTour from './components/Tour/CreateTour';
 import ConfirmTour from './components/Tour/ConfirmTour';
 import AppChat from './components/chat/containers/Chat/AppChat';
+import Edit from "./components/edit/Edit";
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path='/confirmTour/:id' component={ConfirmTour} />
           <Route path='/profilePage/:username' component={ProfilePage} />
           <Route path='/chat' component={AppChat} />
+          <Route path='/edit' component={Edit} />
           {}
           </Switch>
       </Router>
