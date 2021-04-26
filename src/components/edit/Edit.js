@@ -128,7 +128,10 @@ class Edit extends React.Component {
 
 async editUsername() {
   try {
-    const response = await api.put("/edit/username/" + localStorage.getItem("username"), JSON.stringify(this.state.username))
+    const requestBody = JSON.stringify({
+      username: this.state.username,
+    });
+    const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
     localStorage.setItem('username', this.state.username);
     alert("Success")
 
@@ -139,7 +142,10 @@ async editUsername() {
 
 async editFirstName() {
   try {
-    const response = await api.put("/edit/firstName/" + localStorage.getItem("username"), JSON.stringify(this.state.firstName))
+    const requestBody = JSON.stringify({
+      firstName: this.state.firstName,
+    });
+    const response = await api.put("/edit/firstName/" + localStorage.getItem("username"), requestBody)
     alert("Success")
 
   } catch (error) {
@@ -149,7 +155,10 @@ async editFirstName() {
 
 async editLastName() {
   try {
-    const response = await api.put("/edit/lastName/" + localStorage.getItem("username"), JSON.stringify(this.state.lastName))
+    const requestBody = JSON.stringify({
+      lastName: this.state.lastName,
+    });
+    const response = await api.put("/edit/lastName/" + localStorage.getItem("username"), requestBody)
     alert("Success")
 
   } catch (error) {
@@ -159,7 +168,10 @@ async editLastName() {
 
 async editAge() {
   try {
-    const response = await api.put("/edit/age/" + localStorage.getItem("username"), JSON.stringify(this.state.age))
+    const requestBody = JSON.stringify({
+      age: this.state.age,
+    });
+    const response = await api.put("/edit/age/" + localStorage.getItem("username"), requestBody)
     alert("Success")
 
   } catch (error) {
@@ -169,7 +181,10 @@ async editAge() {
 
 async editRegion() {
   try {
-    const response = await api.put("/edit/region/" + localStorage.getItem("username"), JSON.stringify(this.state.region))
+    const requestBody = JSON.stringify({
+      region: this.state.region,
+    });
+    const response = await api.put("/edit/region/" + localStorage.getItem("username"), requestBody)
     alert("Success")
 
 
