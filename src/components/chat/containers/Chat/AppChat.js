@@ -23,8 +23,8 @@ class AppChat extends Component {
     super();
 
     this.state = {
-      modalOpen: true,
-      usernameInput: ''
+      modalOpen: false,
+      usernameInput: localStorage.getItem('username')
     }
   }
 
@@ -48,21 +48,8 @@ class AppChat extends Component {
       <MuiThemeProvider>
         <div className="App">
           <UserList users={this.state.users} />
+          {this.onChooseName()}
           {chat}
-          <Dialog
-            title="Choose your name"
-            actions={modalActions}
-            modal={true}
-            open={this.state.modalOpen}
-            contentStyle={modalStyle}>
-            <TextField
-              autoFocus
-              hintText="Write your name here..."
-              value={this.state.usernameInput}
-              onChange={(event) => this.updateInputValue(event.target.value)}
-              onKeyPress={this.handleKeyPress}
-            />
-          </Dialog>
         </div>
       </MuiThemeProvider>
     );
@@ -116,7 +103,7 @@ sendJoinedMessage() {
 
 onChooseName() {
   this.registerSocket();
-  this.setState({ modalOpen: false });
+  
 }
 
 updateInputValue(value) {
