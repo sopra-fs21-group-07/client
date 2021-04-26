@@ -10,6 +10,7 @@ import Register from "../../login/Register";
 import Home from "../../home/Home";
 import Dashboard from "../../dashboard/Dashboard";
 import Chat from "../../chat/containers/Chat/Chat";
+import AppChat from "../../chat/containers/Chat/AppChat";
 
 
 /**
@@ -88,7 +89,7 @@ class AppRouter extends React.Component {
               path="/chat"
               exact
               render={() => (
-                <Chat />
+                <AppChat />
               )}
             />
             

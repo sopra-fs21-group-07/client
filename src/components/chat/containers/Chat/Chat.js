@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 
 class Chat extends Component {
     render() {
+    
         const styles = {
             height: 500,
             width: 500,
