@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
 import Navbar from './components/navigation/Navbar';
@@ -12,11 +11,8 @@ import ProfilePage from './components/profilePage/ProfilePage';
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateTour from './components/Tour/CreateTour';
 import ConfirmTour from './components/Tour/ConfirmTour';
+import AppChat from './components/chat/containers/Chat/AppChat';
 
-/**
- * Happy coding!
- * Header imports the defined header in components
- */
 class App extends Component {
   render() {
     return (
@@ -35,7 +31,8 @@ class App extends Component {
           <Route path='/newTour' component={CreateTour} />
           <Route path='/confirmTour/:id' component={ConfirmTour} />
           <Route path='/profilePage/:username' component={ProfilePage} />
-          {/* <Route href="#" onClick={this.logout} Logout/>*/}
+          <Route path='/chat' component={AppChat} />
+          {}
           </Switch>
       </Router>
     </>
@@ -44,3 +41,4 @@ class App extends Component {
 }
 
 export default App;
+
