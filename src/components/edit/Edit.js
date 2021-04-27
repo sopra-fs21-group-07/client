@@ -146,7 +146,7 @@ async editFirstName() {
       firstName: this.state.firstName,
     });
     const response = await api.put("/edit/firstName/" + localStorage.getItem("username"), requestBody)
-    alert("Firstname changed successfully")
+    alert("Firstname changed successfully!")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
