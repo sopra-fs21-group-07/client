@@ -7,12 +7,12 @@ import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
 import SplitPanel from 'split-panel-react';
+import Split from 'react-split'
 
 const Container = styled(BaseContainer)`
   color: white;
   text-align: left;
 `;
-
 
 const MiddleContainer = styled.div`
   align-items: center;
@@ -100,6 +100,11 @@ const ButtonContainer = styled.li`
   justify-content: center;
 `;
 
+const split = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 class ProfilePage extends React.Component {
 
   constructor() {
@@ -148,6 +153,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
+    
         <MiddleContainer>
           <style>{'body { background-color: grey; }'}</style>
       <Container>

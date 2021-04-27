@@ -133,7 +133,7 @@ async editUsername() {
     });
     const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
     localStorage.setItem('username', this.state.username);
-    alert("Success")
+    alert("Username changed successfully")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
@@ -146,7 +146,7 @@ async editFirstName() {
       firstName: this.state.firstName,
     });
     const response = await api.put("/edit/firstName/" + localStorage.getItem("username"), requestBody)
-    alert("Success")
+    alert("Firstname changed successfully")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
@@ -159,7 +159,7 @@ async editLastName() {
       lastName: this.state.lastName,
     });
     const response = await api.put("/edit/lastName/" + localStorage.getItem("username"), requestBody)
-    alert("Success")
+    alert("Lastname changed successfully")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
@@ -172,7 +172,7 @@ async editAge() {
       age: this.state.age,
     });
     const response = await api.put("/edit/age/" + localStorage.getItem("username"), requestBody)
-    alert("Success")
+    alert("Age changed successfully")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
@@ -185,7 +185,7 @@ async editRegion() {
       region: this.state.region,
     });
     const response = await api.put("/edit/region/" + localStorage.getItem("username"), requestBody)
-    alert("Success")
+    alert("Region changed successfully")
 
 
   } catch (error) {
@@ -282,9 +282,6 @@ async editRegion() {
               width="25%"
               // disabled={!this.state.username}
               onClick={() => {
-                if (this.state.username){
-                  this.editUsername();
-                }
                 if (this.state.firstName){
                   this.editFirstName();
                 }
@@ -296,6 +293,9 @@ async editRegion() {
                 }
                 if (this.state.region){
                   this.editRegion();
+                }
+                if (this.state.username){
+                  this.editUsername();
                 }
               
               }}>
