@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
@@ -29,6 +30,7 @@ const ProfileContainer = styled.li`
   flex-direction: column;
   align-items: left;
   justify-content: center;
+
   }
 `;
 
@@ -70,6 +72,9 @@ const ProfileButton = styled.a`
   opacity: ${props => (props.disabled ? 1 : 1)};
   transition: all 0.3s ease;
   margin: 5px;
+
+  align-items: center;
+  justify-content: center;
   `;
 
 
@@ -100,10 +105,39 @@ const ButtonContainer = styled.li`
   justify-content: center;
 `;
 
-const split = styled.div`
+
+
+const EqualDivider = styled.div`
   display: flex;
-  flex-direction: column;
+  margin: 0.5rem;
+  padding: 1rem;
+  background: grey;
+  ${props => props.vertical && "flex-direction: column;"}
+
+  > * {
+    flex: 1;
+
+    &:not(:first-child) {
+      ${props => props.vertical ? "margin-top" : "margin-left"}: 1rem;
+    }
+  }
 `;
+
+
+const Child1 = styled.div`
+  padding: 0.25rem 0.5rem;
+  background: royalblue;
+  flex: 1 1 auto;
+`;
+
+const Child2 = styled.div`
+  padding: 0.25rem 0.5rem;
+  background: royalblue;
+  flex: 2 1 auto;
+`;
+
+
+//#endregion
 
 class ProfilePage extends React.Component {
 
@@ -153,7 +187,44 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-    
+
+
+      <EqualDivider>
+        <style>{'body { background-color: grey; }'}</style>
+        <Child1>        
+          <h1>Profile</h1>
+        {!this.state.users ? (
+          <Spinner />
+        ) : (
+          <div>
+
+            <ProfileContainer>
+              <Profile user={this.state.users}/>
+            </ProfileContainer>
+            <ButtonContainer>
+            <ProfileButton
+              width="25%"
+              onClick={() => {
+                this.edit();
+              }}>
+              Edit
+            </ProfileButton>
+            <ProfileButton
+              width="25%"
+              onClick={() => {
+                this.back();
+              }}>
+              Back
+            </ProfileButton>
+            </ButtonContainer>
+          </div>
+        )}</Child1>
+        <Child2>
+          <h1>Tours</h1>
+        </Child2>
+      </EqualDivider>
+
+    /* 
         <MiddleContainer>
           <style>{'body { background-color: grey; }'}</style>
       <Container>
@@ -185,7 +256,7 @@ class ProfilePage extends React.Component {
           </div>
         )}
       </Container>
-        </MiddleContainer>
+        </MiddleContainer> */
 
     );
         }
