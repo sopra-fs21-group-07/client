@@ -7,8 +7,8 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
-import SplitPanel from 'split-panel-react';
-import Split from 'react-split'
+//import SplitPanel from 'split-panel-react';
+//import Split from 'react-split'
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -126,16 +126,26 @@ const EqualDivider = styled.div`
 
 const Child1 = styled.div`
   padding: 0.25rem 0.5rem;
-  background: royalblue;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  border: 1px solid #ffffff26;
+  cursor: auto;  
   flex: 1 1 auto;
 `;
 
 const Child2 = styled.div`
   padding: 0.25rem 0.5rem;
-  background: royalblue;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  border: 1px solid #ffffff26;  
   flex: 2 1 auto;
 `;
-
+const Label = styled.h1`
+  font-weight: bold;
+  color: #ffffff;
+`;
 
 //#endregion
 
@@ -192,7 +202,7 @@ class ProfilePage extends React.Component {
       <EqualDivider>
         <style>{'body { background-color: grey; }'}</style>
         <Child1>        
-          <h1>Profile</h1>
+          <Label>Profile</Label>
         {!this.state.users ? (
           <Spinner />
         ) : (
@@ -220,7 +230,7 @@ class ProfilePage extends React.Component {
           </div>
         )}</Child1>
         <Child2>
-          <h1>Tours</h1>
+          <Label>Tours</Label>
         </Child2>
       </EqualDivider>
 

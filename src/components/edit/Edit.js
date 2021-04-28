@@ -196,7 +196,7 @@ async editRegion() {
 
   // redirect to your profile page
   back() {
-    this.props.history.push('/dashboard');
+    this.props.history.push('/profilepage/:username');
   }
 
   /**
