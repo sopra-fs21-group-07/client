@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
@@ -42,6 +43,8 @@ const mainStyle = {
 		borderRadius: 10,
 	}
 };
+
+//#endregion
 
 // Number of Tours which displayed on the user dashboard
 const NumOfDisplayedTours = 3;

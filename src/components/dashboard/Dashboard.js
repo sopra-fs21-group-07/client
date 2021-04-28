@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
@@ -91,7 +92,7 @@ position: fixed;
 z-index: -1;
 `;
 
-
+//#endregion
 
 
 /**
@@ -121,7 +122,7 @@ class Dashboard extends React.Component {
               <Form>
                 <TourInformationPage/>
               </Form>
-              <br></br>
+              <br></br> 
             {/*<Users>
               {this.state.users.map(user => {
                 return (

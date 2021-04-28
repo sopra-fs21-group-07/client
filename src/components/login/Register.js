@@ -1,4 +1,5 @@
-  /**
+ //#region 
+ /**
    * This class is mainly meant for the register function.
    * We will wait on Dylan before we start to work here
    */
@@ -67,7 +68,7 @@
     color: white;
     margin-bottom: 33px;
 `;
-   
+   //#endregion
    /**
     * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
     * You should have a class (instead of a functional component) when:

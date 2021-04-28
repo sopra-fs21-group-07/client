@@ -7,22 +7,23 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
-//import SplitPanel from 'split-panel-react';
-//import Split from 'react-split'
+import TourInformationPage from '../Tour/TourInformationPage';
 
-const Container = styled(BaseContainer)`
-  color: white;
-  text-align: left;
-`;
 
-const MiddleContainer = styled.div`
-  align-items: center;
+const Form = styled.div`
   display: flex;
-`;
-
-const Users = styled.ul`
-  list-style: none;
-  padding-left: 0;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
 `;
 
 const ProfileContainer = styled.li`
@@ -32,24 +33,6 @@ const ProfileContainer = styled.li`
   justify-content: center;
 
   }
-`;
-
-const BackButton = styled.a`
-  all: unset;
-  padding 5px;
-  font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  &::before {
-    content: "< ";
-  }
-
 `;
 
 const ProfileButton = styled.a`
@@ -77,26 +60,6 @@ const ProfileButton = styled.a`
   justify-content: center;
   `;
 
-
-const WholeProfileContaniner = styled.div`
-    justifyContent: right;
-    margin-left: 10px; 
-    margin-top: 50px;  
-    width: 450px;
-    background: black;
-    display: flex;
-    border-radius: 6px;
-    border: 1px solid #fffff26;
-`;
-
-const TourContainer = styled.div`
-    margin-left: 10px;
-    width: 90%;
-    background: white;
-    display: flex;
-    border-radius: 6px;
-    border: 1px solid #fffff26;
-`;
 
 const ButtonContainer = styled.li`
   display: flex;
@@ -231,43 +194,12 @@ class ProfilePage extends React.Component {
         )}</Child1>
         <Child2>
           <Label>Tours</Label>
+          <Form>
+              <TourInformationPage/>
+            </Form>
+            <br></br> 
         </Child2>
       </EqualDivider>
-
-    /* 
-        <MiddleContainer>
-          <style>{'body { background-color: grey; }'}</style>
-      <Container>
-        <h1>Profile</h1>
-        {!this.state.users ? (
-          <Spinner />
-        ) : (
-          <div>
-
-            <ProfileContainer>
-              <Profile user={this.state.users}/>
-            </ProfileContainer>
-            <ButtonContainer>
-            <ProfileButton
-              width="30%"
-              onClick={() => {
-                this.edit();
-              }}>
-              Edit
-            </ProfileButton>
-            <ProfileButton
-              width="30%"
-              onClick={() => {
-                this.back();
-              }}>
-              Back
-            </ProfileButton>
-            </ButtonContainer>
-          </div>
-        )}
-      </Container>
-        </MiddleContainer> */
-
     );
         }
 }

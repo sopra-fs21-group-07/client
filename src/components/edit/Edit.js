@@ -1,6 +1,6 @@
+//#region 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Button } from '../../views/design/Button';
@@ -104,7 +104,7 @@ const ButtonContainer = styled.li`
   justify-content: center;
 `;
 
-
+//#endregion
 
 class Edit extends React.Component {
 

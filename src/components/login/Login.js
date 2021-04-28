@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
@@ -62,6 +63,7 @@ color: white;
 margin-bottom: 33px;
 `;
 
+//#endregion
 /**
  * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
  * You should have a class (instead of a functional component) when:
