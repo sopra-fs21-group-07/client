@@ -7,7 +7,10 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
+
 import TourInformationPage from '../Tour/TourInformationPage';
+
+
 
 
 const Form = styled.div`
@@ -110,6 +113,7 @@ const Label = styled.h1`
   color: #ffffff;
 `;
 
+
 //#endregion
 
 class ProfilePage extends React.Component {
@@ -160,8 +164,6 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-
-
       <EqualDivider>
         <style>{'body { background-color: grey; }'}</style>
         <Child1>        
@@ -200,6 +202,7 @@ class ProfilePage extends React.Component {
             <br></br> 
         </Child2>
       </EqualDivider>
+
     );
         }
 }

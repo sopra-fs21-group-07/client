@@ -44,6 +44,13 @@ export const SidebarData = [
     cName: 'nav-text',
     loggedIn: true
 
+  },
+  {
+    title: 'Create Tour',
+    path: "/newTour",
+    icon: <CgIcons.CgAdd/>,
+    cName: 'nav-text',
+    loggedIn: true
+
   }
 ];
-
