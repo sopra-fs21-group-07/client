@@ -4,6 +4,7 @@
  class Tour {
     constructor(data = {}) {
       this.id = null;
+      this.type = null;
       this.name = null;
       this.summit = null;
       this.date = null;
