@@ -108,7 +108,9 @@ import './Modal.css'
       const response = await api.put('/tours/' + this.state.tourID, requestBody);
       console.log("REST response: ", response);
     } catch (error) {
-      alert("Somethin went wrong while logout");
+      // If the tour has no empty slots the backend create an error message Forbitten
+      alert("This tour is full. Please choose another one!");
+      this.props.history.push('/dashboard');
     }
     this.changeToDashboard();
   }
@@ -135,7 +137,7 @@ import './Modal.css'
             <Background></Background>
             <br></br>
            <center><Form>
-             <Title>Summit to your tour</Title>
+             <Title>Submit to this tour</Title>
              <Label>Enter your email adress</Label>
               <InputField
                 placeholder="Enter here.."
