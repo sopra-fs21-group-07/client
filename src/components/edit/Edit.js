@@ -1,6 +1,6 @@
+//#region 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Button } from '../../views/design/Button';
@@ -8,9 +8,25 @@ import { api, handleError } from '../../helpers/api';
 
 
 
-const Container = styled(BaseContainer)`
-  color: white;
-  text-align: center;
+const EditContainer = styled.div`
+  margin: 6px 0;
+  width: 400px;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff26;
+  cursor: auto;
+`;
+
+const MiddleContainer = styled.div`
+  align-items: center;
+  display: flex;
+`;
+
+const Title = styled.div`
+  font-weight: bold;
+  color: #ffffff;
 `;
 
 const InputField = styled.input`
@@ -19,20 +35,19 @@ const InputField = styled.input`
   }
   height: 35px;
   padding-left: 15px;
-  margin-left: -4px;
+  margin-left: auto;
   border: none;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
   color: white;
   text-align: center;
-`;
+  justify-content: right;
+`; 
 
 
-const Label = styled.label`
-  color: white;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+const Label = styled.h1`
+  font-weight: bold;
+  color: #ffffff;
 `;
 
 const BackButton = styled.a`
@@ -60,7 +75,7 @@ margin-left: 10px;
 transition: all 0.3s ease;
 `;
 
-const ChangeButton = styled.a`
+const EditButton = styled.a`
 &:hover {
   transform: translateY(-2px);
 }
@@ -73,24 +88,23 @@ color: rgba(255, 255, 255, 1);
 width: ${props => props.width || null};
 height: 35px;
 margin-top: 10px;
-margin-bottom: 5px;
-border: 0;
+margin-bottom: 10px;
+border: 1px solid white;
 border-radius: 20px;
 cursor: ${props => (props.disabled ? "default" : "pointer")};
 opacity: ${props => (props.disabled ? 1 : 1)};
-background: linear-gradient(to right, #2b5876, #4e4376);
 transition: all 0.3s ease;
-margin-left: 10px;
+margin: 5px;
 `;
 
 const ButtonContainer = styled.li`
   display: flex;
   flex-direction: row;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
 `;
 
-
+//#endregion
 
 class Edit extends React.Component {
 
@@ -98,8 +112,11 @@ class Edit extends React.Component {
     super();
     this.state = {
       username: null,
-      birthday: null
-    };
+      firstName: null,
+      lastName: null,
+      age: null,
+      region: null
+    }
   }
 
   handleInputChange(key, value) {
@@ -108,34 +125,78 @@ class Edit extends React.Component {
     this.setState({ [key]: value });
   }
 
-// Server: UserService - updateBirthday(id, birthday)
-// @PutMapping("/users/{id}/username")
-  async changeBirthday() {
-    try {
-      const response = await api.put("/users/"+localStorage.getItem("id")+"/birthday", this.state.birthday)
-      alert("Success")
-      this.props.history.push('/profilePage/'+localStorage.getItem("id"));
-    } catch (error) {
-      alert(`Something went wrong: \n${handleError(error)}`);
-    }
-  }
 
-// Server: UserService - updateUsername(id, username)
-//@PutMapping("/users/{id}/username")
-async changeUsername() {
+async editUsername() {
   try {
-    const response = await api.put("/users/"+localStorage.getItem("id")+"/username", this.state.username)
-    alert("Success")
-    this.props.history.push('/profilePage/'+localStorage.getItem("id"));
+    const requestBody = JSON.stringify({
+      username: this.state.username,
+    });
+    const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
+    localStorage.setItem('username', this.state.username);
+    alert("Username changed successfully!")
 
   } catch (error) {
     alert(`Something went wrong: \n${handleError(error)}`);
   }
 }
 
+async editFirstName() {
+  try {
+    const requestBody = JSON.stringify({
+      firstName: this.state.firstName,
+    });
+    const response = await api.put("/edit/firstName/" + localStorage.getItem("username"), requestBody)
+    alert("Firstname changed successfully!")
+
+  } catch (error) {
+    alert(`Something went wrong: \n${handleError(error)}`);
+  }
+}
+
+async editLastName() {
+  try {
+    const requestBody = JSON.stringify({
+      lastName: this.state.lastName,
+    });
+    const response = await api.put("/edit/lastName/" + localStorage.getItem("username"), requestBody)
+    alert("Lastname changed successfully")
+
+  } catch (error) {
+    alert(`Something went wrong: \n${handleError(error)}`);
+  }
+}
+
+async editAge() {
+  try {
+    const requestBody = JSON.stringify({
+      age: this.state.age,
+    });
+    const response = await api.put("/edit/age/" + localStorage.getItem("username"), requestBody)
+    alert("Age changed successfully")
+
+  } catch (error) {
+    alert(`Something went wrong: \n${handleError(error)}`);
+  }
+}
+
+async editRegion() {
+  try {
+    const requestBody = JSON.stringify({
+      region: this.state.region,
+    });
+    const response = await api.put("/edit/region/" + localStorage.getItem("username"), requestBody)
+    alert("Region changed successfully")
+
+
+  } catch (error) {
+    alert(`Something went wrong: \n${handleError(error)}`);
+  }
+}
+
+
   // redirect to your profile page
   back() {
-    this.props.history.push('/profilePage/'+localStorage.getItem("id"));
+    this.props.history.push('/profilepage/:username');
   }
 
   /**
@@ -152,51 +213,111 @@ async changeUsername() {
 
     render() {
         return (
-          <Container>
-            <Label>Birthday:</Label> 
-            <br /> <br /> 
-            <InputField
-              placeholder="DD-MM-YYYY"
-              onChange={e => {
-                this.handleInputChange('birthday', e.target.value);
-              }}
-            />
 
-            <ChangeButton
-              width="20%"
-              disabled={!this.state.birthday}
-              onClick={() => {
-                this.changeBirthday();
-              }}>
-              Change birthday
-            </ChangeButton>
-            <br /> <br /> 
-            <Label>Username:</Label> 
-            <br /> <br /> 
-            <InputField
+<>
+<style>{'body { background-color: grey; }'}</style>
+<br /> <br /><br /> 
+<MiddleContainer>
+    <BaseContainer>
+    <Label>Edit</Label>
+
+      <EditContainer>
+        <Title>Username:</Title>
+        <InputField
               placeholder="Change username" 
               onChange={e => {
                 this.handleInputChange('username', e.target.value);
 
+
               }}
             />
-            <ChangeButton
+      </EditContainer>
+
+      <EditContainer>
+        <Title>Firstname:</Title>
+        <InputField
+              placeholder="Change firstname" 
+              onChange={e => {
+                this.handleInputChange('firstName', e.target.value);
+
+              }}
+            />
+      </EditContainer>
+
+      <EditContainer>
+        <Title>Lastname:</Title>
+        <InputField
+              placeholder="Change lastname" 
+              onChange={e => {
+                this.handleInputChange('lastName', e.target.value);
+
+              }}
+            />
+      </EditContainer>
+
+      <EditContainer>
+        <Title>Age:</Title>
+        <InputField
+              placeholder="Change age" 
+              onChange={e => {
+                this.handleInputChange('age', e.target.value);
+
+              }}
+            />
+      </EditContainer>
+
+      <EditContainer>
+        <Title>Region:</Title>
+        <InputField
+              placeholder="Change region" 
+              onChange={e => {
+                this.handleInputChange('region', e.target.value);
+
+              }}
+            />
+      </EditContainer>
+
+      <ButtonContainer>
+      <EditButton
               width="25%"
-              disabled={!this.state.username}
+              // disabled={!this.state.username}
               onClick={() => {
-                this.changeUsername();
+                if (this.state.firstName){
+                  this.editFirstName();
+                }
+                if (this.state.lastName){
+                  this.editLastName();
+                }
+                if (this.state.age){
+                  this.editAge();
+                }
+                if (this.state.region){
+                  this.editRegion();
+                }
+                if (this.state.username){
+                  this.editUsername();
+                }
+              
               }}>
-              Change username
-            </ChangeButton>
-            <br /> <br /> <br /> 
-            <BackButton
-              width="50%"
+              Save
+            </EditButton>
+
+            <EditButton
+            width="25%"              
               onClick={() => {
                 this.back();
               }}>
               Back
-            </BackButton>
-          </Container>
+              </EditButton>
+
+
+            </ButtonContainer>
+
+    </BaseContainer>
+    </MiddleContainer>
+
+      </>
+    
         );
       }
     }

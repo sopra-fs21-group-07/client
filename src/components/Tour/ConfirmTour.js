@@ -1,3 +1,4 @@
+ //#region 
  import React, { useState, useEffect } from 'react';
  import { withRouter } from 'react-router-dom';
  import { Button } from '../../views/design/Button';
@@ -60,6 +61,7 @@ import './Modal.css'
    margin-left:10%
  `;
 
+ //#endregion
  function ApiProgress(props) {
   const [completed, setCompleted] = useState(0);
 

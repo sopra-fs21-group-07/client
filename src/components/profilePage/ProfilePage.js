@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
@@ -6,19 +7,26 @@ import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
-import Background from "../backgrounds/Background";
+
+import TourInformationPage from '../Tour/TourInformationPage';
 
 
-const Container = styled(BaseContainer)`
-  color: white;
-  text-align: left;
-
-`;
 
 
-const Users = styled.ul`
-  list-style: none;
-  padding-left: 0;
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
 `;
 
 const ProfileContainer = styled.li`
@@ -26,53 +34,87 @@ const ProfileContainer = styled.li`
   flex-direction: column;
   align-items: left;
   justify-content: center;
+
   }
 `;
 
-const BackButton = styled.a`
-  all: unset;
-  padding 5px;
-  font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  &::before {
-    content: "< ";
+const ProfileButton = styled.a`
+  &:hover {
+    transform: translateY(-2px);
   }
+  padding: 9px;
+  font-weight: 700;
 
-`;
-
-const EditButton = styled.a`
-  all: unset;
-  padding 5px;
   font-size: 13px;
-  text-align: left;
-  margin-top: 37px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: ${props => props.width || null};
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid white;
-  color: white;
-  -webkit-text-fill-color: white;
-  width: fit-content; 
-  cursor: ${props => (props.disabled ? "default" : "pointer")}; 
-  opacity: ${props => (props.disabled ? 0.4 : 1)};
-  }
-  &::before {
-    content: "<";
-  }
-  &::after {
-    content: ">";
-  }
-  margin-left: 10px;
+  border-radius: 20px;
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
+  opacity: ${props => (props.disabled ? 1 : 1)};
   transition: all 0.3s ease;
+  margin: 5px;
+
+  align-items: center;
+  justify-content: center;
+  `;
+
+
+const ButtonContainer = styled.li`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 
+
+const EqualDivider = styled.div`
+  display: flex;
+  margin: 0.5rem;
+  padding: 1rem;
+  background: grey;
+  ${props => props.vertical && "flex-direction: column;"}
+
+  > * {
+    flex: 1;
+
+    &:not(:first-child) {
+      ${props => props.vertical ? "margin-top" : "margin-left"}: 1rem;
+    }
+  }
+`;
+
+
+const Child1 = styled.div`
+  padding: 0.25rem 0.5rem;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  border: 1px solid #ffffff26;
+  cursor: auto;  
+  flex: 1 1 auto;
+`;
+
+const Child2 = styled.div`
+  padding: 0.25rem 0.5rem;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  border: 1px solid #ffffff26;  
+  flex: 2 1 auto;
+`;
+const Label = styled.h1`
+  font-weight: bold;
+  color: #ffffff;
+`;
+
+
+//#endregion
 
 class ProfilePage extends React.Component {
 
@@ -119,12 +161,13 @@ class ProfilePage extends React.Component {
 
 
 
+
   render() {
     return (
-        <div>
-          <style>{'body { background-color: grey; }'}</style>
-      <Container>
-        <h1>Profile</h1>
+      <EqualDivider>
+        <style>{'body { background-color: grey; }'}</style>
+        <Child1>        
+          <Label>Profile</Label>
         {!this.state.users ? (
           <Spinner />
         ) : (
@@ -133,30 +176,36 @@ class ProfilePage extends React.Component {
             <ProfileContainer>
               <Profile user={this.state.users}/>
             </ProfileContainer>
-            <br />
-
-            <Button
-              width="30%"
-              disabled={localStorage.getItem("username") != this.state.users.username}
+            <ButtonContainer>
+            <ProfileButton
+              width="25%"
               onClick={() => {
                 this.edit();
               }}>
               Edit
-            </Button>
-            <br /> <br />
-            <Button
-              width="30%"
+            </ProfileButton>
+            <ProfileButton
+              width="25%"
               onClick={() => {
                 this.back();
               }}>
               Back
-            </Button>
+            </ProfileButton>
+            </ButtonContainer>
           </div>
-        )}
-      </Container>
-        </div>
+        )}</Child1>
+        <Child2>
+          <Label>Tours</Label>
+          <Form>
+              <TourInformationPage/>
+            </Form>
+            <br></br> 
+        </Child2>
+      </EqualDivider>
+
     );
-  }
+        }
 }
 
 export default withRouter(ProfilePage);
+//<TourContainer>Here are all tours:</TourContainer>

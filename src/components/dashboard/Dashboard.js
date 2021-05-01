@@ -1,3 +1,4 @@
+//#region 
 import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
@@ -10,7 +11,6 @@ import Background from "../backgrounds/Background";
 import TourInformationPage from '../Tour/TourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
 
-//import mountains from '../images/mountains2.png';
 
 const FormContainer = styled.div`
   margin-top: 2em;
@@ -92,9 +92,7 @@ position: fixed;
 z-index: -1;
 `;
 
-
-//console.log(mountains); // /logo.84287d09.png
-
+//#endregion
 
 
 /**
@@ -118,10 +116,13 @@ class Dashboard extends React.Component {
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/newTour'); }}>Create new Tour</Button>
               </ButtonContainer>
+              <ButtonContainer>
+                <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
+              </ButtonContainer>
               <Form>
                 <TourInformationPage/>
               </Form>
-              <br></br>
+              <br></br> 
             {/*<Users>
               {this.state.users.map(user => {
                 return (

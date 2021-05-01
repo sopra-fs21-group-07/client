@@ -1,3 +1,4 @@
+//#region 
 /**
  * This is the place where a user can create a tour and has to give the specific information
  * 
@@ -69,6 +70,7 @@ const Form = styled.div`
   margin-left:10%
 `;
 
+//#endregion 
 class CreateTour extends React.Component {
 
   constructor() {
@@ -176,7 +178,7 @@ class CreateTour extends React.Component {
           <Background></Background>
           <FormContainer>DASHBOARD</FormContainer>
           <center><Form>
-            <Title>Create your mountain experiance</Title>
+            <Title>Create your mountain experience</Title>
             <Label>Titel</Label>
               <InputField
                 placeholder="Enter here.."
