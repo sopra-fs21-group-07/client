@@ -6,7 +6,7 @@
  import { BaseContainer } from '../../helpers/layout';
  import { Spinner } from '../../views/design/Spinner';
  import { api, handleError } from '../../helpers/api';
- import TourInformation from '../Tour/TourInformation';
+ import TourInformationSmall from '../Tour/TourInformation';
  import Background from '../backgrounds/Background';
 import { ProgressBar } from './ProgressBar';
 
@@ -85,15 +85,16 @@ import './Modal.css'
          percent: 0,
          progressBarVisible: false,
          timer: 0,
+         tour: null,
      };
      this.findIDfromURL();
    }
 
-   findIDfromURL(){
+   async findIDfromURL(){
        this.setState({
            tourID: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/')+1),
        });
-      }
+    }
  
    async reduceEmptySlots() {
     this.setState({
@@ -120,6 +121,21 @@ import './Modal.css'
     this.props.history.push('/dashboard');
   }
 
+  async getCurrentTour(){
+    try{
+        const response = await api.get('/tours/'+this.state.tourID);
+        // Get the returned users and update the state.
+        //this.setState({ tour: response.data });
+        // Random tours display on dashboard
+
+        // This is just some data for you to see what is available.
+        // Feel free to remove it.
+        this.setState({ tour: response.data.summit });
+      } catch (error) {
+        alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
+      }
+  }
+
   handleInputChange(key, value) {
     // Example: if the key is username, this statement is the equivalent to the following one:
     // this.setState({'username': value});
@@ -129,15 +145,17 @@ import './Modal.css'
   async componentDidMount() {
     this.findIDfromURL();
     this.setState({percent: 0});
+    this.getCurrentTour();
   }
  
    render() {
+     this.getCurrentTour();
      return (
            <div>
             <Background></Background>
             <br></br>
            <center><Form>
-             <Title>Submit to this tour</Title>
+             <Title>Submit to this tour => {this.state.tour}</Title>
              <Label>Enter your email adress</Label>
               <InputField
                 placeholder="Enter here.."
