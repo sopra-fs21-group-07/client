@@ -15,6 +15,7 @@ const ImageStyle = styled.img`
     border-radius: 6px;
 `;
 
+
 export default ({ isOpen, onRequestClose, tour, image, booktour}) =>
   <Modal
     isOpen={isOpen}
@@ -38,5 +39,9 @@ export default ({ isOpen, onRequestClose, tour, image, booktour}) =>
     <br></br>
     <ImageStyle src={image}/>
     <TourInformation Tour={tour}></TourInformation>
-    <center><Button width="50%" onClick={booktour}>Add me</Button></center>
+    <center>
+      <Button width="20%" onClick={booktour}>Add me</Button>
+      <span/> <span/> <span/>
+      <Button width="20%" onClick={onRequestClose}>Back</Button>
+    </center>
   </Modal>

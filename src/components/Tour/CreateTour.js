@@ -9,6 +9,8 @@ import styled from 'styled-components';
 import { api, handleError } from '../../helpers/api';
 import Background from '../backgrounds/Background';
 import AsyncSelect from 'react-select/async';
+import Select from 'react-select';
+import { tourtypeOptions } from './data/tourtypes';
 
 const InputField = styled.input`
   &::placeholder {
@@ -19,7 +21,6 @@ const InputField = styled.input`
   margin-left: -4px;
   border: none;
   border-radius: 5px;
-  margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.2);
   color: white;
 `;
@@ -28,6 +29,7 @@ const Label = styled.label`
   color: white;
   margin-bottom: 10px;
   text-transform: uppercase;
+  margin-top: 20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -49,7 +51,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: left;
   margin-left: 20%;
-  min-height: 200px;
+  min-height: 250px;
   justify-content: center;
   color: white;
 `;
@@ -59,7 +61,7 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 60%;
-  height: 500px;
+  height: 600px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
@@ -76,6 +78,7 @@ class CreateTour extends React.Component {
   constructor() {
     super();
     this.state = {
+      tourType: tourtypeOptions[0].value,
       name: null,
       summit: null,
       emptySlots: 0,
@@ -132,6 +135,10 @@ class CreateTour extends React.Component {
     this.setState({myChoose});
   }
 
+  handelClickTourType = (tourType) => {
+    this.setState({tourType});
+  }
+
   /**
    * Save the userinput already in the state value
    */
@@ -147,13 +154,14 @@ class CreateTour extends React.Component {
   async postTour() {
     try {
       const requestBody = JSON.stringify({
+        type: this.state.tourType.value,
         name: this.state.name,
         summit: this.state.myChoose[0].label,
         altitude: this.state.myChoose[0].value,
         emptySlots: this.state.emptySlots,
       });
+      console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
-      console.log(requestBody);
       this.props.history.push('/dashboard');
 
     } catch (error) {
@@ -187,6 +195,12 @@ class CreateTour extends React.Component {
                   this.handleInputChange('name', e.target.value);
                 }}
               />
+            <Label>Tour type</Label>
+            <Select
+              defaultValue={tourtypeOptions[0]}
+              options={tourtypeOptions}
+              onChange={this.handelClickTourType}
+            />
             <Label>Target: Summit</Label>
             <div>
               <AsyncSelect
@@ -217,6 +231,7 @@ class CreateTour extends React.Component {
                 Submit
               </Button>
             </ButtonContainer></Form></center>
+            <br/><br/><br/><br/><br/><br/>
           </div>  
     );
   }

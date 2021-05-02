@@ -6,7 +6,7 @@
  import { BaseContainer } from '../../helpers/layout';
  import { Spinner } from '../../views/design/Spinner';
  import { api, handleError } from '../../helpers/api';
- import TourInformation from '../Tour/TourInformation';
+ import TourInformationSmall from '../Tour/TourInformation';
  import Background from '../backgrounds/Background';
 import { ProgressBar } from './ProgressBar';
 
@@ -85,15 +85,16 @@ import './Modal.css'
          percent: 0,
          progressBarVisible: false,
          timer: 0,
+         tour: null,
      };
      this.findIDfromURL();
    }
 
-   findIDfromURL(){
+   async findIDfromURL(){
        this.setState({
            tourID: this.props.location.pathname.substring(this.props.location.pathname.lastIndexOf('/')+1),
        });
-      }
+    }
  
    async reduceEmptySlots() {
     this.setState({
@@ -108,7 +109,9 @@ import './Modal.css'
       const response = await api.put('/tours/' + this.state.tourID, requestBody);
       console.log("REST response: ", response);
     } catch (error) {
-      alert("Somethin went wrong while logout");
+      // If the tour has no empty slots the backend create an error message Forbitten
+      alert("This tour is full. Please choose another one!");
+      this.props.history.push('/dashboard');
     }
     this.changeToDashboard();
   }
@@ -116,6 +119,21 @@ import './Modal.css'
   async changeToDashboard() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     this.props.history.push('/dashboard');
+  }
+
+  async getCurrentTour(){
+    try{
+        const response = await api.get('/tours/'+this.state.tourID);
+        // Get the returned users and update the state.
+        //this.setState({ tour: response.data });
+        // Random tours display on dashboard
+
+        // This is just some data for you to see what is available.
+        // Feel free to remove it.
+        this.setState({ tour: response.data.summit });
+      } catch (error) {
+        alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
+      }
   }
 
   handleInputChange(key, value) {
@@ -127,15 +145,17 @@ import './Modal.css'
   async componentDidMount() {
     this.findIDfromURL();
     this.setState({percent: 0});
+    this.getCurrentTour();
   }
  
    render() {
+     this.getCurrentTour();
      return (
            <div>
             <Background></Background>
             <br></br>
            <center><Form>
-             <Title>Summit to your tour</Title>
+             <Title>Submit to this tour => {this.state.tour}</Title>
              <Label>Enter your email adress</Label>
               <InputField
                 placeholder="Enter here.."
