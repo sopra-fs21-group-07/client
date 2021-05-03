@@ -2,7 +2,7 @@
 const AppConfig = {
     PROTOCOL: "wss:",
     // TODO: change to localhost if you wish to run it locally
-    HOST: "//serene-wave-94653.herokuapp.com",
+    HOST: "//sopra-group-7-chat-server.herokuapp.com/",
     PORT: ":9000"
 }
 
