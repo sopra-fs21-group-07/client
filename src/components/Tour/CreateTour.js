@@ -12,6 +12,14 @@ import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import { tourtypeOptions } from './data/tourtypes';
 
+import UploadPictures from '../Tour/UploadPictures';
+
+import Axios from "axios"
+import {useState} from "react";
+
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+
+
 const InputField = styled.input`
   &::placeholder {
     color: rgba(255, 255, 255, 1.0);
@@ -71,6 +79,23 @@ const Form = styled.div`
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left:10%
 `;
+
+const UploadContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  font-size: 16px;
+  color: white;
+  font-weight: 300;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+`;
+
+
+
+
 
 //#endregion 
 class CreateTour extends React.Component {
@@ -147,6 +172,7 @@ class CreateTour extends React.Component {
     this.setState({ inputValue });
   };
 
+
   /**
    * Send the tour data to the server
    * summitname and altitude identify the tour aim, so that the backend can find the coordinates and store the data in .kml file. 
@@ -169,6 +195,7 @@ class CreateTour extends React.Component {
     }
   }
 
+
   /**
   *  Every time the user enters something in the input field, the state gets updated.
   * @param key (the key of the state for identifying the field that needs to be updated)
@@ -180,6 +207,7 @@ class CreateTour extends React.Component {
     this.setState({ [key]: value });
   }
 
+
   render() {
     return (
           <div>
@@ -187,7 +215,7 @@ class CreateTour extends React.Component {
           <FormContainer>DASHBOARD</FormContainer>
           <center><Form>
             <Title>Create your mountain experience</Title>
-            <Label>Titel</Label>
+            <Label>Title</Label>
               <InputField
                 placeholder="Enter here.."
                 type="name"
@@ -221,6 +249,13 @@ class CreateTour extends React.Component {
                   this.handleInputChange('emptySlots', e.target.value);
                 }}
               />
+
+            <Label>Upload Pictures</Label>
+            <UploadContainer>
+              <UploadPictures/>
+            </UploadContainer>
+
+
             <ButtonContainer>
               <Button
                 width="50%"
@@ -230,9 +265,11 @@ class CreateTour extends React.Component {
               >
                 Submit
               </Button>
-            </ButtonContainer></Form></center>
+            </ButtonContainer>
+
+            </Form></center>
             <br/><br/><br/><br/><br/><br/>
-          </div>  
+                    </div>  
     );
   }
 }
