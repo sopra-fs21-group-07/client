@@ -126,19 +126,7 @@ class Edit extends React.Component {
   }
 
 
-async editUsername() {
-  try {
-    const requestBody = JSON.stringify({
-      username: this.state.username,
-    });
-    const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
-    localStorage.setItem('username', this.state.username);
-    alert("Username changed successfully!")
 
-  } catch (error) {
-    alert(`Something went wrong: \n${handleError(error)}`);
-  }
-}
 
 async editFirstName() {
   try {
@@ -193,6 +181,21 @@ async editRegion() {
   }
 }
 
+async editUsername() {
+  try {
+    const requestBody = JSON.stringify({
+      username: this.state.username,
+    });
+    const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
+    alert("Username changed successfully!")
+    localStorage.setItem('username', this.state.username);
+
+  } catch (error) {
+    alert(`Something went wrong: \n${handleError(error)}`);
+  }
+}
+
+
 
   // redirect to your profile page
   back() {
@@ -231,6 +234,15 @@ async editRegion() {
 
               }}
             />
+
+            <EditButton
+            width="15%"              
+              onClick={() => {
+                this.editUsername();
+              }}>
+              edit
+              </EditButton>
+
       </EditContainer>
 
       <EditContainer>
@@ -242,6 +254,15 @@ async editRegion() {
 
               }}
             />
+
+            <EditButton
+            width="15%"              
+              onClick={() => {
+                this.editFirstName();
+              }}>
+              edit
+              </EditButton>
+
       </EditContainer>
 
       <EditContainer>
@@ -253,6 +274,15 @@ async editRegion() {
 
               }}
             />
+
+            <EditButton
+            width="15%"              
+              onClick={() => {
+                this.editLastName();
+              }}>
+              edit
+              </EditButton>
+
       </EditContainer>
 
       <EditContainer>
@@ -264,6 +294,15 @@ async editRegion() {
 
               }}
             />
+
+            <EditButton
+            width="15%"              
+              onClick={() => {
+                this.editAge();
+              }}>
+              edit
+              </EditButton>
+
       </EditContainer>
 
       <EditContainer>
@@ -275,10 +314,19 @@ async editRegion() {
 
               }}
             />
+
+            <EditButton
+            width="15%"              
+              onClick={() => {
+                this.editRegion();
+              }}>
+              edit
+              </EditButton>
+
       </EditContainer>
 
       <ButtonContainer>
-      <EditButton
+{/*       <EditButton
               width="25%"
               // disabled={!this.state.username}
               onClick={() => {
@@ -300,7 +348,7 @@ async editRegion() {
               
               }}>
               Save
-            </EditButton>
+            </EditButton> */}
 
             <EditButton
             width="25%"              
@@ -309,8 +357,6 @@ async editRegion() {
               }}>
               Back
               </EditButton>
-
-
             </ButtonContainer>
 
     </BaseContainer>

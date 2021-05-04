@@ -27,21 +27,6 @@ const Title = styled.div`
   color: #ffffff;
 `;
 
-const Online = styled.span`
-  color: #4caf50;
-  &::after {
-    content: "✔";
-  }
-  padding-right: 6px;
-`;
-
-const Offline = styled.span`
-  color: #f44336;
-  &::after {
-    content: "✘";
-  }
-  padding-right: 6px;
-`;
 
 
 //#endregion
@@ -77,22 +62,14 @@ const Profile = ({ user }) => {
         </Container>
 
         <Container>
-            <Title>Region:</Title>
-            <ContentField> {user.region}</ContentField>
+            <Title>Age:</Title>
+            <ContentField> {user.age}</ContentField>
         </Container>
 
         <Container>
-            <Title>Status:</Title>
-            <ContentField>
-            <user_info>{user.status}</user_info>
-            {user.status === 'ONLINE'?
-            <Online/>
-            :
-            <Offline/>
-        }
-        </ContentField>
+            <Title>Region:</Title>
+            <ContentField> {user.region}</ContentField>
         </Container>
-
     </>
   );
 };
