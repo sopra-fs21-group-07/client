@@ -119,7 +119,7 @@
          const token = await api.post('/api/auth/signup', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
    
          // Store the token into the local storage.
-         localStorage.setItem('token', token);
+         //localStorage.setItem('token', token);
 
    
          // Register successfully worked --> navigate to the route /game in the GameRouter
