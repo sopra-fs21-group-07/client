@@ -1,0 +1,206 @@
+//#region 
+import React from 'react';
+import styled from 'styled-components';
+import { BaseContainer } from '../../../helpers/layout';
+import { api, handleError } from '../../../helpers/api';
+import Users from '../../shared/models/User';
+import { withRouter } from 'react-router-dom';
+import { Button } from '../../../views/design/Button';
+import GeoAdmin from '../../geoAdminMap/GeoAdmin';
+import Background from "../../backgrounds/Background";
+import TourInformationPage from '../../Tour/TourInformationPage';
+import {ParallaxProvider} from "react-scroll-parallax";
+import logo1 from '../dummyPics/Everest.jpg';
+import Tour from '../../shared/models/Tour';
+import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
+
+
+const FormContainer = styled.div`
+  margin-top: 2em;
+  display: flex;
+    font-size: 30px;
+  flex-direction: column;
+   align-items: left;
+  margin-left: 20%;
+  min-height: 200px;
+  justify-content: center;
+  color: white;
+`;
+
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
+`;
+
+const InputField = styled.input`
+  &::placeholder {
+    color: rgba(255, 255, 255, 1.0);
+  }
+  height: 35px;
+  padding-left: 15px;
+  margin-left: -4px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+`;
+
+const Buttons = styled.div`
+  float: right;
+  top: -20%;
+  right: 20;
+  width: 200px;
+`;
+
+const Label = styled.label`
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+`;
+
+const ButtonContainer = styled.div`
+  justify-content: center;
+  margin-top: 40px;
+  margin-right: 200px;
+  width: 200px;
+  float: right;
+  top: -20%;
+  right: 20;
+`;
+
+const TourContainer = styled.li`
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+`;
+
+const mainStyle = {
+	button: {
+		backgroundColor: "#408cec",
+		border: 0,
+		padding: "12px 20px",
+		color: "#fff",
+		margin: "0 auto",
+		width: 150,
+		borderRadius: 10,
+	}
+};
+
+//#endregion
+
+
+/**
+ * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
+ * You should have a class (instead of a functional component) when:
+ * - You need an internal state that cannot be achieved via props from other parent components
+ * - You fetch data from the server (e.g., in componentDidMount())
+ * - You want to access the DOM via Refs
+ * https://reactjs.org/docs/react-component.html
+ * @Class
+ */
+class TourProfilePage extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      tourList: [],
+      tourID: null,
+      allTours: null,
+      currentTour: 0,
+      currentImg: logo1,
+      isOpen: false,
+      curr: null,
+      id: 0,
+    };
+  }
+
+
+  async componentDidMount() {
+    try {
+      const response = await api.get('/tours');
+      // delays continuous execution of an async operation for 1 second.
+      // This is just a fake async call, so that the spinner can be displayed
+      // feel free to remove it :)
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      this.setState({tourID: parseFloat(localStorage.getItem("tourID"))});
+      localStorage.removeItem("tourID");
+
+      // Get the returned users and update the state.
+      this.setState({ allTours: response.data });
+      // Create from the response tour objects
+      this.generateTourList(response);
+
+      // This is just some data for you to see what is available.
+      // Feel free to remove it.
+      console.log('request to:', this.state.tourList[0]);
+
+      // See here to get more data.
+      console.log(response);
+    } catch (error) {
+      alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
+    }
+  }
+
+  generateTourList(response) {
+    var tl = [];
+    response.data.forEach(function(item){
+      var singleTour = new Tour(item);
+      tl.push(singleTour);
+    });
+    this.setState({ tourList: tl});
+  }
+//PROBLEM!!! konstruktor ish alles no null und drum git no kei liste --> TourInformationSmall
+    render() {
+        return <ParallaxProvider>
+            <Background></Background>
+            <FormContainer>TESTTESTEST</FormContainer>
+              <ButtonContainer>
+                <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
+              </ButtonContainer>
+              <Form>
+              <TourContainer>
+                <img src={logo1} width='200px' height='200px' />  
+                <TourInformationSmall Tour={this.state.tourList[this.state.tourID]}/>
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0
+                  }}
+                  disabled={this.state.Tour?.numberofparticipants == 0} 
+                  onClick={() => { this.toggleState( this.state.tourID, logo1); }}>
+                  book this tour {this.state.tourID}
+                </button></center>
+              </TourContainer>
+              </Form>
+              <br></br> 
+            </ParallaxProvider>
+    }
+}
+
+/**
+ * You can get access to the history object's properties via the withRouter.
+ * withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+ *
+ *
+ * <Title style={{position: 'absolute', fontSize: 120, letterSpacing: 20, paddingLeft: 70, paddingTop: 200}}>Mountain App</Title>
+ * This title made some problems
+
+ */
+export default withRouter(TourProfilePage);

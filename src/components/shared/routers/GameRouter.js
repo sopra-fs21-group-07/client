@@ -6,6 +6,7 @@ import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
 import Chat from "../../chat/containers/Chat/Chat";
 import AppChat from "../../chat/containers/Chat/AppChat";
+import TourProfilePage from "../../Tour/profile/TourProfilePage";
 
 const Container = styled.div`
   display: flex;
@@ -47,6 +48,12 @@ class GameRouter extends React.Component {
           exact
           path={`${this.props.base}/chat`} //keine Ahnung ob das notwendig ist...
           render={() => <AppChat />}
+        />
+
+        <Route
+          exact
+          path={`${this.props.base}/profilePage/:id`} //keine Ahnung ob das notwendig ist...
+          render={() => <TourProfilePage />}
         />
         
       </Container>

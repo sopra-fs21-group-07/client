@@ -11,6 +11,7 @@ import Home from "../../home/Home";
 import Dashboard from "../../dashboard/Dashboard";
 import Chat from "../../chat/containers/Chat/Chat";
 import AppChat from "../../chat/containers/Chat/AppChat";
+import TourProfilePage from "../../Tour/profile/TourProfilePage";
 
 
 /**
@@ -90,6 +91,14 @@ class AppRouter extends React.Component {
               exact
               render={() => (
                 <AppChat />
+              )}
+            />
+
+            <Route
+              path="/tourProfilePage/:id"
+              exact
+              render={() => (
+                <TourProfilePage />
               )}
             />
             

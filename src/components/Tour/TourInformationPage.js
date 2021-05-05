@@ -154,6 +154,11 @@ class TourInformationPage extends React.Component {
     this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
   }
 
+  openTourProfile(tourID) {
+    localStorage.setItem("tourID", tourID);
+    this.props.history.push("/tourProfilePage/"+tourID);
+  }
+
   render() {
     const bg = {
       overlay: {
@@ -172,7 +177,10 @@ class TourInformationPage extends React.Component {
           <div>
             <TourStyle>
               <TourContainer>
-                <img src={logo1} width='200px' height='200px'/>  
+                <img src={logo1} width='200px' height='200px' 
+                    onClick={() => {
+                      this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                    }} style={{cursor:'pointer'}}/>  
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/>
                 <center><button
                   style={{
@@ -183,11 +191,14 @@ class TourInformationPage extends React.Component {
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState( this.state.randNum[0], logo1); }}>
-                  book this tour
+                  book this tour 
                 </button></center>
               </TourContainer>
               <TourContainer>
-                <img src={logo2} width='200px' height='200px'/> 
+                <img src={logo2} width='200px' height='200px'
+                    onClick={() => {
+                      this.openTourProfile(this.state.tourList[this.state.randNum[1]].id);
+                    }} style={{cursor:'pointer'}}/>  
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/>
                 <center><button
                   style={{
@@ -202,7 +213,10 @@ class TourInformationPage extends React.Component {
                 </button></center>
               </TourContainer>
               <TourContainer>
-                <img src={logo3} width='200px' height='200px'/> 
+                <img src={logo3} width='200px' height='200px'
+                    onClick={() => {
+                      this.openTourProfile(this.state.tourList[this.state.randNum[2]].id);
+                    }} style={{cursor:'pointer'}}/>  
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/>
                 <center><button
                   style={{

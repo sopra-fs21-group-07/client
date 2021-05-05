@@ -14,6 +14,7 @@ import ConfirmTour from './components/Tour/ConfirmTour';
 import AppChat from './components/chat/containers/Chat/AppChat';
 import Edit from "./components/edit/Edit";
 import UploadPictures from './components/Tour/UploadPictures';
+import TourProfilePage from './components/Tour/profile/TourProfilePage';
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path='/chat' component={AppChat} />
           <Route path='/edit' component={Edit} />
           <Route path='/UploadPictures' component={UploadPictures} />
+          <Route path='/tourProfilePage/:id' component={TourProfilePage} />
           {}
           </Switch>
       </Router>
