@@ -187,11 +187,24 @@ class TourInformationPage extends React.Component {
                     ...mainStyle.button,
                     margin: 0,
                     width: "70%",
-                    marginTop: 0
+                    marginTop: 0,
+                    cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState( this.state.randNum[0], logo1); }}>
                   book this tour 
+                </button></center>
+                <br />
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0,
+                    cursor: "pointer"
+                  }}
+                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[0]].id); }}>
+                  Tour Profile
                 </button></center>
               </TourContainer>
               <TourContainer>
@@ -205,11 +218,24 @@ class TourInformationPage extends React.Component {
                     ...mainStyle.button,
                     margin: 0,
                     width: "70%",
-                    marginTop: 0
+                    marginTop: 0,
+                    cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState( this.state.randNum[1], logo2); }}>
                   book this tour
+                </button></center>
+                <br />
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0,
+                    cursor: "pointer"
+                  }}
+                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[1]].id); }}>
+                  Tour Profile
                 </button></center>
               </TourContainer>
               <TourContainer>
@@ -223,11 +249,24 @@ class TourInformationPage extends React.Component {
                     ...mainStyle.button,
                     margin: 0,
                     width: "70%",
-                    marginTop: 0
+                    marginTop: 0,
+                    cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState( this.state.randNum[2], logo3); }}>
                   book this tour
+                </button></center>
+                <br />
+                <center><button
+                  style={{
+                    ...mainStyle.button,
+                    margin: 0,
+                    width: "70%",
+                    marginTop: 0,
+                    cursor: "pointer"
+                  }}
+                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[2]].id); }}>
+                  Tour Profile
                 </button></center>
               </TourContainer>
             </TourStyle>

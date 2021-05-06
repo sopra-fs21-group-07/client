@@ -6,6 +6,7 @@ export const TABLETS_WIDTH = 750;
 export const SMALL_WIDTH = 768;
 
 export const BaseContainer = styled.div`
+  color: black;
   margin-left: auto;
   padding-left: 15px;
   margin-right: auto;

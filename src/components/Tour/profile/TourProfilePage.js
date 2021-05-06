@@ -12,6 +12,7 @@ import TourInformationPage from '../../Tour/TourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
 import logo1 from '../dummyPics/Everest.jpg';
 import Tour from '../../shared/models/Tour';
+import Modal from '../ModalBookTour';
 import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
 
 
@@ -43,32 +44,6 @@ const Form = styled.div`
   margin-left: 10%;
 `;
 
-const InputField = styled.input`
-  &::placeholder {
-    color: rgba(255, 255, 255, 1.0);
-  }
-  height: 35px;
-  padding-left: 15px;
-  margin-left: -4px;
-  border: none;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-`;
-
-const Buttons = styled.div`
-  float: right;
-  top: -20%;
-  right: 20;
-  width: 200px;
-`;
-
-const Label = styled.label`
-  color: white;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-`;
 
 const ButtonContainer = styled.div`
   justify-content: center;
@@ -80,7 +55,18 @@ const ButtonContainer = styled.div`
   right: 20;
 `;
 
+const ButtonContainer2 = styled.div`
+  justify-content: center;
+  margin-top: 40px;
+  margin-left: 200px;
+  width: 200px;
+  float: left;
+  top: -20%;
+  right: 20;
+`;
+
 const TourContainer = styled.li`
+  color: white;
   display: inline-block;
   flex-direction: column;
   justify-content: center;
@@ -118,7 +104,7 @@ class TourProfilePage extends React.Component {
     super();
     this.state = {
       tourList: [],
-      tourID: null,
+      tourNUM: null,
       allTours: null,
       currentTour: 0,
       currentImg: logo1,
@@ -142,8 +128,8 @@ class TourProfilePage extends React.Component {
       // Create from the response tour objects
       this.generateTourList(response);
 
-      this.setState({tourID: parseFloat(localStorage.getItem("tourID")-1)});
-      localStorage.removeItem("tourID");
+      this.setState({tourNUM: parseFloat(localStorage.getItem("tourID")-1)});
+      //localStorage.removeItem("tourID");
 
       // This is just some data for you to see what is available.
       // Feel free to remove it.
@@ -174,18 +160,38 @@ class TourProfilePage extends React.Component {
     });
   }
 
+  
+  closeModal = () => {
+    this.setState({ 
+    },() => this.toggleState(this.state.currentTour, this.state.currentImg));    
+  }
+
+  // Go to booking site, current Tour ID starts at = 1 
+  booktour = () => {
+    this.closeModal();
+    this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
+  }
+
+  back() {
+    localStorage.removeItem("tourID");
+    this.props.history.push('/dashboard');
+  }
+
   render() {
-      const tID = this.state.tourID;
+      const tID = this.state.tourNUM;
       let info;
+      let tourName;
       if (tID != null){
-        info = <TourInformationSmall Tour={this.state.tourList[this.state.tourID]}/>
+        info = <TourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
+        tourName = info.props.Tour.name
       }
       else{
         info = <div></div>
       }
         return <ParallaxProvider>
             <Background></Background>
-            <FormContainer>Test</FormContainer>
+            <FormContainer>Tour: {tourName}</FormContainer>
+            <ButtonContainer2><Button width="100%" onClick={() => {  this.back(); }}>Back</Button></ButtonContainer2>
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
               </ButtonContainer>
@@ -198,15 +204,24 @@ class TourProfilePage extends React.Component {
                     ...mainStyle.button,
                     margin: 0,
                     width: "70%",
-                    marginTop: 0
+                    marginTop: 0,
+                    cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.toggleState( this.state.tourID, logo1); }}>
+                  onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>
                   book this tour 
                 </button></center>
               </TourContainer>
               </Form>
               <br></br> 
+              <Modal 
+              isOpen={this.state.isOpen}
+              booktour={this.booktour}
+              onRequestClose={this.closeModal}
+              tour={this.state.curr}
+              image={this.state.currentImg}
+            >
+            </Modal>
             </ParallaxProvider>
     }
 }
