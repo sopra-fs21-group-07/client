@@ -97,7 +97,7 @@ registerSocket() {
 }
 
 sendJoinedMessage() {
-  let messageDto = JSON.stringify({ user: this.state.usernameInput, type: MessageType.USER_JOINED });
+  let messageDto = JSON.stringify({ user: this.state.usernameInput, type: MessageType.USER_JOINED, tourID : parseInt(localStorage.getItem('tourID'))});
   this.socket.send(messageDto);
 }
 
