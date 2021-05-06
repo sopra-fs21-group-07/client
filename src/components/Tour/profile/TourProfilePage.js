@@ -137,13 +137,13 @@ class TourProfilePage extends React.Component {
       // feel free to remove it :)
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      this.setState({tourID: parseFloat(localStorage.getItem("tourID"))});
-      localStorage.removeItem("tourID");
-
       // Get the returned users and update the state.
       this.setState({ allTours: response.data });
       // Create from the response tour objects
       this.generateTourList(response);
+
+      this.setState({tourID: parseFloat(localStorage.getItem("tourID")-1)});
+      localStorage.removeItem("tourID");
 
       // This is just some data for you to see what is available.
       // Feel free to remove it.
@@ -164,18 +164,35 @@ class TourProfilePage extends React.Component {
     });
     this.setState({ tourList: tl});
   }
-//PROBLEM!!! konstruktor ish alles no null und drum git no kei liste --> TourInformationSmall
-    render() {
+
+  toggleState = (clickedTour, clickedImage) => {
+    this.setState({ 
+      isOpen: !this.state.isOpen, 
+      currentTour: clickedTour,
+      currentImg: clickedImage,
+      curr: this.state.tourList[clickedTour],
+    });
+  }
+
+  render() {
+      const tID = this.state.tourID;
+      let info;
+      if (tID != null){
+        info = <TourInformationSmall Tour={this.state.tourList[this.state.tourID]}/>
+      }
+      else{
+        info = <div></div>
+      }
         return <ParallaxProvider>
             <Background></Background>
-            <FormContainer>TESTTESTEST</FormContainer>
+            <FormContainer>Test</FormContainer>
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
               </ButtonContainer>
               <Form>
               <TourContainer>
                 <img src={logo1} width='200px' height='200px' />  
-                <TourInformationSmall Tour={this.state.tourList[this.state.tourID]}/>
+                {info}
                 <center><button
                   style={{
                     ...mainStyle.button,
@@ -185,7 +202,7 @@ class TourProfilePage extends React.Component {
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState( this.state.tourID, logo1); }}>
-                  book this tour {this.state.tourID}
+                  book this tour 
                 </button></center>
               </TourContainer>
               </Form>
