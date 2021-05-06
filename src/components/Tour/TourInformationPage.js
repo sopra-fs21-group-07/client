@@ -13,6 +13,8 @@ import logo3 from './dummyPics/Nepal.jpg';
 import Modal from './ModalBookTour';
 import { withRouter } from 'react-router-dom';
 
+import {Image} from "cloudinary-react";
+
 
 const Container = styled(BaseContainer)`
   color: white;
@@ -159,6 +161,11 @@ class TourInformationPage extends React.Component {
     this.props.history.push("/tourProfilePage/"+tourID);
   }
 
+/*   givememynumberpls(tourID) {
+    localStorage.setItem("tourID", tourID);
+  } */
+
+
   render() {
     const bg = {
       overlay: {
@@ -176,11 +183,15 @@ class TourInformationPage extends React.Component {
         ) : (
           <div>
             <TourStyle>
-              <TourContainer>
-                <img src={logo1} width='200px' height='200px' 
-                    onClick={() => {
-                      this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
-                    }} style={{cursor:'pointer'}}/>  
+
+            <TourContainer>
+
+            <Image cloudName="sopra-group-7" publicID= "sample" //{this.state.tourList[this.state.randNum[0]].tourPictureKey}
+            width='200px' height='200px'
+                onClick={() => {
+                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                }} style={{cursor:'pointer'}}/>
+
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/>
                 <center><button
                   style={{
@@ -206,12 +217,15 @@ class TourInformationPage extends React.Component {
                   onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[0]].id); }}>
                   Tour Profile
                 </button></center>
-              </TourContainer>
-              <TourContainer>
-                <img src={logo2} width='200px' height='200px'
-                    onClick={() => {
-                      this.openTourProfile(this.state.tourList[this.state.randNum[1]].id);
-                    }} style={{cursor:'pointer'}}/>  
+            </TourContainer>
+            <TourContainer>
+
+            <Image cloudName="sopra-group-7" publicID= "sample"
+            width='200px' height='200px'
+                onClick={() => {
+                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                }} style={{cursor:'pointer'}}/>
+
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/>
                 <center><button
                   style={{
@@ -237,12 +251,15 @@ class TourInformationPage extends React.Component {
                   onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[1]].id); }}>
                   Tour Profile
                 </button></center>
-              </TourContainer>
-              <TourContainer>
-                <img src={logo3} width='200px' height='200px'
-                    onClick={() => {
-                      this.openTourProfile(this.state.tourList[this.state.randNum[2]].id);
-                    }} style={{cursor:'pointer'}}/>  
+            </TourContainer>
+            <TourContainer>
+
+            <Image cloudName="sopra-group-7" publicID="sample"
+            width='200px' height='200px'
+                onClick={() => {
+                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                }} style={{cursor:'pointer'}}/>
+
                 <TourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/>
                 <center><button
                   style={{
@@ -268,7 +285,7 @@ class TourInformationPage extends React.Component {
                   onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[2]].id); }}>
                   Tour Profile
                 </button></center>
-              </TourContainer>
+            </TourContainer>
             </TourStyle>
             <Modal 
               isOpen={this.state.isOpen}

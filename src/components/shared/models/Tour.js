@@ -20,6 +20,7 @@
       this.description = null;
       this.emptySlots = 0;
       this.cost = null;
+      this.tourPictureKey = null;
       Object.assign(this, data);
     }
   }

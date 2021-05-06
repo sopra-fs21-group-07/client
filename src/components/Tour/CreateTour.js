@@ -109,6 +109,7 @@ class CreateTour extends React.Component {
       emptySlots: 0,
       myChoose: [],
       inputValue: '',
+      tourPictureKey: "sample",
     };
   }
 
@@ -173,6 +174,8 @@ class CreateTour extends React.Component {
   };
 
 
+
+
   /**
    * Send the tour data to the server
    * summitname and altitude identify the tour aim, so that the backend can find the coordinates and store the data in .kml file. 
@@ -185,6 +188,9 @@ class CreateTour extends React.Component {
         summit: this.state.myChoose[0].label,
         altitude: this.state.myChoose[0].value,
         emptySlots: this.state.emptySlots,
+        tourPictureKey: localStorage.getItem('tourPictureKey'),
+        //set the public ID from tour from localhost
+        //not the perfect solution but it works
       });
       console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
@@ -254,7 +260,6 @@ class CreateTour extends React.Component {
             <UploadContainer>
               <UploadPictures/>
             </UploadContainer>
-
 
             <ButtonContainer>
               <Button

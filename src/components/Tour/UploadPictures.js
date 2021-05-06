@@ -63,6 +63,9 @@ try{
   formData
   ).then((response)=>{
   console.log(response);
+  const tourPictureKey = response.data.public_id;
+  console.log(tourPictureKey);
+  localStorage.setItem("tourPictureKey", response.data.public_id);
   alert("Picture uploaded successfully")
   });
 
@@ -83,6 +86,7 @@ return (
             <UploadButton onClick={uploadImage}>Upload</UploadButton>
         </ButtonContainer>
     </UploadContainer>
+    {/* <Image cloudName="sopra-group-7" publicID="hfk2yrsqm880nkgjsr8q" width='200px' height='200px'/> */}
     </>
 
 );
