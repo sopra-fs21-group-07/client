@@ -194,6 +194,7 @@ class CreateTour extends React.Component {
       });
       console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
+      localStorage.removeItem("tourPictureKey")
       this.props.history.push('/dashboard');
 
     } catch (error) {
