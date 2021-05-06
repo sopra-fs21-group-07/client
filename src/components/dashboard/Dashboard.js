@@ -29,7 +29,7 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  height: 500px;
+  height: 600px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;

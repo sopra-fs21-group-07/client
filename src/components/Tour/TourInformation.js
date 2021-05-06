@@ -42,10 +42,10 @@ const ImgStyle = styled.div`
 export const TourInformationSmall = ( { Tour } ) => {
   return (
     <>  
-        <Container width="200px">
+{/*         <Container width="200px">
             <Title>ID:</Title>
             <Tour_info>{Tour.id}</Tour_info>
-        </Container>
+        </Container> */}
 
         <Container>
             <Title>Name:</Title>

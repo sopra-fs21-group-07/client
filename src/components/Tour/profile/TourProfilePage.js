@@ -15,6 +15,8 @@ import Tour from '../../shared/models/Tour';
 import Modal from '../ModalBookTour';
 import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
 
+import {Image} from "cloudinary-react";
+
 
 const FormContainer = styled.div`
   margin-top: 2em;
@@ -181,9 +183,11 @@ class TourProfilePage extends React.Component {
       const tID = this.state.tourNUM;
       let info;
       let tourName;
+      let picId
       if (tID != null){
         info = <TourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
         tourName = info.props.Tour.name
+        picId = info.props.Tour.tourPictureKey
       }
       else{
         info = <div></div>
@@ -197,7 +201,10 @@ class TourProfilePage extends React.Component {
               </ButtonContainer>
               <Form>
               <TourContainer>
-                <img src={logo1} width='200px' height='200px' />  
+                
+         <Image cloudName="sopra-group-7" publicID= {picId}
+            width='200px' height='200px' /> 
+
                 {info}
                 <center><button
                   style={{

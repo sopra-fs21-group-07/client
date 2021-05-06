@@ -32,6 +32,8 @@ const TourContainer = styled.li`
   justify-content: center;
   margin-left: 50px;
   margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 const mainStyle = {
@@ -186,13 +188,15 @@ class TourInformationPage extends React.Component {
 
             <TourContainer>
 
-            <Image cloudName="sopra-group-7" publicID= "sample" //{this.state.tourList[this.state.randNum[0]].tourPictureKey}
+            <Image cloudName="sopra-group-7" publicID= {this.state.tourList[0].tourPictureKey}
             width='200px' height='200px'
                 onClick={() => {
-                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                this.openTourProfile(this.state.tourList[0].id);
+                // this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
                 }} style={{cursor:'pointer'}}/>
 
-                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/>
+                <TourInformationSmall Tour={this.state.tourList[0]}/>
+                {/* <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/> */}
                 <center><button
                   style={{
                     ...mainStyle.button,
@@ -220,13 +224,15 @@ class TourInformationPage extends React.Component {
             </TourContainer>
             <TourContainer>
 
-            <Image cloudName="sopra-group-7" publicID= "sample"
+            <Image cloudName="sopra-group-7" publicID= {this.state.tourList[1].tourPictureKey}
             width='200px' height='200px'
                 onClick={() => {
-                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                this.openTourProfile(this.state.tourList[1].id);
+                // this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
                 }} style={{cursor:'pointer'}}/>
 
-                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/>
+                <TourInformationSmall Tour={this.state.tourList[1]}/>
+                {/* <TourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/> */}
                 <center><button
                   style={{
                     ...mainStyle.button,
@@ -254,13 +260,15 @@ class TourInformationPage extends React.Component {
             </TourContainer>
             <TourContainer>
 
-            <Image cloudName="sopra-group-7" publicID="sample"
+            <Image cloudName="sopra-group-7" publicID={this.state.tourList[2].tourPictureKey}
             width='200px' height='200px'
                 onClick={() => {
-                this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
+                this.openTourProfile(this.state.tourList[2].id);
+                // this.openTourProfile(this.state.tourList[this.state.randNum[0]].id);
                 }} style={{cursor:'pointer'}}/>
 
-                <TourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/>
+                <TourInformationSmall Tour={this.state.tourList[2]}/>
+                {/* <TourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/> */}
                 <center><button
                   style={{
                     ...mainStyle.button,
