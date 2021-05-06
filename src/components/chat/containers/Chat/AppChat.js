@@ -15,6 +15,7 @@ import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { userJoined, userJoinedAck, userLeft, messageReceived } from '../../actions/index';
 import { bindActionCreators } from 'redux';
+import UserChat from "../UserList/UserChat";
 
 
 class AppChat extends Component {
@@ -110,7 +111,7 @@ registerSocket() {
 }
 
 sendJoinedMessage() {
-  let messageDto = JSON.stringify({ user: this.state.usernameInput, type: MessageType.USER_JOINED });
+  let messageDto = JSON.stringify({ user: new UserChat(this.state.usernameInput, localStorage.getItem("tourID")), type: MessageType.USER_JOINED});
   this.socket.send(messageDto);
 }
 
