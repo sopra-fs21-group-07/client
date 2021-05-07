@@ -160,7 +160,7 @@ class TourInformationPage extends React.Component {
 
   openTourProfile(tourID) {
     localStorage.setItem("tourID", tourID);
-    this.props.history.push("/tourProfilePage/"+tourID);
+    this.props.history.push("/tourProfilePage/:id");
   }
 
 /*   givememynumberpls(tourID) {
