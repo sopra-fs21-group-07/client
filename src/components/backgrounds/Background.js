@@ -12,7 +12,7 @@ export default class Background extends React.Component{
         width: '100%',
         height: '60%',
         position: 'fixed',
-        marginTop: '-5em',
+        marginTop: '-9em',
         zIndex: '-1'}}>
 
 

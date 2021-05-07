@@ -87,8 +87,15 @@ export const TourInformation = ( { Tour } ) => {
               <Title>Empty slots:</Title>
               <Tour_info>{Tour.emptySlots}</Tour_info>
           </Container>
-  
-          {/*<Container>
+
+          <Container>
+              <Title>Date:</Title>
+              <Tour_info>{Tour.date}</Tour_info>
+          </Container>
+
+
+          {/* <Container>
+          <Container>
               <Title>Type:</Title>
               <Tour_info>{tour.tourType}</Tour_info>
           </Container>

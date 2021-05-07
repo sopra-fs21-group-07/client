@@ -44,6 +44,10 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10px;
+    margin-left: 25%;
+      width: 60%;
+
+
 
 `;
 
@@ -69,7 +73,7 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 60%;
-  height: 600px;
+  height: 80%;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
@@ -94,9 +98,6 @@ const UploadContainer = styled.div`
 `;
 
 
-
-
-
 //#endregion 
 class CreateTour extends React.Component {
 
@@ -110,6 +111,7 @@ class CreateTour extends React.Component {
       myChoose: [],
       inputValue: '',
       tourPictureKey: "sample",
+      date:null,
     };
   }
 
@@ -189,6 +191,7 @@ class CreateTour extends React.Component {
         altitude: this.state.myChoose[0].value,
         emptySlots: this.state.emptySlots,
         tourPictureKey: localStorage.getItem('tourPictureKey'),
+        date: this.state.date,
         //set the public ID from tour from localhost
         //not the perfect solution but it works
       });
@@ -256,26 +259,28 @@ class CreateTour extends React.Component {
                   this.handleInputChange('emptySlots', e.target.value);
                 }}
               />
+            <Label>Tour date</Label>
+            <input type="Date" onChange={e => this.handleInputChange('date', e.target.value)} maxLength={10}/>
 
             <Label>Upload Pictures</Label>
             <UploadContainer>
               <UploadPictures/>
             </UploadContainer>
 
+            <br/><br/>
+            </Form></center>
             <ButtonContainer>
               <Button
-                width="50%"
-                onClick={() => {
-                  this.postTour();
-                }}
+                  width="50%"
+                  onClick={() => {
+                    this.postTour();
+                  }}
               >
                 Submit
               </Button>
             </ButtonContainer>
-
-            </Form></center>
-            <br/><br/><br/><br/><br/><br/>
-                    </div>  
+            <br/><br/><br/><br/>
+                    </div>
     );
   }
 }
