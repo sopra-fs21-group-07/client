@@ -52,5 +52,13 @@ export const SidebarData = [
     cName: 'nav-text',
     loggedIn: true
 
+  },
+  {
+    title: 'Past Tours',
+    path: "/pastTours/:id",
+    icon: <CgIcons.CgProfile/>,
+    cName: 'nav-text',
+    loggedIn: true
+
   }
 ];
