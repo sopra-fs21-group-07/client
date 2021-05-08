@@ -42,10 +42,10 @@ const ImgStyle = styled.div`
 export const TourInformationSmall = ( { Tour } ) => {
   return (
     <>  
-{/*         <Container width="200px">
+        <Container width="200px">
             <Title>ID:</Title>
             <Tour_info>{Tour.id}</Tour_info>
-        </Container> */}
+        </Container>
 
         <Container>
             <Title>Name:</Title>
@@ -56,6 +56,12 @@ export const TourInformationSmall = ( { Tour } ) => {
             <Title>Summit:</Title>
             <Tour_info>{Tour.summit}</Tour_info>
         </Container>
+
+        <Container>
+            <Title>Date:</Title>
+            <Tour_info>{Tour.date}</Tour_info>
+        </Container>
+
 
         <Container>
             <Title>Empty slots:</Title>
@@ -82,7 +88,12 @@ export const TourInformation = ( { Tour } ) => {
               <Title>Summit:</Title>
               <Tour_info>{Tour.summit}</Tour_info>
           </Container>
-  
+
+  {/*        <Container>
+              <Title>Type:</Title>
+              <Tour_info>{Tour.tourType}</Tour_info>
+          </Container>*/}
+
           <Container>
               <Title>Empty slots:</Title>
               <Tour_info>{Tour.emptySlots}</Tour_info>
@@ -94,13 +105,9 @@ export const TourInformation = ( { Tour } ) => {
           </Container>
 
 
-          {/* <Container>
-          <Container>
-              <Title>Type:</Title>
-              <Tour_info>{tour.tourType}</Tour_info>
-          </Container>
-  
-          <Container>
+
+
+               {/*<Container>
               <Title>Height gain:</Title>
               <Tour_info>{tour.heightGain}</Tour_info>
           </Container>
@@ -149,7 +156,8 @@ export const TourInformation = ( { Tour } ) => {
               <Title>Costs:</Title>
               <Tour_info>{tour.cost}</Tour_info>
           </Container>*/}
-      </>
+
+          </>
     );
   };
 

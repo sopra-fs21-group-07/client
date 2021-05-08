@@ -201,7 +201,7 @@ class CreateTour extends React.Component {
       this.props.history.push('/dashboard');
 
     } catch (error) {
-      alert("Something went wrong while sending the tour informationen data to the server.");
+      alert("Something went wrong while sending the tour information data to the server.");
     }
   }
 
