@@ -59,7 +59,7 @@ export const TourInformationSmall = ( { Tour } ) => {
 
         <Container>
             <Title>Date:</Title>
-            <Tour_info>{Tour.date}</Tour_info>
+            <Tour_info>{new Date(Tour.date).toLocaleDateString('de-CH')}</Tour_info>
         </Container>
 
 
@@ -89,10 +89,10 @@ export const TourInformation = ( { Tour } ) => {
               <Tour_info>{Tour.summit}</Tour_info>
           </Container>
 
-  {/*        <Container>
+       <Container>
               <Title>Type:</Title>
               <Tour_info>{Tour.tourType}</Tour_info>
-          </Container>*/}
+          </Container>
 
           <Container>
               <Title>Empty slots:</Title>
@@ -101,7 +101,7 @@ export const TourInformation = ( { Tour } ) => {
 
           <Container>
               <Title>Date:</Title>
-              <Tour_info>{Tour.date}</Tour_info>
+              <Tour_info>{new Date(Tour.date).toLocaleDateString('de-CH')}</Tour_info>
           </Container>
 
 

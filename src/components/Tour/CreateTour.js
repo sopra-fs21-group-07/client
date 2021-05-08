@@ -111,7 +111,7 @@ class CreateTour extends React.Component {
       myChoose: [],
       inputValue: '',
       tourPictureKey: "sample",
-      date:null,
+      date: null,
     };
   }
 
