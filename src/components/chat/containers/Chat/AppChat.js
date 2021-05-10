@@ -50,6 +50,7 @@ class AppChat extends Component {
           <UserList users={this.state.users} />
           {this.onChooseName()}
           {chat}
+          {refreshPage}
         </div>
       </MuiThemeProvider>
     );
@@ -57,6 +58,9 @@ class AppChat extends Component {
 
   );
 }
+function refreshPage() {
+    window.location.reload(false);
+  }
 
 registerSocket() {
   let self = this;
