@@ -58,7 +58,7 @@ class AppChat extends Component {
 
   );
 }
-function refreshPage() {
+refreshPage() {
     window.location.reload(false);
   }
 
