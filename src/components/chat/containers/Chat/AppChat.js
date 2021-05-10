@@ -24,7 +24,24 @@ class AppChat extends Component {
 
     this.state = {
       modalOpen: false,
-      usernameInput: localStorage.getItem('username')
+      usernameInput: localStorage.getItem('username'),
+    }
+  }
+
+  componentDidMount() {
+    if(localStorage.getItem("refresher")==null){
+      localStorage.setItem("refresher", false);
+      console.log("set to false");
+      window.location.reload(false);
+    }
+    else if (localStorage.getItem("refresher")=="true"){
+      console.log("refresher was true so we have to refresh it");
+      localStorage.setItem("refresher", false);
+      window.location.reload(false);
+    }
+    else{
+      console.log("refresher was false so continue")
+      localStorage.setItem("refresher", true);
     }
   }
 
@@ -50,7 +67,6 @@ class AppChat extends Component {
           <UserList users={this.state.users} />
           {this.onChooseName()}
           {chat}
-          {this.refreshPage}
         </div>
       </MuiThemeProvider>
     );
@@ -58,9 +74,6 @@ class AppChat extends Component {
 
   );
 }
-refreshPage() {
-    window.location.reload(false);
-  }
 
 registerSocket() {
   let self = this;

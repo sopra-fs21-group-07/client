@@ -116,9 +116,6 @@ class Dashboard extends React.Component {
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/newTour'); }}>Create new Tour</Button>
               </ButtonContainer>
-              <ButtonContainer>
-                <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
-              </ButtonContainer>
               <Form>
                 <TourInformationPage/>
               </Form>
