@@ -50,7 +50,7 @@ class AppChat extends Component {
           <UserList users={this.state.users} />
           {this.onChooseName()}
           {chat}
-          {refreshPage}
+          {this.refreshPage}
         </div>
       </MuiThemeProvider>
     );
