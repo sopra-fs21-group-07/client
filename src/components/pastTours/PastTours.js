@@ -1,27 +1,12 @@
 import React from 'react';
 import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
-import { api, handleError } from '../../helpers/api';
 import Background from '../backgrounds/Background';
-import AsyncSelect from 'react-select/async';
-import Select from 'react-select';
-//import { tourtypeOptions } from './data/tourtypes';//problem with import
-
-import UploadPictures from '../Tour/UploadPictures';
-
-import Axios from "axios"
-import {useState} from "react";
-
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
-//all imports of CreateTour
-
 import { BaseContainer } from '../../helpers/layout';
-import Users from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
-import TourInformationPage from '../Tour/TourInformationPage';
+import PastTourInformationPage from '../pastTours/PastTourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
-//all imports of Dashboard
 
 const FormContainer = styled.div`
   margin-top: 2em;
@@ -58,7 +43,7 @@ class PastTours extends React.Component {
             <Background></Background>
             <FormContainer>PAST TOURS</FormContainer>
             <Form>
-                <TourInformationPage/> {/* aktuelle tours, button anklickbar, müsste noch geändert werden...? je nach dem, wie es als past tour gespeichert wird. */}
+                <PastTourInformationPage/> {/* aktuelle tours, button anklickbar, müsste noch geändert werden...? je nach dem, wie es als past tour gespeichert wird. */}
             </Form>
             <br></br>
 
