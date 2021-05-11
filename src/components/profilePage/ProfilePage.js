@@ -8,7 +8,7 @@ import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
 
-import TourInformationPage from '../Tour/TourInformationPage';
+import BookedTours from '../profilePage/BookedTours';
 
 
 
@@ -196,10 +196,8 @@ class ProfilePage extends React.Component {
         )}</Child1>
         <Child2>
           <Label>Tours</Label>
-          <Form>
-              <TourInformationPage/>
-            </Form>
-            <br></br> 
+              <BookedTours/> {/*aber nur, wenn vom user gebucht*/}
+            <br></br>
         </Child2>
       </EqualDivider>
 

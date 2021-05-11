@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../../helpers/layout';
 import { api, handleError } from '../../../helpers/api';
-import Users from '../../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../../views/design/Button';
 import GeoAdmin from '../../geoAdminMap/GeoAdmin';
@@ -199,27 +198,32 @@ class TourProfilePage extends React.Component {
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
               </ButtonContainer>
-              <Form>
+
+
+            <Form>
               <TourContainer>
-                
+
          <Image cloudName="sopra-group-7" publicID= {picId}
             width='200px' height='200px' /> 
 
                 {info}
-                <center><button
-                  style={{
+
+              </TourContainer>
+            </Form>
+            <br></br>
+
+            <center><button
+                style={{
                     ...mainStyle.button,
                     margin: 0,
                     width: "70%",
                     marginTop: 0,
                     cursor: "pointer"
-                  }}
-                  disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>
-                  book this tour 
-                </button></center>
-              </TourContainer>
-              </Form>
+                }}
+                disabled={this.state.Tour?.numberofparticipants == 0}
+                onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>
+                book this tour
+            </button></center>
               <br></br> 
               <Modal 
               isOpen={this.state.isOpen}
