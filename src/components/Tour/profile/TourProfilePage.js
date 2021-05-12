@@ -230,7 +230,7 @@ class TourProfilePage extends React.Component {
               booktour={this.booktour}
               onRequestClose={this.closeModal}
               tour={this.state.curr}
-              image={this.state.currentImg}
+              // image={this.state.currentImg}
             >
             </Modal>
             </ParallaxProvider>

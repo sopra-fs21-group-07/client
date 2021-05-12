@@ -163,6 +163,7 @@ class TourInformationPage extends React.Component {
     this.props.history.push("/tourProfilePage/:id");
   }
 
+
 /*   givememynumberpls(tourID) {
     localStorage.setItem("tourID", tourID);
   } */
@@ -187,7 +188,6 @@ class TourInformationPage extends React.Component {
             <TourStyle>
 
             <TourContainer>
-
             <Image cloudName="sopra-group-7" publicID= {this.state.tourList[0].tourPictureKey}
             width='200px' height='200px'
                 onClick={() => {
@@ -196,6 +196,7 @@ class TourInformationPage extends React.Component {
                 }} style={{cursor:'pointer'}}/>
 
                 <TourInformationSmall Tour={this.state.tourList[0]}/>
+
                 {/* <TourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/> */}
                 <center><button
                   style={{
@@ -206,7 +207,7 @@ class TourInformationPage extends React.Component {
                     cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.toggleState( this.state.randNum[0], logo1); }}>
+                  onClick={() => { this.toggleState(0, logo1); }}>
                   book this tour 
                 </button></center>
                 <br />
@@ -242,7 +243,7 @@ class TourInformationPage extends React.Component {
                     cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.toggleState( this.state.randNum[1], logo2); }}>
+                  onClick={() => { this.toggleState(1, logo2); }}>
                   book this tour
                 </button></center>
                 <br />
@@ -278,7 +279,7 @@ class TourInformationPage extends React.Component {
                     cursor: "pointer"
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
-                  onClick={() => { this.toggleState( this.state.randNum[2], logo3); }}>
+                  onClick={() => { this.toggleState(2, logo3); }}>
                   book this tour
                 </button></center>
                 <br />
@@ -300,7 +301,7 @@ class TourInformationPage extends React.Component {
               booktour={this.booktour}
               onRequestClose={this.closeModal}
               tour={this.state.curr}
-              image={this.state.currentImg}
+              // image={this.state.currentImg}
             >
             </Modal>
           </div>
