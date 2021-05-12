@@ -218,7 +218,7 @@ class TourInformationPage extends React.Component {
                     marginTop: 0,
                     cursor: "pointer"
                   }}
-                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[0]].id); }}>
+                  onClick={() => { this.openTourProfile(this.state.tourList[0].id); }}>
                   Tour Profile
                 </button></center>
             </TourContainer>
@@ -254,7 +254,7 @@ class TourInformationPage extends React.Component {
                     marginTop: 0,
                     cursor: "pointer"
                   }}
-                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[1]].id); }}>
+                  onClick={() => { this.openTourProfile(this.state.tourList[1].id); }}>
                   Tour Profile
                 </button></center>
             </TourContainer>
@@ -290,7 +290,7 @@ class TourInformationPage extends React.Component {
                     marginTop: 0,
                     cursor: "pointer"
                   }}
-                  onClick={() => { this.openTourProfile(this.state.tourList[this.state.randNum[2]].id); }}>
+                  onClick={() => { this.openTourProfile(this.state.tourList[2].id); }}>
                   Tour Profile
                 </button></center>
             </TourContainer>
