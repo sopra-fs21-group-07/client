@@ -16,6 +16,7 @@ import sonarqube from "../home/TechPictures/sonarqube.png"
 import spring from "../home/TechPictures/spring.png"
 import cloudinaryPicture from "../home/TechPictures/cloudinaryPicture.png"
 import lol from "../home/TechPictures/lol.png"
+import FadeIn from 'react-fade-in';
 
 const EqualDivider = styled.div`
   display: flex;
@@ -104,78 +105,81 @@ return (
     <>
     <BoringContainer>
 
+<FadeIn delay={300} transitionDuration={700}>
+    <EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={GithubActions}/></PictureContainer>
+        </Child1>
 
-<EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={GithubProjects}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={GithubActions}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={gradle}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={GithubProjects}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={heroku}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={gradle}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={javapersistence}/></PictureContainer>
+        </Child1>
+    </EqualDivider>
+</FadeIn>
 
-    <Child1>
-        <PictureContainer><TechPicture src={heroku}/></PictureContainer>
-    </Child1>
+<FadeIn delay={400} transitionDuration={700}>
+    <EqualDivider>
 
-    <Child1>
-        <PictureContainer><TechPicture src={javapersistence}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={javapicture}/></PictureContainer>
+        </Child1>
 
-</EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={jsx}/></PictureContainer>
+        </Child1>
 
-<EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={npmpicture}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={javapicture}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={reactpicture}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={jsx}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={sonarqube}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={npmpicture}/></PictureContainer>
-    </Child1>
+    </EqualDivider>
+</FadeIn>
 
-    <Child1>
-        <PictureContainer><TechPicture src={reactpicture}/></PictureContainer>
-    </Child1>
+<FadeIn delay={500} transitionDuration={700}>
+    <EqualDivider>
 
-    <Child1>
-        <PictureContainer><TechPicture src={sonarqube}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={spring}/></PictureContainer>
+        </Child1>
 
-</EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={cloudinaryPicture}/></PictureContainer>
+        </Child1>
 
-<EqualDivider>
+        <Child1>
+            <PictureContainer><TechPicture src={lol}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={spring}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={lol}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={cloudinaryPicture}/></PictureContainer>
-    </Child1>
+        <Child1>
+            <PictureContainer><TechPicture src={lol}/></PictureContainer>
+        </Child1>
 
-    <Child1>
-        <PictureContainer><TechPicture src={lol}/></PictureContainer>
-    </Child1>
-
-    <Child1>
-        <PictureContainer><TechPicture src={lol}/></PictureContainer>
-    </Child1>
-
-    <Child1>
-        <PictureContainer><TechPicture src={lol}/></PictureContainer>
-    </Child1>
-
-</EqualDivider>
+    </EqualDivider>
+</FadeIn>
 
 </BoringContainer>
 

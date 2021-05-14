@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Everest from "../Tour/dummyPics/Everest.jpg"
 import rafael from "../home/TeamPictures/rafael.jpg"
+import FadeIn from 'react-fade-in';
 
 
 const EqualDivider = styled.div`
@@ -70,39 +71,42 @@ function OurTeam(){
 
 return (
     <>
-<EqualDivider>
 
-    <Child1>
-        <PictureContainer><Picture src={rafael}/></PictureContainer>
-        <TextContainer><Title>Rafael Dubach</Title></TextContainer>
-        <TextContainer><Text>Full Stack Developer</Text></TextContainer>
-    </Child1>
+<FadeIn delay={300} transitionDuration={700}>
+  <EqualDivider>
 
-    <Child1>
-        <PictureContainer><Picture src={Everest}/></PictureContainer>
-        <TextContainer><Title>Raphael Wäspi</Title></TextContainer>
-        <TextContainer><Text>Full Stack Developer</Text></TextContainer>
-    </Child1>
+      <Child1>
+          <PictureContainer><Picture src={rafael}/></PictureContainer>
+          <TextContainer><Title>Rafael Dubach</Title></TextContainer>
+          <TextContainer><Text>Full Stack Developer</Text></TextContainer>
+      </Child1>
 
-    <Child1>
-        <PictureContainer><Picture src={Everest}/></PictureContainer>
-        <TextContainer><Title>Dylan Baumgartner</Title></TextContainer>
-        <TextContainer><Text>Full Stack Developer</Text></TextContainer>
-    </Child1>
+      <Child1>
+          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <TextContainer><Title>Raphael Wäspi</Title></TextContainer>
+          <TextContainer><Text>Full Stack Developer</Text></TextContainer>
+      </Child1>
 
-    <Child1>
-        <PictureContainer><Picture src={Everest}/></PictureContainer>
-        <TextContainer><Title>Layla Husselman</Title></TextContainer>
-        <TextContainer><Text>Full Stack Developer</Text></TextContainer>
-    </Child1>
+      <Child1>
+          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <TextContainer><Title>Dylan Baumgartner</Title></TextContainer>
+          <TextContainer><Text>Full Stack Developer</Text></TextContainer>
+      </Child1>
 
-    <Child1>
-        <PictureContainer><Picture src={Everest}/></PictureContainer>
-        <TextContainer><Title>Beat Furrer</Title></TextContainer>
-        <TextContainer><Text>Full Stack Developer</Text></TextContainer>
-    </Child1>
+      <Child1>
+          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <TextContainer><Title>Layla Husselman</Title></TextContainer>
+          <TextContainer><Text>Full Stack Developer</Text></TextContainer>
+      </Child1>
 
-</EqualDivider>
+      <Child1>
+          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <TextContainer><Title>Beat Furrer</Title></TextContainer>
+          <TextContainer><Text>Full Stack Developer</Text></TextContainer>
+      </Child1>
+
+  </EqualDivider>
+</FadeIn>
 
     </>
 

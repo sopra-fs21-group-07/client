@@ -13,6 +13,7 @@ import AboutUs from "../home/AboutUs"
 import OurTeam from "../home/OurTeam"
 import Technologies from "../home/Technologies"
 import Everest from "../Tour/dummyPics/Everest.jpg"
+import FadeIn from 'react-fade-in';
 
 const NormalContainer = styled.div`
 display: flex;

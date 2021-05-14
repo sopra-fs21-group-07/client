@@ -2,6 +2,8 @@
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Everest from "../Tour/dummyPics/Everest.jpg"
+import TypeWriterEffect from 'react-typewriter-effect';
+import FadeIn from 'react-fade-in';
 
 
 const EqualDivider = styled.div`
@@ -78,7 +80,12 @@ return (
     <>
 <EqualDivider>
     <Child1>
-        <Title>Welcome</Title>
+        <TypeWriterEffect
+            startDelay={100}
+            cursorColor="black"
+            text="Welcome!"
+            typeSpeed={100}
+          />
         <TextContainer>
         <Text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
             sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
@@ -86,13 +93,15 @@ return (
             magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
             sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
             labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</Text>
+            no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, 
+            vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
+            duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</Text>
         </TextContainer>
     </Child1>
     <Child2>
+    <FadeIn delay={300} transitionDuration={700}>
         <PictureContainer><Picture src={Everest} /></PictureContainer>
+    </FadeIn>
     </Child2>
 </EqualDivider>
     </>
