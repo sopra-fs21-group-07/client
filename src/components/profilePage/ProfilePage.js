@@ -77,7 +77,7 @@ const EqualDivider = styled.div`
   display: flex;
   margin: 0.5rem;
   padding: 1rem;
-  background: grey;
+  background: #8D99AE;
   ${props => props.vertical && "flex-direction: column;"}
 
   > * {
@@ -165,7 +165,7 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <EqualDivider>
-        <style>{'body { background-color: grey; }'}</style>
+        <style>{'body { background-color: #8D99AE; }'}</style>
         <Child1>        
           <Label>Profile</Label>
         {!this.state.users ? (

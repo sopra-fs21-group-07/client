@@ -160,7 +160,9 @@ register() {
 
   render() {
     return (
+
 <BackgroundBase>
+<style>{'body { background-color: #8D99AE; }'}</style>
       <BaseContainer>
       <br /> <br /> <br /> <br />
         <FormContainer>

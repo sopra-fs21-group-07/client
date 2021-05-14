@@ -216,9 +216,8 @@ async editUsername() {
 
     render() {
         return (
-
 <>
-<style>{'body { background-color: grey; }'}</style>
+<style>{'body { background-color: #8D99AE; }'}</style>
 <br /> <br /><br /> 
 <MiddleContainer>
     <BaseContainer>
