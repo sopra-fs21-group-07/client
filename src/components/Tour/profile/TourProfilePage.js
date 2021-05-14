@@ -66,6 +66,26 @@ const ButtonContainer2 = styled.div`
   right: 20;
 `;
 
+const ButtonContainer3 = styled.div`
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 400px;
+  width: 400px;
+  float: right;
+  top: -20%;
+  right: 20;
+`;
+
+const ButtonContainer4 = styled.div`
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 400px;
+  width: 400px;
+  float: left;
+  top: -20%;
+  right: 20;
+`;
+
 const TourContainer = styled.li`
   color: white;
   display: inline-block;
@@ -112,6 +132,7 @@ class TourProfilePage extends React.Component {
       isOpen: false,
       curr: null,
       id: 0,
+      creatorUsername: null,
     };
   }
 
@@ -131,6 +152,9 @@ class TourProfilePage extends React.Component {
 
       this.setState({tourNUM: parseFloat(localStorage.getItem("tourID")-1)});
       //localStorage.removeItem("tourID");
+
+      const response1 = await api.get("/tours/"+localStorage.getItem("tourID"));
+      this.setState({creatorUsername: response1.data.creatorUsername});
 
       // This is just some data for you to see what is available.
       // Feel free to remove it.
@@ -178,6 +202,10 @@ class TourProfilePage extends React.Component {
     this.props.history.push('/dashboard');
   }
 
+  edit() {
+    //Here is the TourEdit
+  }
+
   render() {
       const tID = this.state.tourNUM;
       let info;
@@ -212,18 +240,8 @@ class TourProfilePage extends React.Component {
             </Form>
             <br></br>
 
-            <center><button
-                style={{
-                    ...mainStyle.button,
-                    margin: 0,
-                    width: "70%",
-                    marginTop: 0,
-                    cursor: "pointer"
-                }}
-                disabled={this.state.Tour?.numberofparticipants == 0}
-                onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>
-                book this tour
-            </button></center>
+            <ButtonContainer4><Button width="100%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button></ButtonContainer4>
+            <ButtonContainer3><Button width="100%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => { this.edit(); }}>Edit</Button></ButtonContainer3>
               <br></br> 
               <Modal 
               isOpen={this.state.isOpen}

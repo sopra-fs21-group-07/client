@@ -21,4 +21,7 @@ export const Button = styled.button`
   opacity: ${props => (props.disabled ? 1 : 1)};
   background: #408cec;
   transition: all 0.3s ease;
+  :disabled {
+    background: #dddddd;
+  }
 `;
