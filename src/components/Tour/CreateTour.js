@@ -199,6 +199,7 @@ class CreateTour extends React.Component {
       const response = await api.post('/tours', requestBody);
       localStorage.removeItem("tourPictureKey")
       this.props.history.push('/dashboard');
+      alert("Tour created successfully")
 
     } catch (error) {
       alert("Something went wrong while sending the tour information data to the server.");

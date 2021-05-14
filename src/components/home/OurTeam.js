@@ -10,7 +10,7 @@ const EqualDivider = styled.div`
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  background: #181c1f;
+  background: white;
 
   ${props => props.vertical && "flex-direction: column;"}
 
@@ -61,7 +61,7 @@ display: flex;
   font-size: 15px;
   color: black;
   align-items: center;
-  color: white;
+  color: black;
 `
 const TextContainer = styled.div`
 display: flex;
@@ -73,7 +73,7 @@ const Title = styled.h1`
   font-size: 20px;
   color: black;
   align-items: center;
-  color: white;
+  color: black;
 `
 
 

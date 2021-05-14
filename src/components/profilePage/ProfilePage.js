@@ -98,6 +98,8 @@ const Child1 = styled.div`
   border: 1px solid #ffffff26;
   cursor: auto;  
   flex: 1 1 auto;
+  background: #8D99AE;
+
 `;
 
 const Child2 = styled.div`
@@ -107,6 +109,7 @@ const Child2 = styled.div`
   align-items: center;
   border: 1px solid #ffffff26;  
   flex: 2 1 auto;
+  background: #8D99AE;
 `;
 const Label = styled.h1`
   font-weight: bold;
@@ -165,7 +168,7 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <EqualDivider>
-        <style>{'body { background-color: #8D99AE; }'}</style>
+        <style>{'body {background: #8D99AE;}'}</style>
         <Child1>        
           <Label>Profile</Label>
         {!this.state.users ? (

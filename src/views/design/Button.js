@@ -19,6 +19,6 @@ export const Button = styled.button`
   border-radius: 10px;
   cursor: ${props => (props.disabled ? "default" : "pointer")};
   opacity: ${props => (props.disabled ? 1 : 1)};
-  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+  background: #408cec;
   transition: all 0.3s ease;
 `;

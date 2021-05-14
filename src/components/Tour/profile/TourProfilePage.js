@@ -40,7 +40,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 10px;
-  background: rgb(124, 124, 124, 1);
+  background: #8D99AE;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left: 10%;
 `;
