@@ -21,4 +21,7 @@ export const Button = styled.button`
   opacity: ${props => (props.disabled ? 1 : 1)};
   background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
   transition: all 0.3s ease;
+  :disabled {
+    background: #dddddd;
+  }
 `;

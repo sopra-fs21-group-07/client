@@ -192,6 +192,7 @@ class CreateTour extends React.Component {
         emptySlots: this.state.emptySlots,
         tourPictureKey: localStorage.getItem('tourPictureKey'),
         date: this.state.date,
+        creatorUsername: localStorage.getItem("username"),
         //set the public ID from tour from localhost
         //not the perfect solution but it works
       });
