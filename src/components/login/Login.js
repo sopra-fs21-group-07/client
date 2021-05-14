@@ -12,8 +12,13 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 300px;
+  min-height: 700px;
   justify-content: center;
+  background: #8D99AE;
+  `;
+
+const BackgroundBase = styled.div`
+background: #8D99AE;
 `;
 
 const Form = styled.div`
@@ -21,15 +26,15 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 60%;
-  height: 375px;
+  height: 775px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 5px;
-  background: linear-gradient(rgb(34, 34, 34, 0.4), rgb(50, 50, 50, 0.4));
+  background: #8D99AE;
   transition: opacity 0.5s ease, transform 0.5s ease;
-`;
+  `;
 
 const InputField = styled.input`
   &::placeholder {
@@ -155,7 +160,7 @@ register() {
 
   render() {
     return (
-
+<BackgroundBase>
       <BaseContainer>
       <br /> <br /> <br /> <br />
         <FormContainer>
@@ -204,6 +209,7 @@ register() {
           </Form>
         </FormContainer>
       </BaseContainer>
+      </BackgroundBase>
     );
   }
 }

@@ -10,7 +10,7 @@ const EqualDivider = styled.div`
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  background: white;
+  background: #181c1f;
 
   ${props => props.vertical && "flex-direction: column;"}
 
@@ -33,14 +33,23 @@ const Child1 = styled.div`
   flex: 1 1 auto;
 `;
 
+const Child2 = styled.div`
+  padding: 0.25rem 0.5rem;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  flex: 2 1 auto;
+`;
 
 const Picture = styled.img`
 height: 250px;
+width: 250px;
 display: flex;
 margin: 15px;
 justify-content: center;
 border-radius: 125px;
 `;
+
 
 const PictureContainer = styled.div`
 display: flex;
@@ -48,10 +57,11 @@ justify-content: center;
 `;
 
 const Text = styled.h1`
-  font-size: 20px;
+display: flex;
+  font-size: 15px;
   color: black;
   align-items: center;
-  color: #303030;
+  color: white;
 `
 const TextContainer = styled.div`
 display: flex;
@@ -59,10 +69,11 @@ justify-content: center;
 `;
 
 const Title = styled.h1`
+  display: flex;
   font-size: 20px;
   color: black;
   align-items: center;
-  color: #303030;
+  color: white;
 `
 
 
