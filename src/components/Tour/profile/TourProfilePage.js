@@ -13,6 +13,9 @@ import logo1 from '../dummyPics/Everest.jpg';
 import Tour from '../../shared/models/Tour';
 import Modal from '../ModalBookTour';
 import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
+import Modal1 from "react-bootstrap/Modal"
+import Button1 from "react-bootstrap/Button"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {Image} from "cloudinary-react";
 
@@ -133,6 +136,7 @@ class TourProfilePage extends React.Component {
       curr: null,
       id: 0,
       creatorUsername: null,
+      show: false,
     };
   }
 
@@ -202,8 +206,12 @@ class TourProfilePage extends React.Component {
     this.props.history.push('/dashboard');
   }
 
-  edit() {
-    //Here is the TourEdit
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
   }
 
   render() {
@@ -241,7 +249,7 @@ class TourProfilePage extends React.Component {
             <br></br>
 
             <ButtonContainer4><Button width="100%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button></ButtonContainer4>
-            <ButtonContainer3><Button width="100%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => { this.edit(); }}>Edit</Button></ButtonContainer3>
+            <ButtonContainer3><Button width="100%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => {this.handleShow()}}>Edit</Button></ButtonContainer3>
               <br></br> 
               <Modal 
               isOpen={this.state.isOpen}
@@ -251,6 +259,21 @@ class TourProfilePage extends React.Component {
               // image={this.state.currentImg}
             >
             </Modal>
+
+            <Modal1 show={this.state.show} onHide={() => {this.handleClose()}}>
+            <Modal1.Header closeButton>
+              <Modal1.Title>Modal heading</Modal1.Title>
+            </Modal1.Header>
+            <Modal1.Body>Woohoo, you're reading this text in a modal!</Modal1.Body>
+            <Modal1.Footer>
+              <Button1 variant="secondary" onClick={() => {this.handleClose()}}>
+                Close
+              </Button1>
+              <Button1 variant="primary" onClick={() => {this.handleClose()}}>
+                Save Changes
+              </Button1>
+            </Modal1.Footer>
+            </Modal1>
             </ParallaxProvider>
     }
 }
