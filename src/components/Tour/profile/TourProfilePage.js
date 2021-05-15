@@ -15,6 +15,7 @@ import Modal from '../ModalBookTour';
 import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
 import Modal1 from "react-bootstrap/Modal"
 import Button1 from "react-bootstrap/Button"
+import Form1 from "react-bootstrap/Form"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {Image} from "cloudinary-react";
@@ -46,6 +47,20 @@ const Form = styled.div`
   background: #8D99AE;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left: 10%;
+`;
+
+const InputField = styled.input`
+  &::placeholder {
+    color: black;
+  }
+  border: none;
+  border-radius: 5px;
+  background: grey;
+  color: black;
+`;
+
+const Label = styled.label`
+  color: black;
 `;
 
 
@@ -137,6 +152,8 @@ class TourProfilePage extends React.Component {
       id: 0,
       creatorUsername: null,
       show: false,
+      name: null,
+      emptySlots: null,
     };
   }
 
@@ -214,6 +231,38 @@ class TourProfilePage extends React.Component {
     this.setState({ show: true });
   }
 
+  handleInputChange(key, value) {
+    // Example: if the key is username, this statement is the equivalent to the following one:
+    // this.setState({'username': value});
+    this.setState({ [key]: value });
+  }
+
+  async editName() {
+    try {
+      const requestBody = JSON.stringify({
+        name: this.state.name,
+      });
+      const response = await api.put("/edit/name/" + localStorage.getItem("tourID"), requestBody)
+      alert("Tour name changed successfully!")
+  
+    } catch (error) {
+      alert(`Something went wrong: \n${handleError(error)}`);
+    }
+  }
+
+  async editEmptySlots() {
+    try {
+      const requestBody = JSON.stringify({
+        emptySlots: this.state.emptySlots,
+      });
+      const response = await api.put("/edit/emptySlots/" + localStorage.getItem("tourID"), requestBody)
+      alert("Tour name changed successfully!")
+  
+    } catch (error) {
+      alert(`Something went wrong: \n${handleError(error)}`);
+    }
+  }
+
   render() {
       const tID = this.state.tourNUM;
       let info;
@@ -262,15 +311,38 @@ class TourProfilePage extends React.Component {
 
             <Modal1 show={this.state.show} onHide={() => {this.handleClose()}}>
             <Modal1.Header closeButton>
-              <Modal1.Title>Modal heading</Modal1.Title>
+              <Modal1.Title>Edit your Tour</Modal1.Title>
             </Modal1.Header>
-            <Modal1.Body>Woohoo, you're reading this text in a modal!</Modal1.Body>
+            <Modal1.Body>
+              <Form1>
+                <Form1.Group controlId="formBasicName">
+                <Form1.Label>Name:</Form1.Label>
+                <Form1.Control type="name" placeholder="Enter new Name" onChange={e => {
+                this.handleInputChange('name', e.target.value);
+              }}/>
+                
+                <Button1 variant="primary" type="submit" size="sm" onClick={() => {
+                this.editName();}}>
+                  Change Name
+                </Button1>
+                </Form1.Group><br></br>
+
+                <Form1.Group controlId="formBasicEmptySlots">
+                <Form1.Label>Empty Slots:</Form1.Label>
+                <Form1.Control type="emptySlots" placeholder="Enter new number for empty slots" onChange={e => {
+                this.handleInputChange('emptySlots', e.target.value);
+              }}/>
+                
+                <Button1 variant="primary" type="submit" size="sm" onClick={() => {
+                this.editEmptySlots();}}>
+                  Change Number
+                </Button1>
+                </Form1.Group>
+              </Form1>
+            </Modal1.Body>
             <Modal1.Footer>
               <Button1 variant="secondary" onClick={() => {this.handleClose()}}>
                 Close
-              </Button1>
-              <Button1 variant="primary" onClick={() => {this.handleClose()}}>
-                Save Changes
               </Button1>
             </Modal1.Footer>
             </Modal1>
