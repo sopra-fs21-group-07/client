@@ -30,7 +30,7 @@ const FormContainer = styled.div`
   margin-left: 20%;
   min-height: 200px;
   justify-content: center;
-  color: white;
+  color: grey;
 `;
 
 const Form = styled.div`
@@ -38,7 +38,7 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  height: 500px;
+  height: 700px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
@@ -66,43 +66,23 @@ const Label = styled.label`
 
 const ButtonContainer = styled.div`
   justify-content: center;
-  margin-top: 40px;
   margin-right: 200px;
   width: 200px;
   float: right;
   top: -20%;
-  right: 20;
+  right: 10;
 `;
 
 const ButtonContainer2 = styled.div`
+display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-left: 200px;
-  width: 200px;
-  float: left;
-  top: -20%;
-  right: 20;
+  margin-top: 10px;
+    margin-left: auto;
+      width: 100%;
+
 `;
 
-const ButtonContainer3 = styled.div`
-  justify-content: center;
-  margin-top: 20px;
-  margin-right: 400px;
-  width: 400px;
-  float: right;
-  top: -20%;
-  right: 20;
-`;
 
-const ButtonContainer4 = styled.div`
-  justify-content: center;
-  margin-top: 20px;
-  margin-left: 400px;
-  width: 400px;
-  float: left;
-  top: -20%;
-  right: 20;
-`;
 
 const TourContainer = styled.li`
   color: white;
@@ -279,27 +259,34 @@ class TourProfilePage extends React.Component {
         return <ParallaxProvider>
             <Background></Background>
             <FormContainer>Tour: {tourName}</FormContainer>
-            <ButtonContainer2><Button width="100%" onClick={() => {  this.back(); }}>Back</Button></ButtonContainer2>
-              <ButtonContainer>
-                <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
+            <ButtonContainer><Button width="100%" onClick={() => {  this.back(); }}>Back</Button>
+
               </ButtonContainer>
 
 
             <Form>
               <TourContainer>
-
          <Image cloudName="sopra-group-7" publicID= {picId}
-            width='200px' height='200px' /> 
+            width='200px' height='200px' />
+            <ButtonContainer2>
+                <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
+            </ButtonContainer2>
 
                 {info}
+                <ButtonContainer2>
+                  <Button width="50%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button>
+                <ButtonContainer2>
 
-              </TourContainer>
+                </ButtonContainer2>
+                  <Button width="50%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => {this.handleShow()}}>Edit</Button>
+
+                </ButtonContainer2>
+                </TourContainer>
             </Form>
             <br></br>
 
-            <ButtonContainer4><Button width="100%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button></ButtonContainer4>
-            <ButtonContainer3><Button width="100%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => {this.handleShow()}}>Edit</Button></ButtonContainer3>
-              <br></br> 
+
+              <br></br>
               <Modal 
               isOpen={this.state.isOpen}
               booktour={this.booktour}
