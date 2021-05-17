@@ -95,13 +95,13 @@ return (
       </Child1>
 
       <Child1>
-          <PictureContainer><Picture src={beat}/></PictureContainer>
+          <PictureContainer><Picture src={raphael}/></PictureContainer>
           <TextContainer><Title>Raphael Wäspi</Title></TextContainer>
           <TextContainer><Text>Full Stack Developer</Text></TextContainer>
       </Child1>
 
       <Child1>
-          <PictureContainer><Picture src={raphael}/></PictureContainer>
+          <PictureContainer><Picture src={Everest}/></PictureContainer>
           <TextContainer><Title>Dylan Baumgartner</Title></TextContainer>
           <TextContainer><Text>Full Stack Developer</Text></TextContainer>
       </Child1>
@@ -113,7 +113,7 @@ return (
       </Child1>
 
       <Child1>
-          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <PictureContainer><Picture src={beat}/></PictureContainer>
           <TextContainer><Title>Beat Furrer</Title></TextContainer>
           <TextContainer><Text>Full Stack Developer</Text></TextContainer>
       </Child1>
