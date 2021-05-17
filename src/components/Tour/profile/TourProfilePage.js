@@ -122,9 +122,7 @@ class TourProfilePage extends React.Component {
   constructor() {
     super();
     this.state = {
-      tourList: [],
-      tourNUM: null,
-      allTours: null,
+      explicitTour: null,
       currentTour: 0,
       currentImg: logo1,
       isOpen: false,
@@ -140,26 +138,13 @@ class TourProfilePage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get('/tours');
-      // delays continuous execution of an async operation for 1 second.
-      // This is just a fake async call, so that the spinner can be displayed
-      // feel free to remove it :)
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      // Get the returned users and update the state.
-      this.setState({ allTours: response.data });
-      // Create from the response tour objects
-      this.generateTourList(response);
-
-      this.setState({tourNUM: parseFloat(localStorage.getItem("tourID")-1)});
-      //localStorage.removeItem("tourID");
-
-      const response1 = await api.get("/tours/"+localStorage.getItem("tourID"));
-      this.setState({creatorUsername: response1.data.creatorUsername});
+      const response = await api.get("/tours/"+localStorage.getItem("tourID"));
+      this.setState({explicitTour: response.data})
+      this.setState({creatorUsername: response.data.creatorUsername});
 
       // This is just some data for you to see what is available.
       // Feel free to remove it.
-      console.log('request to:', this.state.tourList[0]);
+      console.log('request to:', this.state.explicitTour);
 
       // See here to get more data.
       console.log(response);
@@ -168,21 +153,12 @@ class TourProfilePage extends React.Component {
     }
   }
 
-  generateTourList(response) {
-    var tl = [];
-    response.data.forEach(function(item){
-      var singleTour = new Tour(item);
-      tl.push(singleTour);
-    });
-    this.setState({ tourList: tl});
-  }
-
   toggleState = (clickedTour, clickedImage) => {
     this.setState({ 
       isOpen: !this.state.isOpen, 
       currentTour: clickedTour,
       currentImg: clickedImage,
-      curr: this.state.tourList[clickedTour],
+      curr: this.state.explicitTour,
     });
   }
 
@@ -244,12 +220,12 @@ class TourProfilePage extends React.Component {
   }
 
   render() {
-      const tID = this.state.tourNUM;
+      const exTour = this.state.explicitTour;
       let info;
       let tourName;
       let picId
-      if (tID != null){
-        info = <TourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
+      if (exTour != null){
+        info = <TourInformationSmall Tour={this.state.explicitTour}/>
         tourName = info.props.Tour.name
         picId = info.props.Tour.tourPictureKey
       }
