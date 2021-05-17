@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Everest from "../Tour/dummyPics/Everest.jpg"
 import rafael from "../home/TeamPictures/rafael.jpg"
+import beat from "../home/TeamPictures/beat.jpg"
 import FadeIn from 'react-fade-in';
 
 
@@ -93,7 +94,7 @@ return (
       </Child1>
 
       <Child1>
-          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <PictureContainer><Picture src={beat}/></PictureContainer>
           <TextContainer><Title>Raphael Wäspi</Title></TextContainer>
           <TextContainer><Text>Full Stack Developer</Text></TextContainer>
       </Child1>
