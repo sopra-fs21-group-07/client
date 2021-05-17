@@ -193,6 +193,18 @@ class TourProfilePage extends React.Component {
     this.setState({ [key]: value });
   }
 
+  async deleteTour() {
+    try {
+      const response = await api.delete("/tours/" + localStorage.getItem("tourID"))
+      alert("Tour deleted successfully!")
+      this.props.history.push('/dashboard');
+  
+    } catch (error) {
+      alert(`Something went wrong: \n${handleError(error)}`);
+    }
+  }
+
+
   async editName() {
     try {
       const requestBody = JSON.stringify({
@@ -304,6 +316,11 @@ class TourProfilePage extends React.Component {
               </Form1>
             </Modal1.Body>
             <Modal1.Footer>
+
+            <Button1 variant="danger" onClick={() => {this.deleteTour()}}>
+                Delete Tour
+              </Button1>
+
               <Button1 variant="secondary" onClick={() => {this.handleClose()}}>
                 Close
               </Button1>
