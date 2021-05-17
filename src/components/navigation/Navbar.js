@@ -41,6 +41,7 @@ function Navbar(props) {
     try {
       localStorage.removeItem('token');
       localStorage.removeItem('username');
+      localStorage.clear();
       props.history.push('/home');
       window.location.reload();
     } catch (error) {
