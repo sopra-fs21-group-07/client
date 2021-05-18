@@ -13,7 +13,7 @@ const EqualDivider = styled.div`
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  background: white;
+  background: #333333;
 
   ${props => props.vertical && "flex-direction: column;"}
 
@@ -62,9 +62,9 @@ justify-content: center;
 const Text = styled.h1`
 display: flex;
   font-size: 15px;
-  color: black;
+  color: white;
   align-items: center;
-  color: black;
+  color: white;
 `
 const TextContainer = styled.div`
 display: flex;
@@ -76,7 +76,7 @@ const Title = styled.h1`
   font-size: 20px;
   color: black;
   align-items: center;
-  color: black;
+  color: white;
 `
 
 
@@ -87,6 +87,8 @@ return (
     <>
 
 <FadeIn delay={300} transitionDuration={700}>
+
+
   <EqualDivider>
 
       <Child1>

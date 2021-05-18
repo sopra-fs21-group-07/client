@@ -35,7 +35,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 10px;
-  background: #8D99AE;
+  background: #333333;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left: 10%;
 `;
@@ -77,6 +77,16 @@ const ButtonContainer = styled.div`
   right: 20;
 `;
 
+const ButtonContainerLeft = styled.div`
+  justify-content: right;
+  margin-top: 40px;
+  margin-right: 200px;
+  width: 200px;
+  margin-left: 20px;
+  align-items: right;
+
+`;
+
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
@@ -91,6 +101,34 @@ height: 100%;
 position: fixed;
 z-index: -1;
 `;
+
+const EqualDivider = styled.div`
+  display: flex;
+  padding: 1rem;
+  background: #333333;
+  ${props => props.vertical && "flex-direction: column;"}
+
+  > * {
+    flex: 1;
+
+    &:not(:first-child) {
+      ${props => props.vertical ? "margin-top" : "margin-left"}: 1rem;
+    }
+  }
+`;
+
+
+const Child1 = styled.div`
+  padding: 0.25rem 0.5rem;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  cursor: auto;  
+  flex: 1 1 auto;
+  background: #333333;
+
+`;
+
 
 //#endregion
 
@@ -110,16 +148,21 @@ class Dashboard extends React.Component {
 
     render() {
         return <ParallaxProvider>
+          <style>{'body { background-color: #333333; }'}</style>
             <Background></Background>
             <FormContainer>DASHBOARD</FormContainer>
             <center><GeoAdmin /></center>
-              <ButtonContainer>
+
+            <ButtonContainerLeft>
                 <Button width="100%" onClick={() => {  this.props.history.push('/newTour'); }}>Create new Tour</Button>
-              </ButtonContainer>
-              <Form>
-                <TourInformationPage/>
-              </Form>
-              <br></br> 
+              </ButtonContainerLeft>
+              
+            <EqualDivider>
+              <Child1>
+              <TourInformationPage/>
+              </Child1>
+              </EqualDivider>
+
             {/*<Users>
               {this.state.users.map(user => {
                 return (
@@ -135,6 +178,8 @@ class Dashboard extends React.Component {
             </ParallaxProvider>
     }
 }
+
+
 
 /**
  * You can get access to the history object's properties via the withRouter.

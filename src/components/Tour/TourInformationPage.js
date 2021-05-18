@@ -208,7 +208,7 @@ class TourInformationPage extends React.Component {
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState(0, logo1); }}>
-                  book this tour 
+                  book tour 
                 </button></center>
                 <br />
                 <center><button
@@ -244,7 +244,7 @@ class TourInformationPage extends React.Component {
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState(1, logo2); }}>
-                  book this tour
+                  book tour
                 </button></center>
                 <br />
                 <center><button
@@ -280,7 +280,7 @@ class TourInformationPage extends React.Component {
                   }}
                   disabled={this.state.Tour?.numberofparticipants == 0} 
                   onClick={() => { this.toggleState(2, logo3); }}>
-                  book this tour
+                  book tour
                 </button></center>
                 <br />
                 <center><button

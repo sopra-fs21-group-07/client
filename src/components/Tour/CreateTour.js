@@ -47,8 +47,6 @@ const ButtonContainer = styled.div`
     margin-left: 25%;
       width: 60%;
 
-
-
 `;
 
 const Title = styled.h1`
@@ -79,7 +77,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 10px;
-  background: #8D99AE;
+  background: #333333;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left:10%
 `;
@@ -223,6 +221,7 @@ class CreateTour extends React.Component {
   render() {
     return (
           <div>
+            <style>{'body { background-color: #333333; }'}</style>
           <Background></Background>
           <FormContainer>DASHBOARD</FormContainer>
           <center><Form>

@@ -17,7 +17,7 @@ import FadeIn from 'react-fade-in';
 
 const NormalContainer = styled.div`
 display: flex;
-background: white;
+background: #333333;
 ${props => props.vertical && "flex-direction: column;"}
 
 > * {
@@ -28,9 +28,9 @@ ${props => props.vertical && "flex-direction: column;"}
 
 const BoringContainer = styled.div`
   display: flex;
-  color: black;
+  color: white;
   padding-left: 40px;
-  background: white;
+  background: #333333;
   justify-content: center;
   ${props => props.vertical && "flex-direction: column;"}
   
@@ -44,15 +44,15 @@ const BoringContainer = styled.div`
 
 const BoringContainerButInWhite = styled.div`
   display: flex;
-  color: black;
+  color: white;
   padding-left: 40px;
   background: white;
-  justify-content: center;
+  justify-content: left;
 `;
 
 const Title = styled.h1`
   font-size: 30px;
-  color: black;
+  color: white;
   align-items: center;
   align-content: center;
   text-align: justify;
@@ -101,10 +101,10 @@ class Home extends React.Component {
             <NormalContainer>
               <OurTeam></OurTeam>
             </NormalContainer>
-
-            <BoringContainer>
+<br></br>
+            <BoringContainerButInWhite>
             <TitleButInBlack>Technologies we used for this Project</TitleButInBlack>
-            </BoringContainer>
+            </BoringContainerButInWhite>
 
             <NormalContainer>
               <Technologies></Technologies>

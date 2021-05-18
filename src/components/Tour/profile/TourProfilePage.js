@@ -30,7 +30,7 @@ const FormContainer = styled.div`
   margin-left: 20%;
   min-height: 200px;
   justify-content: center;
-  color: grey;
+  color: #333333;
 `;
 
 const Form = styled.div`
@@ -44,7 +44,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 10px;
-  background: #8D99AE;
+  background: #333333;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left: 10%;
 `;
@@ -156,7 +156,7 @@ class TourProfilePage extends React.Component {
   toggleState = (clickedTour, clickedImage) => {
     this.setState({ 
       isOpen: !this.state.isOpen, 
-      currentTour: clickedTour,
+      currentTour: parseFloat(clickedTour),
       currentImg: clickedImage,
       curr: this.state.explicitTour,
     });
@@ -171,7 +171,7 @@ class TourProfilePage extends React.Component {
   // Go to booking site, current Tour ID starts at = 1 
   booktour = () => {
     this.closeModal();
-    this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
+    this.props.history.push('/confirmTour/' + (this.state.currentTour));
   }
 
   back() {
@@ -245,6 +245,7 @@ class TourProfilePage extends React.Component {
         info = <div></div>
       }
         return <ParallaxProvider>
+          <style>{'body { background-color: #333333; }'}</style>
             <Background></Background>
             <FormContainer>Tour: {tourName}</FormContainer>
             <ButtonContainer><Button width="100%" onClick={() => {  this.back(); }}>Back</Button>
@@ -262,7 +263,7 @@ class TourProfilePage extends React.Component {
 
                 {info}
                 <ButtonContainer2>
-                  <Button width="50%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button>
+                  <Button width="50%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.explicitTour.id, logo1); }}>book this tour</Button>
                 <ButtonContainer2>
 
                 </ButtonContainer2>
