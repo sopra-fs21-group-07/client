@@ -6,6 +6,7 @@ import rafael from "../home/TeamPictures/rafael.jpg"
 import beat from "../home/TeamPictures/beat.jpg"
 import raphael from "../home/TeamPictures/raphael.png"
 import layla from "../home/TeamPictures/layla.jpg"
+import dylan from "../home/TeamPictures/dylan.jpg"
 import FadeIn from 'react-fade-in';
 
 
@@ -104,7 +105,7 @@ return (
       </Child1>
 
       <Child1>
-          <PictureContainer><Picture src={Everest}/></PictureContainer>
+          <PictureContainer><Picture src={dylan}/></PictureContainer>
           <TextContainer><Title>Dylan Baumgartner</Title></TextContainer>
           <TextContainer><Text>Full Stack Developer</Text></TextContainer>
       </Child1>
