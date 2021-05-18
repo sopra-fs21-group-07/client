@@ -156,7 +156,7 @@ class TourProfilePage extends React.Component {
   toggleState = (clickedTour, clickedImage) => {
     this.setState({ 
       isOpen: !this.state.isOpen, 
-      currentTour: clickedTour,
+      currentTour: parseFloat(clickedTour),
       currentImg: clickedImage,
       curr: this.state.explicitTour,
     });
@@ -171,7 +171,7 @@ class TourProfilePage extends React.Component {
   // Go to booking site, current Tour ID starts at = 1 
   booktour = () => {
     this.closeModal();
-    this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
+    this.props.history.push('/confirmTour/' + (this.state.currentTour));
   }
 
   back() {
@@ -263,7 +263,7 @@ class TourProfilePage extends React.Component {
 
                 {info}
                 <ButtonContainer2>
-                  <Button width="50%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>book this tour</Button>
+                  <Button width="50%" disabled={this.state.Tour?.numberofparticipants == 0} onClick={() => { this.toggleState( this.state.explicitTour.id, logo1); }}>book this tour</Button>
                 <ButtonContainer2>
 
                 </ButtonContainer2>
