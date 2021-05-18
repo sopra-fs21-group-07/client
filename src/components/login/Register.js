@@ -128,6 +128,7 @@
 
    
          // Register successfully worked --> navigate to the route /game in the GameRouter
+         alert("Thank you for registering! Please click on the activation link sent to your Email by us before logging in!")
          this.props.history.push(`/login`);
        } catch (error) {
          alert(`Something went wrong during the register: \n${handleError(error)}`);
