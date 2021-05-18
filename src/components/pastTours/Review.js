@@ -110,7 +110,11 @@
         });
   
         // receive token from backend
-        const response = await api.post('/api/comments/', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
+        const response = await api.post('/api/comments/', requestBody,{
+     headers: {
+       'Authorization' : localStorage.getItem('authenticationToken')
+     }});
+     //requestBody maps the HttpRequest body to a transfer or domain object, 
   
         // Store the token into the local storage.
         //localStorage.setItem('token', token);
