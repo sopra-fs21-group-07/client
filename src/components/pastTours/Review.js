@@ -92,7 +92,9 @@
     constructor() {
       super();
       this.state = {
-        comment: null,
+        pasttourName: null,
+        postName: null,
+        description: null
         //tourPictureKey: "sample",
       };
     }
@@ -105,12 +107,16 @@
     async review() {
       try {
         const requestBody = JSON.stringify({
-          comment: this.state.comment,
+          pasttourName : this.state.posttourName,
+          postName : this.state.postName,
+          description : this.state.description
+
+
           //tourPictureKey: localStorage.getItem('tourPictureKey')
         });
   
         // receive token from backend
-        const response = await api.post('/api/comments/', requestBody,{
+        const response = await api.post('/api/posts/', requestBody,{
      headers: {
        'Authorization' : localStorage.getItem('authenticationToken')
      }});
