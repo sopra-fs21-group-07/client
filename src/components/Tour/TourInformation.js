@@ -43,11 +43,6 @@ export const TourInformationSmall = ( { Tour } ) => {
   return (
     <>  
         <Container width="200px">
-            <Title>ID:</Title>
-            <Tour_info>{Tour.id}</Tour_info>
-        </Container>
-
-        <Container>
             <Title>Name:</Title>
             <Tour_info>{Tour.name}</Tour_info>
         </Container>
@@ -79,7 +74,7 @@ export const TourInformation = ( { Tour } ) => {
               <Tour_info>{Tour.id}</Tour_info>
           </Container>
   
-          <Container>
+          <Container width="400px">
               <Title>Name:</Title>
               <Tour_info>{Tour.name}</Tour_info>
           </Container>

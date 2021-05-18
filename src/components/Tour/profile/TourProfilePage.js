@@ -30,7 +30,7 @@ const FormContainer = styled.div`
   margin-left: 20%;
   min-height: 200px;
   justify-content: center;
-  color: grey;
+  color: #333333;
 `;
 
 const Form = styled.div`
@@ -44,7 +44,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 10px;
-  background: #8D99AE;
+  background: #333333;
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-left: 10%;
 `;
@@ -245,6 +245,7 @@ class TourProfilePage extends React.Component {
         info = <div></div>
       }
         return <ParallaxProvider>
+          <style>{'body { background-color: #333333; }'}</style>
             <Background></Background>
             <FormContainer>Tour: {tourName}</FormContainer>
             <ButtonContainer><Button width="100%" onClick={() => {  this.back(); }}>Back</Button>

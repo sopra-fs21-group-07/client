@@ -10,7 +10,7 @@ const EqualDivider = styled.div`
   display: flex;
   margin: 1rem;
   padding: 1rem;
-  background: white:
+  background: #333333:
   ${props => props.vertical && "flex-direction: column;"}
 
   > * {
@@ -30,7 +30,7 @@ const Child1 = styled.div`
   align-items: center;
   cursor: auto;  
   flex: 1 1 auto;
-  color: black;
+  color: white;
 //   margin-top: 250px;
 `;
 
@@ -55,7 +55,7 @@ justify-content: center;
 
 const Text = styled.h1`
   font-size: 15px;
-  color: black;
+  color: white;
   align-items: center;
   align-content: center;
   text-align: justify;
@@ -67,7 +67,7 @@ justify-content: center;
 
 const Title = styled.h1`
   font-size: 30px;
-  color: #white;
+  color: white;
   align-items: center;
   align-content: center;
   text-align: justify;
@@ -83,7 +83,7 @@ return (
     <Child1>
         <TypeWriterEffect
             startDelay={100}
-            cursorColor="black"
+            cursorColor="white"
             text="Welcome!"
             typeSpeed={100}
           />

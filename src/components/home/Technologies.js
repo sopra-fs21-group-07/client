@@ -88,6 +88,14 @@ display: flex;
 justify-content: center;
 `;
 
+const Title = styled.h1`
+  display: flex;
+  font-size: 20px;
+  color: black;
+  align-items: center;
+  color: white;
+`
+
 
 
 const BoringContainer = styled.div`
@@ -104,7 +112,7 @@ function Technologies(){
 return (
     <>
     <BoringContainer>
-
+        
 <FadeIn delay={300} transitionDuration={700}>
     <EqualDivider>
         <Child1>
