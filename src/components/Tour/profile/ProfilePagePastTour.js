@@ -175,7 +175,7 @@ class ProfilePagePastTour extends React.Component {
 
   back() {
     localStorage.removeItem("tourID");
-    this.props.history.push('/dashboard');
+    this.props.history.push('/pastTours');
   }
 
   render() {
