@@ -43,11 +43,6 @@ export const PastTourInformationSmall = ( { Tour } ) => {
     return (
         <>
             <Container width="200px">
-                <Title>ID:</Title>
-                <Tour_info>{Tour.id}</Tour_info>
-            </Container>
-
-            <Container>
                 <Title>Summit:</Title>
                 <Tour_info>{Tour.summit}</Tour_info>
             </Container>
