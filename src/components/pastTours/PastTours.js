@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
 import PastTourInformationPage from '../pastTours/PastTourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
-import TourInformationPage from "../Tour/TourInformationPage";
 
 const FormContainer = styled.div`
   margin-top: 2em;
@@ -67,11 +66,14 @@ class PastTours extends React.Component {
 
     render(){
         return <ParallaxProvider>
+            <style>{'body { background-color: #333333; }'}</style>
+
             <Background></Background>
             <FormContainer>PAST TOURS</FormContainer>
             <EqualDivider>
                 <Child1>
-                    <PastTourInformationPage/>                 </Child1>
+                    <PastTourInformationPage/>
+                </Child1>
             </EqualDivider>
             <br></br>
 

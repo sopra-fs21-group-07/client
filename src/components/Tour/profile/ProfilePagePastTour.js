@@ -7,12 +7,12 @@ import { withRouter } from 'react-router-dom';
 import { Button } from '../../../views/design/Button';
 import GeoAdmin from '../../geoAdminMap/GeoAdmin';
 import Background from "../../backgrounds/Background";
-import TourInformationPage from '../../Tour/TourInformationPage';
+import PastTourInformationPage from '../../pastTours/PastTourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
 import logo1 from '../dummyPics/Everest.jpg';
-import Tour from '../../shared/models/Tour';
+import Tour from '../../pastTours/PastTours';
 import Modal from '../ModalBookTour';
-import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
+import {PastTourInformation, PastTourInformationSmall} from '../../pastTours/PastTourInformation';
 
 import {Image} from "cloudinary-react";
 
@@ -184,7 +184,7 @@ class ProfilePagePastTour extends React.Component {
       let tourName;
       let picId
       if (tID != null){
-        info = <TourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
+        info = <PastTourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
         tourName = info.props.Tour.name
         picId = info.props.Tour.tourPictureKey
       }

@@ -40,7 +40,7 @@ class App extends Component {
           <Route path='/edit' component={Edit} />
           <Route path='/UploadPictures' component={UploadPictures} />
           <Route path='/tourProfilePage/:id' component={TourProfilePage} />
-          <Route path='/pastTours/:id' component={PastTours} />
+          <Route path='/pastTours' component={PastTours} />
           <Route path='/profilePagePastTour/:id' component={ProfilePagePastTour} />
 
 
