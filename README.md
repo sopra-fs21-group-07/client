@@ -38,10 +38,10 @@ GitHub Actions,
 Map Geo Admin
 
 ## High-level components
-[App](https://github.com/sopra-fs21-group-07/client/blob/main/src/App.js)
-[Home](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/home)
-[Upload Pictures with Cloudinary](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/Tour/UploadPictures.js)
-[Dashboard](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/dashboard)
+- Main App: [App](https://github.com/sopra-fs21-group-07/client/blob/main/src/App.js)
+- Homepage [Home](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/home)
+- Picture Upload [Upload Pictures with Cloudinary](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/Tour/UploadPictures.js)
+- Dashboard [Dashboard](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/dashboard)
 
 ## Launch & Deployment
 
