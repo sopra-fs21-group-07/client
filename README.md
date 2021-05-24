@@ -23,18 +23,18 @@ https://sopra-fs21-group-07-client.herokuapp.com/login
 The projects aim is to bring people on mountains together. There are always people who want to go on a mountain tour but just cant find people who want to join them. That why we created our mountain app.
 
 ## Technologies
-Cloudinary
-Spring
-SonarQube
-React
-npm
-JSX
-Java
-Java Persistence
-heroku
-gradle
-GitHub Projects
-GitHub Actions
+Cloudinary,
+Spring,
+SonarQube,
+React,
+npm,
+JSX,
+Java,
+Java Persistence,
+heroku,
+gradle,
+GitHub Projects,
+GitHub Actions,
 Map Geo Admin
 
 ## Getting started with React
