@@ -1,4 +1,4 @@
-# SoPra FS21 - Client Template
+# Mountain App - Client
 ## Infromation about the project
 
 https://sopra-fs21-group-07-client.herokuapp.com/login
@@ -18,6 +18,24 @@ https://sopra-fs21-group-07-client.herokuapp.com/login
         <img src="https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-07_client&metric=alert_status">
     </a>
 </p>
+
+## Introduction: 
+The projects aim is to bring people on mountains together. There are always people who want to go on a mountain tour but just cant find people who want to join them. That why we created our mountain app.
+
+## Technologies
+Cloudinary
+Spring
+SonarQube
+React
+npm
+JSX
+Java
+Java Persistence
+heroku
+gradle
+GitHub Projects
+GitHub Actions
+Map Geo Admin
 
 ## Getting started with React
 
