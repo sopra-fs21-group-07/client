@@ -37,13 +37,20 @@ GitHub Projects,
 GitHub Actions,
 Map Geo Admin
 
-## Getting started with React
+## High-level components
+[App](https://github.com/sopra-fs21-group-07/client/blob/main/src/App.js)
+[Home](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/home)
+[Upload Pictures with Cloudinary](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/Tour/UploadPictures.js)
+[Dashboard](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/dashboard)
+
+## Launch & Deployment
 
 Read and go through those Tutorials, It will make your life easier!
 
 - Read the React [Docs](https://reactjs.org/docs/getting-started.html)
 - Do this React [Getting Started](https://reactjs.org/tutorial/tutorial.html) Tutorial (it doesn’t assume any existing React knowledge)
 - Get an Understanding of [CSS](http://localhost:3000) and [HTML](https://www.w3schools.com/html/html_intro.asp)!
+- Get an Understanding of [Cloudinary](https://cloudinary.com/)
 
 Once you have done all of this, in the template there are two main external dependencies that you should look at:
 
