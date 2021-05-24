@@ -38,7 +38,7 @@ GitHub Actions,
 Map Geo Admin
 
 ## High-level components
-- Main App: [App](https://github.com/sopra-fs21-group-07/client/blob/main/src/App.js)
+- Main App [App](https://github.com/sopra-fs21-group-07/client/blob/main/src/App.js)
 - Homepage [Home](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/home)
 - Picture Upload [Upload Pictures with Cloudinary](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/Tour/UploadPictures.js)
 - Dashboard [Dashboard](https://github.com/sopra-fs21-group-07/client/tree/main/src/components/dashboard)
@@ -94,9 +94,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Learn More
+## Server
+Run the server to use our appliaction
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 
