@@ -63,24 +63,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console (use Google Chrome!).
 
-### `npm run test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-> For macOS user running into an 'fsevents' error: https://github.com/jest-community/vscode-jest/issues/423
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-
 ## Illustrations
 
+![alt text](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/images/App_Picture.png)
 TODO -> Screenshot of Application
 
 ## Roadmap
@@ -89,7 +74,7 @@ TODO -> Screenshot of Application
 - Add an avalanche API
 - Make a review page for tours (backend exists)
 
-## Acknowledgement
+## Acknowledgements
 
 This project was started using this template -> [Client](https://github.com/HASEL-UZH/sopra-fs21-template-client)
 
