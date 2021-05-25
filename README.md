@@ -66,7 +66,7 @@ You will also see any lint errors in the console (use Google Chrome!).
 ## Illustrations
 
 ![alt text](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/images/App_Picture.png)
-TODO -> Screenshot of Application
+![alt_text](https://github.com/sopra-fs21-group-07/client/blob/main/src/components/images/Dashboard_App.png)
 
 ## Roadmap
 
