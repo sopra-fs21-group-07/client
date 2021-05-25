@@ -45,20 +45,6 @@ Map Geo Admin
 
 ## Launch & Deployment
 
-Read and go through those Tutorials, It will make your life easier!
-
-- Read the React [Docs](https://reactjs.org/docs/getting-started.html)
-- Do this React [Getting Started](https://reactjs.org/tutorial/tutorial.html) Tutorial (it doesn’t assume any existing React knowledge)
-- Get an Understanding of [CSS](http://localhost:3000) and [HTML](https://www.w3schools.com/html/html_intro.asp)!
-- Get an Understanding of [Cloudinary](https://cloudinary.com/)
-
-Once you have done all of this, in the template there are two main external dependencies that you should look at:
-
-- [styled-components](https://www.styled-components.com/docs)
-  It removes the mapping between components and styles (i.e. external css files). This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it
-* [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) Declarative routing for React being a collection of navigational components that compose declaratively with your application. 
-* [react-hooks](https://reactrouter.com/web/api/Hooks) Let's you access the state of the router and perform navigation from inside your components.
-
 
 
 ## Prerequisites and Installation
@@ -92,11 +78,31 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Server
-Run the server to use our appliaction
+## Illustrations
 
+TODO -> Screenshot of Application
 
+## Roadmap
+
+- Add a weather API
+- Add an avalanche API
+- Make a review page for tours (backend exists)
+
+## Acknowledgement
+
+This project was started using this template -> [Client](https://github.com/HASEL-UZH/sopra-fs21-template-client)
+
+## Team Members
+
+- [Rafael Dubach](https://github.com/radubauzh)
+- [Raphael Wäspi](https://github.com/sumsumcity)
+- [Dylan Baumgartner](https://github.com/mrspacerobot)
+- [Beat Furrer](https://github.com/elBeato)
+- [Layla Husselman](https://github.com/14y14)
+
+## License
+
+[MIT license](https://github.com/sopra-fs21-group-07/client/blob/master/LICENSE)
 
 
