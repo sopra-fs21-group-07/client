@@ -69,7 +69,6 @@ class AppChat extends Component {
           {chat}
         </div>
       </MuiThemeProvider>
-    );
     </>
 
   );
