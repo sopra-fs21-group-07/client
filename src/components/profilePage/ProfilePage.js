@@ -55,7 +55,6 @@ const ProfileButton = styled.a`
   border: 1px solid white;
   border-radius: 20px;
   cursor: ${props => (props.disabled ? "default" : "pointer")};
-  // opacity: ${props => (props.disabled ? 1 : 1)};
   transition: all 0.3s ease;
   margin: 5px;
 

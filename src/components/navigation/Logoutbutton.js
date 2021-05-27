@@ -17,7 +17,6 @@ export const Logoutbutton = styled.button`
   border: 0;
   border-radius: 20px;
   cursor: ${props => (props.disabled ? "default" : "pointer")};
-  // opacity: ${props => (props.disabled ? 1 : 1)};
   background-color: #2B2D42;
   transition: all 0.3s ease;
   position: absolute;
