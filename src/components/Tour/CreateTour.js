@@ -39,6 +39,10 @@ const Label = styled.label`
   text-transform: uppercase;
   margin-top: 20px;
 `;
+const Text = styled.label`
+  color: white;
+  margin-bottom: 10px;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -197,11 +201,12 @@ class CreateTour extends React.Component {
       console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
       //localStorage.removeItem("tourPictureKey")
+      if (this.emptySlots == null){alert("You have not entered a number of empty slots, therefore the default value 0 was used. You can change this on the tour profile page.")}
       this.props.history.push('/dashboard');
       alert("Tour created successfully")
 
     } catch (error) {
-      alert("Something went wrong while sending the tour information data to the server.");
+      alert("Something went wrong while sending the tour information data to the server. Make sure your tour has a name, a summit and a date..");
     }
   }
 
@@ -264,6 +269,7 @@ class CreateTour extends React.Component {
             <input type="Date" onChange={e => this.handleInputChange('date', e.target.value)} maxLength={10}/>
 
             <Label>Upload Pictures</Label>
+            <Text>Please click on upload before submitting the tour if you want to add your own picture</Text>
             <UploadContainer>
               <UploadPictures/>
             </UploadContainer>
