@@ -14,7 +14,6 @@ input,
 textarea,
 select,
 button {
-  font-family: 'RobotoRegular';
   line-height: inherit;
   font-size: inherit;
   outline: none;

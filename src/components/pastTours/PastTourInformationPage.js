@@ -82,7 +82,7 @@ class PastTourInformationPage extends React.Component {
     /**
      * Method to choose a random Tour for the dashboard
      */
-    chooseRandomNumber(tourListLength) {
+/*     chooseRandomNumber(tourListLength) {
         var list = [];
         const min = 0;
         const max = tourListLength;
@@ -101,7 +101,7 @@ class PastTourInformationPage extends React.Component {
             list = [0,0,0]
         }
         this.setState( { randNum: list } );
-    }
+    } */
 
     generateTourList(response) {
         var tl = [];
@@ -123,7 +123,7 @@ class PastTourInformationPage extends React.Component {
             // Get the returned users and update the state.
             this.setState({ allTours: response.data });
             // Random tours display on dashboard
-            this.chooseRandomNumber(response.data.length);
+            //this.chooseRandomNumber(response.data.length);
             // Create from the response tour objects
             this.generateTourList(response);
 
