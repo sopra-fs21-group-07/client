@@ -19,6 +19,17 @@ const EditContainer = styled.div`
   cursor: auto;
 `;
 
+const EditContainer2 = styled.div`
+  margin: 6px 0;
+  width: 400px;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  cursor: auto;
+  justify-content: center;
+`;
+
 const MiddleContainer = styled.div`
   align-items: center;
   display: flex;
@@ -36,6 +47,7 @@ const InputField = styled.input`
   height: 35px;
   padding-left: 15px;
   margin-left: auto;
+  margin-right: 10px;
   border: none;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
@@ -78,6 +90,13 @@ const ButtonContainer = styled.li`
   justify-content: center;
 `;
 
+const Text = styled.h1`
+  font-size: 12px;
+  color: white;
+  align-items: center;
+  align-content: center;
+  text-align: justify;
+`
 
 //#endregion
 
@@ -162,7 +181,7 @@ async editUsername() {
       username: this.state.username,
     });
     const response = await api.put("/edit/username/" + localStorage.getItem("username"),requestBody)
-    alert("Username changed successfully!")
+    alert("Username changed successfully! Since you changed your username you cant edit your previously created tours anymore")
     localStorage.setItem('username', this.state.username);
 
   } catch (error) {
@@ -192,8 +211,9 @@ async editUsername() {
     render() {
         return (
 <>
-<style>{'body { background-color: #8D99AE; }'}</style>
+<style>{'body { background-color: #333333; }'}</style>
 <br /> <br /><br /> 
+
 <MiddleContainer>
     <BaseContainer>
     <Label>Edit</Label>
@@ -304,7 +324,7 @@ async editUsername() {
 
       </EditContainer>
 
-      <ButtonContainer>
+
 {/*       <EditButton
               width="25%"
               // disabled={!this.state.username}
@@ -328,17 +348,20 @@ async editUsername() {
               }}>
               Save
             </EditButton> */}
-
-            <EditButton
+            <EditContainer2>
+            <Button
             width="25%"              
               onClick={() => {
                 this.back();
               }}>
               Back
-              </EditButton>
-            </ButtonContainer>
-
+              </Button>
+            </EditContainer2>
+            <EditContainer2>
+            <Text>WARNING: If you change your username, you wont be able to work on your previously created tours anymore</Text>
+            </EditContainer2>
     </BaseContainer>
+
     </MiddleContainer>
 
       </>
