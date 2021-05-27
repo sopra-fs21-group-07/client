@@ -1,13 +1,33 @@
 //#region 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
+import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Profile from '../../views/Profile';
 
 import BookedTours from '../profilePage/BookedTours';
 
+
+
+
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  border-radius: 10px;
+  background: rgb(124, 124, 124, 1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
+`;
 
 const ProfileContainer = styled.li`
   display: flex;

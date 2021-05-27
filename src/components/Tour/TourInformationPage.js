@@ -1,11 +1,12 @@
 //#region 
 import React from 'react';
+import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Tour from '../shared/models/Tour';
-import {TourInformationSmall} from '../Tour/TourInformation';
+import {TourInformation, TourInformationSmall} from '../Tour/TourInformation';
 import logo1 from './dummyPics/Everest.jpg';
 import logo2 from './dummyPics/Gokyo.jpg';
 import logo3 from './dummyPics/Nepal.jpg';

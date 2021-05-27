@@ -1,12 +1,15 @@
 //#region
 import React from 'react';
+import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { Spinner } from '../../views/design/Spinner';
 import { api, handleError } from '../../helpers/api';
 import Tour from '../shared/models/Tour';
-import {PastTourInformationSmall} from '../pastTours/PastTourInformation';
+import {PastTourInformation, PastTourInformationSmall} from '../pastTours/PastTourInformation';
 import logo1 from '../Tour/dummyPics/Everest.jpg';
+import logo2 from '../Tour/dummyPics/Gokyo.jpg';
+import logo3 from '../Tour/dummyPics/Nepal.jpg';
 import { withRouter } from 'react-router-dom';
 
 import {Image} from "cloudinary-react";

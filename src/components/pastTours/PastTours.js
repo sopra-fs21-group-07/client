@@ -1,7 +1,10 @@
 import React from 'react';
+import { Button } from '../../views/design/Button';
 import styled from 'styled-components';
 import Background from '../backgrounds/Background';
+import { BaseContainer } from '../../helpers/layout';
 import { withRouter } from 'react-router-dom';
+import GeoAdmin from '../geoAdminMap/GeoAdmin';
 import PastTourInformationPage from '../pastTours/PastTourInformationPage';
 import {ParallaxProvider} from "react-scroll-parallax";
 
@@ -17,6 +20,21 @@ const FormContainer = styled.div`
   color: white;
 `;
 
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  border-radius: 10px;
+  background: #333333;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-left: 10%;
+`;
 const EqualDivider = styled.div`
   display: flex;
   padding: 1rem;

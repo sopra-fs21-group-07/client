@@ -1,6 +1,8 @@
 //#region 
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import Everest from "../Tour/dummyPics/Everest.jpg"
+
 import GithubActions from "../home/TechPictures/GithubActions.png"
 import GithubProjects from "../home/TechPictures/GithubProjects.png"
 import gradle from "../home/TechPictures/gradle.png"
@@ -44,6 +46,22 @@ const Child1 = styled.div`
 //   margin-top: 250px;
 `;
 
+const Child2 = styled.div`
+  padding: 0.25rem 0.5rem;
+  margin: 6px 0;
+  border-radius: 6px;
+  align-items: center;
+  flex: 2 1 auto;
+`;
+
+const Picture = styled.img`
+height: 150px;
+borderRadius: 100/ 2;
+display: flex;
+margin: 15px;
+justify-content: center;
+border-radius: 75px;
+`;
 
 const TechPicture = styled.img`
 height: auto;
@@ -69,6 +87,15 @@ const TextContainer = styled.div`
 display: flex;
 justify-content: center;
 `;
+
+const Title = styled.h1`
+  display: flex;
+  font-size: 20px;
+  color: black;
+  align-items: center;
+  color: white;
+`
+
 
 
 const BoringContainer = styled.div`

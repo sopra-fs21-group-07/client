@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+//import logo from './dummyPics/Homer2.jpeg';
 
 const Container = styled.div`
   margin: 6px 0;

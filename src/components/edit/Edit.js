@@ -3,6 +3,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
+import { Button } from '../../views/design/Button';
 import { api, handleError } from '../../helpers/api';
 
 
@@ -47,6 +48,31 @@ const InputField = styled.input`
 const Label = styled.h1`
   font-weight: bold;
   color: #ffffff;
+`;
+
+const BackButton = styled.a`
+all: unset;
+padding 5px;
+font-size: 13px;
+text-align: left;
+margin-top: 37px;
+margin-bottom: 20px;
+border-radius: 5px;
+border: 1px solid white;
+color: white;
+-webkit-text-fill-color: white;
+width: fit-content; 
+cursor: ${props => (props.disabled ? "default" : "pointer")}; 
+opacity: ${props => (props.disabled ? 0.4 : 1)};
+}
+&::before {
+  content: "<";
+}
+&::after {
+  content: ">";
+}
+margin-left: 10px;
+transition: all 0.3s ease;
 `;
 
 const EditButton = styled.a`
