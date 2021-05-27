@@ -231,6 +231,17 @@ class TourProfilePage extends React.Component {
     }
   }
 
+  async cancelTour(){
+    try{
+      const response = await api.get("/tourMembers/" +localStorage.getItem("tourID") +"/"+ localStorage.getItem("username"))
+      alert("You no longer join this tour.")
+      this.props.history.push('/dashboard');
+    }catch (error){
+      alert(`Something went wrong \n${handleError(error)}`)
+    }
+
+  }
+
   render() {
       const exTour = this.state.explicitTour;
       let info;
