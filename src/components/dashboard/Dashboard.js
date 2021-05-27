@@ -1,9 +1,6 @@
 //#region 
 import React from 'react';
 import styled from 'styled-components';
-import { BaseContainer } from '../../helpers/layout';
-import { api, handleError } from '../../helpers/api';
-import Users from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../views/design/Button';
 import GeoAdmin from '../geoAdminMap/GeoAdmin';
@@ -24,59 +21,6 @@ const FormContainer = styled.div`
   color: white;
 `;
 
-const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  height: 600px;
-  font-size: 16px;
-  font-weight: 300;
-  padding-left: 37px;
-  padding-right: 37px;
-  border-radius: 10px;
-  background: #333333;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  margin-left: 10%;
-`;
-
-const InputField = styled.input`
-  &::placeholder {
-    color: rgba(255, 255, 255, 1.0);
-  }
-  height: 35px;
-  padding-left: 15px;
-  margin-left: -4px;
-  border: none;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-`;
-
-const Buttons = styled.div`
-  float: right;
-  top: -20%;
-  right: 20;
-  width: 200px;
-`;
-
-const Label = styled.label`
-  color: white;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-`;
-
-const ButtonContainer = styled.div`
-  justify-content: center;
-  margin-top: 40px;
-  margin-right: 200px;
-  width: 200px;
-  float: right;
-  top: -20%;
-  right: 20;
-`;
-
 const ButtonContainerLeft = styled.div`
   justify-content: right;
   margin-top: 40px;
@@ -87,20 +31,6 @@ const ButtonContainerLeft = styled.div`
 
 `;
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: white;
-`;
-
-const HeaderImage = styled.img`
-
-object-fit: cover;
-width: 100%;
-height: 100%;
-position: fixed;
-z-index: -1;
-`;
 
 const EqualDivider = styled.div`
   display: flex;
