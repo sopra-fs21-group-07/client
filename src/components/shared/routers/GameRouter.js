@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Redirect, Route } from "react-router-dom";
-import Game from "../../game/Game";
 import ProfilePage from "../../profilePage/ProfilePage";
 import Edit from "../../edit/Edit";
 import Chat from "../../chat/containers/Chat/Chat";
@@ -20,12 +19,6 @@ class GameRouter extends React.Component {
      */
     return (
       <Container>
-        <Route
-          exact
-          path={`${this.props.base}/dashboard`}
-          render={() => <Game />}
-        />
-
         <Route
           exact
           path={`${this.props.base}`}
