@@ -1,9 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
-import { ImgContainer } from '../../helpers/layout';
-import mountains from '../images/mountains1.jpg';
-import { api, handleError } from '../../helpers/api';
+import { api } from '../../helpers/api';
 
 /**
  * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.

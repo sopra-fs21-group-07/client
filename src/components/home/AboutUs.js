@@ -65,13 +65,6 @@ display: flex;
 justify-content: center;
 `;
 
-const Title = styled.h1`
-  font-size: 30px;
-  color: white;
-  align-items: center;
-  align-content: center;
-  text-align: justify;
-`
 
 
 //#endregion
