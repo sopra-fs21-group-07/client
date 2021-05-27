@@ -92,19 +92,6 @@ class Dashboard extends React.Component {
               <TourInformationPage/>
               </Child1>
               </EqualDivider>
-
-            {/*<Users>
-              {this.state.users.map(user => {
-                return (
-                  <PlayerContainer key={user.token}
-                  onClick={() => {
-                    this.openUserProfile(user.token);
-                  }}>
-                    <Player user={user} />
-                  </PlayerContainer>
-                );
-              })}
-            </Users>*/}
             </ParallaxProvider>
     }
 }

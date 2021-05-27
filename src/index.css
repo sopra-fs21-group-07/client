@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
-/**
-This file contains the general and shared style of your application.
- */
 body {
   margin: 0;
   padding: 0;
@@ -18,22 +15,6 @@ button {
   font-size: inherit;
   outline: none;
 }
-
-/**
-
-.rotate {
-  animation: rotation 8s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-*/
 
 
 *:focus {
