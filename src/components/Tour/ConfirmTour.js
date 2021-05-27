@@ -119,6 +119,8 @@ import './Modal.css'
   async changeToDashboard() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     this.props.history.push('/dashboard');
+      alert("You now join this tour")
+
   }
 
   async getCurrentTour(){
