@@ -1,19 +1,11 @@
 //#region 
 import React from 'react';
 import styled from 'styled-components';
-import { BaseContainer } from '../../helpers/layout';
-import { api, handleError } from '../../helpers/api';
-import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
-import { Button } from '../../views/design/Button';
-import Background from "../backgrounds/Background";
-//import { ImgContainer } from '../../helpers/layout';
 import {ParallaxProvider} from "react-scroll-parallax";
 import AboutUs from "../home/AboutUs"
 import OurTeam from "../home/OurTeam"
 import Technologies from "../home/Technologies"
-import Everest from "../Tour/dummyPics/Everest.jpg"
-import FadeIn from 'react-fade-in';
 
 const NormalContainer = styled.div`
 display: flex;

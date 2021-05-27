@@ -1,7 +1,6 @@
 //#region 
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import Everest from "../Tour/dummyPics/Everest.jpg"
 import rafael from "../home/TeamPictures/rafael.jpg"
 import beat from "../home/TeamPictures/beat.jpg"
 import raphael from "../home/TeamPictures/raphael.png"
@@ -37,13 +36,6 @@ const Child1 = styled.div`
   flex: 1 1 auto;
 `;
 
-const Child2 = styled.div`
-  padding: 0.25rem 0.5rem;
-  margin: 6px 0;
-  border-radius: 6px;
-  align-items: center;
-  flex: 2 1 auto;
-`;
 
 const Picture = styled.img`
 height: 250px;
