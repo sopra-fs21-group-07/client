@@ -166,7 +166,7 @@ async editUsername() {
     localStorage.setItem('username', this.state.username);
 
   } catch (error) {
-    alert(`Something went wrong: \n${handleError(error)}`);
+    alert(`Username already exists \n${handleError(error)}`);
   }
 }
 
