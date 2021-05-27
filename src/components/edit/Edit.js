@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
+import { Button } from '../../views/design/Button';
 
 
 
@@ -76,6 +77,7 @@ const ButtonContainer = styled.li`
   align-items: center;
   justify-content: center;
 `;
+
 
 //#endregion
 
@@ -207,13 +209,14 @@ async editUsername() {
               }}
             />
 
-            <EditButton
-            width="15%"              
+            <Button 
+            width="15%"
+            disabled={!this.state.username}
               onClick={() => {
                 this.editUsername();
               }}>
               edit
-              </EditButton>
+              </Button>
 
       </EditContainer>
 
@@ -227,13 +230,14 @@ async editUsername() {
               }}
             />
 
-            <EditButton
-            width="15%"              
+            <Button
+            width="15%"
+            disabled={!this.state.firstName}        
               onClick={() => {
                 this.editFirstName();
               }}>
               edit
-              </EditButton>
+              </Button>
 
       </EditContainer>
 
@@ -247,13 +251,14 @@ async editUsername() {
               }}
             />
 
-            <EditButton
-            width="15%"              
+            <Button
+            width="15%"        
+            disabled={!this.state.lastName}          
               onClick={() => {
                 this.editLastName();
               }}>
               edit
-              </EditButton>
+              </Button>
 
       </EditContainer>
 
@@ -267,13 +272,14 @@ async editUsername() {
               }}
             />
 
-            <EditButton
-            width="15%"              
+            <Button
+            width="15%"       
+            disabled={!this.state.age}           
               onClick={() => {
                 this.editAge();
               }}>
               edit
-              </EditButton>
+              </Button>
 
       </EditContainer>
 
@@ -287,13 +293,14 @@ async editUsername() {
               }}
             />
 
-            <EditButton
-            width="15%"              
+            <Button
+            width="15%"     
+            disabled={!this.state.region}           
               onClick={() => {
                 this.editRegion();
               }}>
               edit
-              </EditButton>
+              </Button>
 
       </EditContainer>
 

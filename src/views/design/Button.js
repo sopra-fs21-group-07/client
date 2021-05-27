@@ -13,7 +13,7 @@ export const Button = styled.button`
   width: ${props => props.width || null};
   height: 35px;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-left: ${props => props.marginLeft || null};
   border: 0;
   border-radius: 10px;
