@@ -110,7 +110,7 @@ import './Modal.css'
       console.log("REST response: ", response);
     } catch (error) {
       // If the tour has no empty slots the backend create an error message Forbitten
-      alert("This tour is full. Please choose another one!");
+      alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
       this.props.history.push('/dashboard');
     }
     this.changeToDashboard();
