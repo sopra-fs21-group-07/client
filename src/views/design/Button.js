@@ -18,7 +18,7 @@ export const Button = styled.button`
   border: 0;
   border-radius: 10px;
   cursor: ${props => (props.disabled ? "default" : "pointer")};
-  opacity: ${props => (props.disabled ? 1 : 1)};
+  // opacity: ${props => (props.disabled ? 1 : 1)};
   background: #408cec;
   transition: all 0.3s ease;
   :disabled {

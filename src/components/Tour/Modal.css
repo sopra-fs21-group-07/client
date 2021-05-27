@@ -49,7 +49,7 @@
     display: inline-block; 
     position: relative; 
     vertical-align: top; 
-    position: absolute;
+    /* position: absolute; */
     right: 0;
   } 
   
