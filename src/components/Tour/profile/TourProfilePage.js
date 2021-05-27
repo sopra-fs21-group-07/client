@@ -332,7 +332,9 @@ class TourProfilePage extends React.Component {
             <Button1 variant="danger" onClick={() => {this.deleteTour()}}>
                 Delete Tour
               </Button1>
-
+              <Button1 onClick={() => {this.cancelTour()}}>
+                Cancel Tour
+              </Button1>
               <Button1 variant="secondary" onClick={() => {this.handleClose()}}>
                 Close
               </Button1>
