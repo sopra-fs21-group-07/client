@@ -201,12 +201,14 @@ class CreateTour extends React.Component {
       console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
       //localStorage.removeItem("tourPictureKey")
-      if (this.emptySlots == null){alert("You have not entered a number of empty slots, therefore the default value 0 was used. You can change this on the tour profile page.")}
+      /*if (this.emptySlots === null || this.emptySlots == 0){
+        alert("You have not entered a number of empty slots, therefore the default value 0 was used. You can change this on the tour profile page.")
+      }*/
       this.props.history.push('/dashboard');
       alert("Tour created successfully")
 
     } catch (error) {
-      alert("Something went wrong while sending the tour information data to the server. Make sure your tour has a name, a summit and a date..");
+      alert("Something went wrong while sending the tour information data to the server. Make sure your tour has a title, a summit and a date..");
     }
   }
 
@@ -231,7 +233,7 @@ class CreateTour extends React.Component {
           <FormContainer>DASHBOARD</FormContainer>
           <center><Form>
             <Title>Create your mountain experience</Title>
-            <Label>Title</Label>
+            <Label>Title*</Label>
               <InputField
                 placeholder="Enter here.."
                 type="name"
@@ -245,7 +247,7 @@ class CreateTour extends React.Component {
               options={tourtypeOptions}
               onChange={this.handelClickTourType}
             />
-            <Label>Target: Summit</Label>
+            <Label>Target: Summit*</Label>
             <div>
               <AsyncSelect
                 cacheOptions
@@ -265,7 +267,7 @@ class CreateTour extends React.Component {
                   this.handleInputChange('emptySlots', e.target.value);
                 }}
               />
-            <Label>Tour date</Label>
+            <Label>Tour date*</Label>
             <input type="Date" onChange={e => this.handleInputChange('date', e.target.value)} maxLength={10}/>
 
             <Label>Upload Pictures</Label>
