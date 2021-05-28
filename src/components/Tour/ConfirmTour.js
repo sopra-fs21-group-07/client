@@ -108,6 +108,8 @@ import './Modal.css'
       });
       const response = await api.put('/tours/' + this.state.tourID, requestBody);
       console.log("REST response: ", response);
+        alert("You now join this tour")
+
     } catch (error) {
       // If the tour has no empty slots the backend create an error message Forbitten
       alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
@@ -119,7 +121,6 @@ import './Modal.css'
   async changeToDashboard() {
     await new Promise(resolve => setTimeout(resolve, 1500));
     this.props.history.push('/dashboard');
-      alert("You now join this tour")
 
   }
 
