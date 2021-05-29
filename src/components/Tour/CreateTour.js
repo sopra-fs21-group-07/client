@@ -201,9 +201,6 @@ class CreateTour extends React.Component {
       console.log("REST request: ", requestBody);
       const response = await api.post('/tours', requestBody);
       //localStorage.removeItem("tourPictureKey")
-      /*if (this.emptySlots === null || this.emptySlots == 0){
-        alert("You have not entered a number of empty slots, therefore the default value 0 was used. You can change this on the tour profile page.")
-      }*/
       this.props.history.push('/dashboard');
       alert("Tour created successfully")
 
