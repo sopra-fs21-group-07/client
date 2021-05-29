@@ -151,7 +151,7 @@ class TourProfilePage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get("/tours/"+localStorage.getItem("tourID"));
+      const response = await api.get("/tours/"+this.props.match.params.id);
       this.setState({explicitTour: response.data})
       this.setState({creatorUsername: response.data.creatorUsername});
 
@@ -188,7 +188,7 @@ class TourProfilePage extends React.Component {
   }
 
   back() {
-    localStorage.removeItem("tourID");
+    //localStorage.removeItem("tourID");
     this.props.history.push('/dashboard');
   }
 
@@ -214,7 +214,7 @@ class TourProfilePage extends React.Component {
 
   async deleteTour() {
     try {
-      const response = await api.delete("/tours/" + localStorage.getItem("tourID"))
+      const response = await api.delete("/tours/" + this.props.match.params.id)
       alert("Tour deleted successfully!")
       this.props.history.push('/dashboard');
   
@@ -229,7 +229,7 @@ class TourProfilePage extends React.Component {
       const requestBody = JSON.stringify({
         name: this.state.name,
       });
-      const response = await api.put("/edit/name/" + localStorage.getItem("tourID"), requestBody)
+      const response = await api.put("/edit/name/" + this.props.match.params.id, requestBody)
       alert("Tour name changed successfully!")
   
     } catch (error) {
@@ -242,7 +242,7 @@ class TourProfilePage extends React.Component {
       const requestBody = JSON.stringify({
         emptySlots: this.state.emptySlots,
       });
-      const response = await api.put("/edit/emptySlots/" + localStorage.getItem("tourID"), requestBody)
+      const response = await api.put("/edit/emptySlots/" + this.props.match.params.id, requestBody)
       alert("Tour name changed successfully!")
   
     } catch (error) {
@@ -253,7 +253,7 @@ class TourProfilePage extends React.Component {
 
   async cancelTour(){
     try{
-      const response = await api.delete("/tourMembers/" +localStorage.getItem("tourID") +"/"+ this.state.email)
+      const response = await api.delete("/tourMembers/" +this.props.match.params.id +"/"+ this.state.email)
       alert("You no longer join this tour.")
       this.props.history.push('/dashboard');
     }catch (error){
