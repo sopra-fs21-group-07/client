@@ -13,11 +13,11 @@ const FormContainer = styled.div`
   align-items: center;
   min-height: 700px;
   justify-content: center;
-  background: #8D99AE;
+  background: #333333;
   `;
 
 const BackgroundBase = styled.div`
-background: #8D99AE;
+background: #333333;
 `;
 
 const Form = styled.div`
@@ -31,7 +31,7 @@ const Form = styled.div`
   padding-left: 37px;
   padding-right: 37px;
   border-radius: 5px;
-  background: #8D99AE;
+  background: #333333;
   transition: opacity 0.5s ease, transform 0.5s ease;
   `;
 
@@ -162,7 +162,7 @@ register() {
     return (
 
 <BackgroundBase>
-<style>{'body { background-color: #8D99AE; }'}</style>
+<style>{'body { background-color: #33333; }'}</style>
       <BaseContainer>
       <br /> <br /> <br /> <br />
         <FormContainer>
