@@ -188,6 +188,17 @@ class PastTourInformationPage extends React.Component {
 
                                 <PastTourInformationSmall Tour={this.state.tourList[0]}/>
                                 {/* <PastTourInformationSmall Tour={this.state.tourList[this.state.randNum[0]]}/> */}
+                                <center><button
+                                    style={{
+                                        ...mainStyle.button,
+                                        margin: 0,
+                                        width: "70%",
+                                        marginTop: 0,
+                                        cursor: "pointer"
+                                    }}
+                                    onClick={() => { this.openTourProfile(this.state.tourList[0].id); }}>
+                                    Tour Profile
+                                </button></center>
                             </TourContainer>
                             <TourContainer>
 
@@ -200,6 +211,17 @@ class PastTourInformationPage extends React.Component {
 
                                 <PastTourInformationSmall Tour={this.state.tourList[1]}/>
                                 {/* <PastTourInformationSmall Tour={this.state.tourList[this.state.randNum[1]]}/> */}
+                                <center><button
+                                    style={{
+                                        ...mainStyle.button,
+                                        margin: 0,
+                                        width: "70%",
+                                        marginTop: 0,
+                                        cursor: "pointer"
+                                    }}
+                                    onClick={() => { this.openTourProfile(this.state.tourList[0].id); }}>
+                                    Tour Profile
+                                </button></center>
                             </TourContainer>
                             <TourContainer>
 
@@ -212,6 +234,17 @@ class PastTourInformationPage extends React.Component {
 
                                 <PastTourInformationSmall Tour={this.state.tourList[2]}/>
                                 {/* <PastTourInformationSmall Tour={this.state.tourList[this.state.randNum[2]]}/> */}
+                                <center><button
+                                    style={{
+                                        ...mainStyle.button,
+                                        margin: 0,
+                                        width: "70%",
+                                        marginTop: 0,
+                                        cursor: "pointer"
+                                    }}
+                                    onClick={() => { this.openTourProfile(this.state.tourList[0].id); }}>
+                                    Tour Profile
+                                </button></center>
                             </TourContainer>
                         </TourStyle>
                         <Modal

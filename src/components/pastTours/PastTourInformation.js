@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
-  color: dark-gray;
+  color: white;
   white-space: pre;
 `;
 
@@ -42,6 +42,11 @@ export const PastTourInformationSmall = ( { Tour } ) => {
     return (
         <>
             <Container width="200px">
+                <Title>Title:</Title>
+                <Tour_info>{Tour.name}</Tour_info>
+            </Container>
+
+            <Container>
                 <Title>Summit:</Title>
                 <Tour_info>{Tour.summit}</Tour_info>
             </Container>

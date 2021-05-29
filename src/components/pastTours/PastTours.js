@@ -20,7 +20,7 @@ const FormContainer = styled.div`
 const EqualDivider = styled.div`
   display: flex;
   padding: 1rem;
-  background: #333333;
+  background: grey;
   ${props => props.vertical && "flex-direction: column;"}
 
   > * {
@@ -40,7 +40,7 @@ const Child1 = styled.div`
   align-items: center;
   cursor: auto;  
   flex: 1 1 auto;
-  background: #333333;
+  background: grey;
 
 `;
 
@@ -48,7 +48,7 @@ class PastTours extends React.Component {
 
     render(){
         return <ParallaxProvider>
-            <style>{'body { background-color: #333333; }'}</style>
+            <style>{'body { background-color: grey; }'}</style>
 
             <Background></Background>
             <FormContainer>PAST TOURS</FormContainer>

@@ -166,7 +166,7 @@ class ProfilePagePastTour extends React.Component {
         info = <div></div>
       }
         return <ParallaxProvider>
-          <style>{'body { background-color: #333333; }'}</style>
+          <style>{'body { background-color: grey; }'}</style>
             <Background></Background>
             <FormContainer>Tour: {tourName}</FormContainer>
             <ButtonContainer2><Button width="100%" onClick={() => {  this.back(); }}>Back</Button></ButtonContainer2>
