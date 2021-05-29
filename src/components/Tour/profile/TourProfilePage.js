@@ -84,6 +84,15 @@ display: flex;
 
 `;
 
+const ButtonContainer3 = styled.div`
+display: flex;
+  justify-content: center;
+  margin-top: 10px;
+    margin-left: auto;
+      width: 100%;
+
+`;
+
 
 
 const TourContainer = styled.li`
@@ -290,11 +299,12 @@ class TourProfilePage extends React.Component {
 
                 </ButtonContainer2>
                   <Button width="50%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => {this.handleShow()}}>Edit</Button>
+                <ButtonContainer2>
 
                 </ButtonContainer2>
-                <Button1 onClick={() => {this.handleShow1()}}>
-                  Cancel Tour
-                </Button1>
+
+                  <Button width="50%" onClick={() => {this.handleShow1()}}>Cancel Tour</Button>
+                </ButtonContainer2>
                 </TourContainer>
             </Form>
             <br></br>
