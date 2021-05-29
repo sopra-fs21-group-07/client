@@ -13,6 +13,8 @@ import logo1 from '../dummyPics/Everest.jpg';
 import Tour from '../../pastTours/PastTours';
 import Modal from '../ModalBookTour';
 import {PastTourInformation, PastTourInformationSmall} from '../../pastTours/PastTourInformation';
+import Review from '../../pastTours/Review';
+
 
 import {Image} from "cloudinary-react";
 
@@ -173,6 +175,7 @@ class ProfilePagePastTour extends React.Component {
               </ButtonContainer>
 
 
+
             <Form>
               <TourContainer>
 
@@ -183,6 +186,8 @@ class ProfilePagePastTour extends React.Component {
 
               </TourContainer>
             </Form>
+            <br></br>
+            {/* <Review></Review> */}
             <br></br>
 
             </ParallaxProvider>

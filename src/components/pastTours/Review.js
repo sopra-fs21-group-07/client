@@ -19,11 +19,11 @@
     align-items: center;
     min-height: 700px;
     justify-content: center;
-    background: #8D99AE;
+    background: #33333;
   `;
 
   const BackgroundBase = styled.div`
-  background: #8D99AE;
+  background: #33333;
 `;
   
   const Form = styled.div`
@@ -37,7 +37,7 @@
     padding-left: 37px;
     padding-right: 37px;
     border-radius: 5px;
-    background: #8D99AE;
+    background: #33333;
     transition: opacity 0.5s ease, transform 0.5s ease;
   `;
   
@@ -45,7 +45,7 @@
     &::placeholder {
       color: rgba(255, 255, 255, 1.0);
     }
-    height: 35px;
+    height: 100px;
     padding-left: 15px;
     margin-left: -4px;
     border: none;
@@ -149,7 +149,7 @@
       return (
  
        <BackgroundBase>
-         <style>{'body { background-color: #8D99AE; }'}</style>
+         <style>{'body { background-color: #33333; }'}</style>
         <BaseContainer>
 
         <br /> <br /> <br /> <br /> 
@@ -160,16 +160,16 @@
               <InputField
                 placeholder="Enter here.."
                 onChange={e => {
-                  this.handleInputChange('comment', e.target.value);
+                  this.handleInputChange('description', e.target.value);
                 }}
               />
    
               <ButtonContainer>
                 <Button
-                  disabled={!this.state.review}
+                  disabled={!this.state.description}
                   width="50%"
                   onClick={() => {
-                    this.comment();
+                    this.review();
                   }}
                 >
                   Post comment
