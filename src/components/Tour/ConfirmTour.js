@@ -61,6 +61,11 @@ import './Modal.css'
    margin-left:10%
  `;
 
+ const Text = styled.label`
+  color: white;
+  margin-bottom: 10px;
+`;
+
  //#endregion
  function ApiProgress(props) {
   const [completed, setCompleted] = useState(0);
@@ -159,7 +164,7 @@ import './Modal.css'
             <br></br>
            <center><Form>
              <Title>Submit to this tour => {this.state.tour}</Title>
-             <Label>Enter your email adress</Label>
+             <Label>Enter your email adress*</Label>
               <InputField
                 placeholder="Enter here.."
                 type="email"
@@ -176,6 +181,8 @@ import './Modal.css'
                  Submit
                </Button>
              </ButtonContainer>
+             <br /><br />
+             <Text>*An Email can only sign up for ONE Tour</Text>
              {this.state.progressBarVisible ? (<ApiProgress value={this.state.percent}/>) : (null)}
              </Form></center>
            </div>  
