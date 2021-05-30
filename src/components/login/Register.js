@@ -20,11 +20,11 @@
      align-items: center;
      min-height: 700px;
      justify-content: center;
-     background: #8D99AE;
+     background: #333333;
    `;
 
    const BackgroundBase = styled.div`
-   background: #8D99AE;
+   background: #333333;
  `;
    
    const Form = styled.div`
@@ -38,7 +38,7 @@
      padding-left: 37px;
      padding-right: 37px;
      border-radius: 5px;
-     background: #8D99AE;
+     background: #333333;
      transition: opacity 0.5s ease, transform 0.5s ease;
    `;
    
@@ -119,7 +119,7 @@
            region: this.state.region,
            //experience: this.state.experience
          });
-   
+
          // receive token from backend
          const token = await api.post('/api/auth/signup', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
    
@@ -159,7 +159,7 @@
        return (
   
         <BackgroundBase>
-          <style>{'body { background-color: #8D99AE; }'}</style>
+          <style>{'body { background-color: #333333; }'}</style>
          <BaseContainer>
 
          <br /> <br /> <br /> <br /> 
@@ -232,7 +232,7 @@
 
                <ButtonContainer>
                  <Button
-                   disabled={!this.state.email || !this.state.password}
+                   disabled={!this.state.email || !this.state.password||!this.state.username}
                    width="50%"
                    onClick={() => {
                      this.register();

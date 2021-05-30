@@ -13,6 +13,8 @@ import logo1 from '../dummyPics/Everest.jpg';
 import Tour from '../../pastTours/PastTours';
 import Modal from '../ModalBookTour';
 import {PastTourInformation, PastTourInformationSmall} from '../../pastTours/PastTourInformation';
+import Review from '../../pastTours/Review';
+
 
 import {Image} from "cloudinary-react";
 
@@ -104,52 +106,35 @@ class ProfilePagePastTour extends React.Component {
   constructor() {
     super();
     this.state = {
-      tourList: [],
       tourNUM: null,
-      allTours: null,
       currentTour: 0,
       currentImg: logo1,
       isOpen: false,
       curr: null,
       id: 0,
+      explicitTour: null,
     };
   }
 
 
   async componentDidMount() {
     try {
-      const response = await api.get('/pastTours');
-      // delays continuous execution of an async operation for 1 second.
-      // This is just a fake async call, so that the spinner can be displayed
-      // feel free to remove it :)
-      await new Promise(resolve => setTimeout(resolve, 500));
+      const response = await api.get('/pastTours/'+localStorage.getItem("tourID"));
+      this.setState({explicitTour: response.data})
 
-      // Get the returned users and update the state.
-      this.setState({ allTours: response.data });
-      // Create from the response tour objects
-      this.generateTourList(response);
 
-      this.setState({tourNUM: parseFloat(localStorage.getItem("tourID")-1)});
+      this.setState({tourNUM: parseFloat(localStorage.getItem("tourID"))});
       //localStorage.removeItem("tourID");
 
       // This is just some data for you to see what is available.
       // Feel free to remove it.
-      console.log('request to:', this.state.tourList[0]);
+      console.log('request to:', this.state.explicitTour);
 
       // See here to get more data.
       console.log(response);
     } catch (error) {
       alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
     }
-  }
-
-  generateTourList(response) {
-    var tl = [];
-    response.data.forEach(function(item){
-      var singleTour = new Tour(item);
-      tl.push(singleTour);
-    });
-    this.setState({ tourList: tl});
   }
 
   toggleState = (clickedTour, clickedImage) => {
@@ -162,29 +147,18 @@ class ProfilePagePastTour extends React.Component {
   }
 
 
-  closeModal = () => {
-    this.setState({
-    },() => this.toggleState(this.state.currentTour, this.state.currentImg));
-  }
-
-  // Go to booking site, current Tour ID starts at = 1
-  booktour = () => {
-    this.closeModal();
-    this.props.history.push('/confirmTour/' + (this.state.currentTour + 1));
-  }
-
   back() {
     localStorage.removeItem("tourID");
     this.props.history.push('/pastTours');
   }
 
   render() {
-      const tID = this.state.tourNUM;
-      let info;
-      let tourName;
-      let picId
-      if (tID != null){
-        info = <PastTourInformationSmall Tour={this.state.tourList[this.state.tourNUM]}/>
+    const exTour = this.state.explicitTour;
+    let info;
+    let tourName;
+    let picId
+    if (exTour != null){
+        info = <PastTourInformationSmall Tour={this.state.explicitTour}/>
         tourName = info.props.Tour.name
         picId = info.props.Tour.tourPictureKey
       }
@@ -192,13 +166,14 @@ class ProfilePagePastTour extends React.Component {
         info = <div></div>
       }
         return <ParallaxProvider>
-          <style>{'body { background-color: #333333; }'}</style>
+          <style>{'body { background-color: grey; }'}</style>
             <Background></Background>
             <FormContainer>Tour: {tourName}</FormContainer>
             <ButtonContainer2><Button width="100%" onClick={() => {  this.back(); }}>Back</Button></ButtonContainer2>
               <ButtonContainer>
                 <Button width="100%" onClick={() => {  this.props.history.push('/chat'); }}>Go to Chat</Button>
               </ButtonContainer>
+
 
 
             <Form>
@@ -212,28 +187,9 @@ class ProfilePagePastTour extends React.Component {
               </TourContainer>
             </Form>
             <br></br>
+            {/* <Review></Review> */}
+            <br></br>
 
-            <center><button
-                style={{
-                    ...mainStyle.button,
-                    margin: 0,
-                    width: "70%",
-                    marginTop: 0,
-                    cursor: "pointer"
-                }}
-                disabled={this.state.Tour?.numberofparticipants == 0}
-                onClick={() => { this.toggleState( this.state.tourNUM, logo1); }}>
-                book this tour
-            </button></center>
-              <br></br>
-              <Modal
-              isOpen={this.state.isOpen}
-              booktour={this.booktour}
-              onRequestClose={this.closeModal}
-              tour={this.state.curr}
-              image={this.state.currentImg}
-            >
-            </Modal>
             </ParallaxProvider>
     }
 }

@@ -12,7 +12,7 @@ class Chat extends Component {
             width: 500,
             textAlign: 'center',
             margin: '20px auto',
-            position: 'relative'
+            position: 'Background'
         };
 
         return (

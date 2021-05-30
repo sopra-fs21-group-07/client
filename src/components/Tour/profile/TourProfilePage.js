@@ -13,7 +13,9 @@ import logo1 from '../dummyPics/Everest.jpg';
 import Tour from '../../shared/models/Tour';
 import Modal from '../ModalBookTour';
 import {TourInformation, TourInformationSmall} from '../../Tour/TourInformation';
-import Modal1 from "react-bootstrap/Modal"
+import Modal1 from "react-bootstrap/Modal";
+import Modal2 from "react-bootstrap/Modal";
+import Form2 from "react-bootstrap/Form";
 import Button1 from "react-bootstrap/Button"
 import Form1 from "react-bootstrap/Form"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -82,6 +84,15 @@ display: flex;
 
 `;
 
+const ButtonContainer3 = styled.div`
+display: flex;
+  justify-content: center;
+  margin-top: 10px;
+    margin-left: auto;
+      width: 100%;
+
+`;
+
 
 
 const TourContainer = styled.li`
@@ -130,7 +141,9 @@ class TourProfilePage extends React.Component {
       id: 0,
       creatorUsername: null,
       show: false,
+      show1:false,
       name: null,
+      email: null,
       emptySlots: null,
     };
   }
@@ -138,7 +151,7 @@ class TourProfilePage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get("/tours/"+localStorage.getItem("tourID"));
+      const response = await api.get("/tours/"+this.props.match.params.id);
       this.setState({explicitTour: response.data})
       this.setState({creatorUsername: response.data.creatorUsername});
 
@@ -175,7 +188,7 @@ class TourProfilePage extends React.Component {
   }
 
   back() {
-    localStorage.removeItem("tourID");
+    //localStorage.removeItem("tourID");
     this.props.history.push('/dashboard');
   }
 
@@ -186,6 +199,12 @@ class TourProfilePage extends React.Component {
   handleShow() {
     this.setState({ show: true });
   }
+  handleShow1(){
+    this.setState({show1: true});
+  }
+  handleClose1(){
+    this.setState({show1: false});
+  }
 
   handleInputChange(key, value) {
     // Example: if the key is username, this statement is the equivalent to the following one:
@@ -195,7 +214,7 @@ class TourProfilePage extends React.Component {
 
   async deleteTour() {
     try {
-      const response = await api.delete("/tours/" + localStorage.getItem("tourID"))
+      const response = await api.delete("/tours/" + this.props.match.params.id)
       alert("Tour deleted successfully!")
       this.props.history.push('/dashboard');
   
@@ -210,7 +229,7 @@ class TourProfilePage extends React.Component {
       const requestBody = JSON.stringify({
         name: this.state.name,
       });
-      const response = await api.put("/edit/name/" + localStorage.getItem("tourID"), requestBody)
+      const response = await api.put("/edit/name/" + this.props.match.params.id, requestBody)
       alert("Tour name changed successfully!")
   
     } catch (error) {
@@ -223,12 +242,24 @@ class TourProfilePage extends React.Component {
       const requestBody = JSON.stringify({
         emptySlots: this.state.emptySlots,
       });
-      const response = await api.put("/edit/emptySlots/" + localStorage.getItem("tourID"), requestBody)
+      const response = await api.put("/edit/emptySlots/" + this.props.match.params.id, requestBody)
       alert("Tour name changed successfully!")
   
     } catch (error) {
       alert(`Something went wrong: \n${handleError(error)}`);
     }
+  }
+
+
+  async cancelTour(){
+    try{
+      const response = await api.delete("/tourMembers/" +this.props.match.params.id +"/"+ this.state.email)
+      alert("You no longer join this tour.")
+      this.props.history.push('/dashboard');
+    }catch (error){
+      alert(`Something went wrong \n${handleError(error)}`)
+    }
+
   }
 
   render() {
@@ -268,7 +299,11 @@ class TourProfilePage extends React.Component {
 
                 </ButtonContainer2>
                   <Button width="50%" disabled={this.state.creatorUsername != localStorage.getItem("username")} onClick={() => {this.handleShow()}}>Edit</Button>
+                <ButtonContainer2>
 
+                </ButtonContainer2>
+
+                  <Button width="50%" onClick={() => {this.handleShow1()}}>Cancel Tour</Button>
                 </ButtonContainer2>
                 </TourContainer>
             </Form>
@@ -327,6 +362,36 @@ class TourProfilePage extends React.Component {
               </Button1>
             </Modal1.Footer>
             </Modal1>
+
+          <Modal2 show={this.state.show1} onHide={() => {this.handleClose1()}}>
+            <Modal2.Header closeButton>
+              <Modal2.Title>Cancel your Tour</Modal2.Title>
+            </Modal2.Header>
+            <Modal2.Body>
+              <Form2>
+                <Form2.Group controlId="formBasicName">
+                  <Form2.Label>Email to unregister:</Form2.Label>
+                  <Form2.Control type="name" placeholder="Enter email" onChange={e => {
+                    this.handleInputChange('email', e.target.value);
+                  }}/>
+
+                  <Button1 variant="primary" type="submit" size="sm" onClick={() => {
+                    this.cancelTour();}}>
+                    Unregister
+                  </Button1>
+                </Form2.Group><br></br>
+
+              </Form2>
+            </Modal2.Body>
+            <Modal2.Footer>
+
+
+
+              <Button1 variant="secondary" onClick={() => {this.handleClose1()}}>
+                Close
+              </Button1>
+            </Modal2.Footer>
+          </Modal2>
             </ParallaxProvider>
     }
 }
