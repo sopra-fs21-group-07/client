@@ -118,7 +118,7 @@ class Login extends React.Component {
         window.location.reload(); //otherwise our menu doesnt update
 
     } catch (error) {
-      alert(`Are you registered yet? Please register yourself first :-) \n${handleError(error)}`);
+      alert(`Bad Credentials: Are you registered yet? Please register yourself first :-)`);
     }
   }
 
