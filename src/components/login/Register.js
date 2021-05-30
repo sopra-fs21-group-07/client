@@ -119,7 +119,7 @@
            region: this.state.region,
            //experience: this.state.experience
          });
-   
+
          // receive token from backend
          const token = await api.post('/api/auth/signup', requestBody); //requestBody maps the HttpRequest body to a transfer or domain object, 
    
@@ -232,7 +232,7 @@
 
                <ButtonContainer>
                  <Button
-                   disabled={!this.state.email || !this.state.password}
+                   disabled={!this.state.email || !this.state.password||!this.state.username}
                    width="50%"
                    onClick={() => {
                      this.register();
